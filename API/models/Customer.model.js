@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { applyPasswordValidatingAndHashing } from "../utils/hashUtils.js";
-import e from "express";
 
 const { Schema, model } = mongoose;
 
@@ -73,6 +72,10 @@ const CustomerSchema = new Schema({
       },
     ],
     default: [],
+  },
+  userType: {
+    type: String,
+    default: "customer",
   },
   isSeller: {
     type: Boolean,

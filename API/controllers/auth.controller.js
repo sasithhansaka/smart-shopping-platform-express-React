@@ -1,11 +1,12 @@
 import { issueJwt } from "../utils/jwtUtils.js";
 import { checkPassword } from "../utils/hashUtils.js";
 import HttpStatus from "../constants/httpStatus.js";
+import CustomerModel from "../models/Customer.model.js";
 
 const register = async (req, res, next) => {
   const { password, ...userData } = req.body;
 
-  const models = [UserModel, AdminModel];
+  const models = [CustomerModel];
 
   for (const model of models) {
     let existingUser;
@@ -30,11 +31,11 @@ const register = async (req, res, next) => {
   let Model;
 
   switch (userData.userType) {
-    case "user":
-      Model = UserModel;
+    case "customer":
+      Model = CustomerModel;
       break;
     case "admin":
-      Model = AdminModel;
+      // Model = AdminModel;
       break;
     default:
       return res
@@ -79,11 +80,11 @@ const login = async (req, res, next) => {
   let Model;
 
   switch (userType) {
-    case "User":
-      Model = UserModel;
+    case "customer":
+      Model = CustomerModel;
       break;
     case "admin":
-      Model = AdminModel;
+      // Model = AdminModel;
       break;
     default:
       return res
