@@ -5,13 +5,7 @@ import HttpStatus from "../constants/httpStatus.js";
 const register = async (req, res, next) => {
   const { userType, password, ...userData } = req.body;
 
-  const models = [
-    StudentModel,
-    ParentModel,
-    InstructorModel,
-    SchoolAdminModel,
-    SystemAdminModel,
-  ];
+  const models = [CustomerModel, SellerModel, AdminModel];
 
   for (const model of models) {
     let existingUser;
@@ -24,34 +18,26 @@ const register = async (req, res, next) => {
         .json({ success: false, message: "Email already exist" });
     }
 
-    if (userType != "systemAdmin") {
-      existingUser = await model.findOne({ username: userData.username });
+    existingUser = await model.findOne({ username: userData.username });
 
-      if (existingUser) {
-        return res
-          .status(HttpStatus.BAD_REQUEST)
-          .json({ success: false, message: "Username already exist" });
-      }
+    if (existingUser) {
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json({ success: false, message: "Username already exist" });
     }
   }
 
   let UserModel;
 
   switch (userType) {
-    case "student":
-      UserModel = StudentModel;
+    case "customer":
+      UserModel = CustomerModel;
       break;
-    case "parent":
-      UserModel = ParentModel;
+    case "seller":
+      UserModel = SellerModel;
       break;
-    case "instructor":
-      UserModel = InstructorModel;
-      break;
-    case "schoolAdmin":
-      UserModel = SchoolAdminModel;
-      break;
-    case "systemAdmin":
-      UserModel = SystemAdminModel;
+    case "admin":
+      UserModel = AdminModel;
       break;
     default:
       return res
@@ -91,27 +77,33 @@ const register = async (req, res, next) => {
 };
 
 const login = async (req, res, next) => {
-  const { username, password, email } = req.body;
+  const { username, password, email, userType } = req.body;
 
-  const models = [
-    StudentModel,
-    ParentModel,
-    InstructorModel,
-    SchoolAdminModel,
-    SystemAdminModel,
-  ];
+  let UserModel;
+
+  switch (userType) {
+    case "customer":
+      UserModel = CustomerModel;
+      break;
+    case "seller":
+      UserModel = SellerModel;
+      break;
+    case "admin":
+      UserModel = AdminModel;
+      break;
+    default:
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json({ success: false, message: "Invalid user type" });
+  }
 
   let user;
 
   try {
-    for (const model of models) {
-      if (email) {
-        user = await model.findOne({ email });
-      } else {
-        user = await model.findOne({ username });
-      }
-
-      if (user) break;
+    if (email) {
+      user = await model.findOne({ email });
+    } else {
+      user = await model.findOne({ username });
     }
 
     if (!user) {
