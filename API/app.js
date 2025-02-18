@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
+import errorHandler from "./middlewares/errorHandlere.middleware.js";
 
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
@@ -15,6 +16,8 @@ app.use("api/auth", authRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
+
+app.use(errorHandler);
 
 const startServer = async () => {
   try {
