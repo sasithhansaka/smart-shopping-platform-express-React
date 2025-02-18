@@ -3,9 +3,9 @@ import { checkPassword } from "../utils/hashUtils.js";
 import HttpStatus from "../constants/httpStatus.js";
 
 const register = async (req, res, next) => {
-  const { userType, password, ...userData } = req.body;
+  const { password, ...userData } = req.body;
 
-  const models = [CustomerModel, SellerModel, AdminModel];
+  const models = [UserModel, AdminModel];
 
   for (const model of models) {
     let existingUser;
@@ -27,17 +27,14 @@ const register = async (req, res, next) => {
     }
   }
 
-  let UserModel;
+  let Model;
 
-  switch (userType) {
-    case "customer":
-      UserModel = CustomerModel;
-      break;
-    case "seller":
-      UserModel = SellerModel;
+  switch (userData.userType) {
+    case "user":
+      Model = UserModel;
       break;
     case "admin":
-      UserModel = AdminModel;
+      Model = AdminModel;
       break;
     default:
       return res
@@ -46,7 +43,7 @@ const register = async (req, res, next) => {
   }
 
   try {
-    const newUser = await UserModel.create({ ...userData, hash: password });
+    const newUser = await Model.create({ ...userData, hash: password });
 
     const { access_token, refresh_Token } = issueJwt(
       newUser._id,
@@ -79,17 +76,14 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
   const { username, password, email, userType } = req.body;
 
-  let UserModel;
+  let Model;
 
   switch (userType) {
-    case "customer":
-      UserModel = CustomerModel;
-      break;
-    case "seller":
-      UserModel = SellerModel;
+    case "User":
+      Model = UserModel;
       break;
     case "admin":
-      UserModel = AdminModel;
+      Model = AdminModel;
       break;
     default:
       return res
@@ -101,9 +95,9 @@ const login = async (req, res, next) => {
 
   try {
     if (email) {
-      user = await model.findOne({ email });
+      user = await Model.findOne({ email });
     } else {
-      user = await model.findOne({ username });
+      user = await Model.findOne({ username });
     }
 
     if (!user) {
