@@ -1,1 +1,5 @@
 node_modules
+accessToken_privateKey.pem
+accessToken_publicKey.pem
+refreshToken_publicKey.pem
+refreshToken_privateKey.pem
