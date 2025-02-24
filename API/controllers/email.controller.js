@@ -1,5 +1,6 @@
 import transporter from "../config/nodemailerConfig.js";
 import HttpStatus from "../constants/httpStatus.js";
+import validatcode from "../middlewares/confirmcode.middleware.js";
 
 let code;
 
@@ -37,4 +38,26 @@ const sendemail = async (req, res, next) => {
   }
 };
 
-export default sendemail;
+const confirmcode = async (req, res, next) => {
+  
+  const { ConfirmCode} = req.body;
+
+  try {
+    if (parseInt(ConfirmCode) === code) {
+      console.log("confirmation code is corerct");
+      return res.status(HttpStatus.OK).json({
+        success: true,
+        message: "confirmation code is corerct",
+      });
+    } else {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        success: false,
+        message: "confirmation code is incorerct",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+export  { sendemail, confirmcode };

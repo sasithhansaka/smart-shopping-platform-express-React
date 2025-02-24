@@ -5,7 +5,6 @@ const hashPassword = (password) => {
   const hash = crypto
     .pbkdf2Sync(password, salt, 10000, 64, "RSA-SHA1")
     .toString("hex");
-
   return { salt, hash };
 };
 
