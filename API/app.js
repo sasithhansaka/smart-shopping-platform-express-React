@@ -4,8 +4,10 @@ import cookieParser from "cookie-parser";
 import errorHandler from "./middlewares/errorHandlere.middleware.js";
 
 import connectDB from "./config/db.js";
+
 import authRoutes from "./routes/auth.routes.js";
 import EmailRouter from "./routes/email.routes.js";
+import SellerRouter from "./routes/seller.routes.js";
 
 const app = express();
 
@@ -14,6 +16,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/emails", EmailRouter);
+app.use("/api/seller",SellerRouter);
 
 app.get("/", (req, res) => {
   res.send("API is running...");

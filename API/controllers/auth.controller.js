@@ -109,7 +109,7 @@ const login = async (req, res, next) => {
 
     const isMatch = checkPassword(password, user.salt, user.hash);
     if (!isMatch) {
-      return res.status(401).json({ message: "Invalid password" });
+      return res.status(HttpStatus.UNAUTHORIZED).json({ message: "Invalid password" });
     }
 
     const { access_token, refresh_Token } = issueJwt(
