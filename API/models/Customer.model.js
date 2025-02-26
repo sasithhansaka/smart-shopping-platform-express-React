@@ -84,6 +84,7 @@ const CustomerSchema = new Schema({
   sellerId: {
     type: Schema.Types.ObjectId,
     ref: "Seller",
+    default: null,
   },
 });
 
