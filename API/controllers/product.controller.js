@@ -31,4 +31,27 @@ const deleteProduct = async (req, res, next) => {
   }
 };
 
-export { addProduct, deleteProduct };
+const updateProduct = async (req, res, next) => {
+  const productId = req.params.id;
+  const updateData = req.body;
+
+  try {
+    const updatedProduct = await ProductModel.findOneAndUpdate(
+      { _id: productId, sellerId: req.user._id },
+      updateData,
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedProduct) {
+      return res
+        .status(HttpStatus.NOT_FOUND)
+        .json({ message: "Product not found or unauthorized" });
+    }
+
+    res.status(HttpStatus.OK).json({ data: updatedProduct });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { addProduct, deleteProduct, updateProduct };
