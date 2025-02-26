@@ -94,6 +94,7 @@ const productSchema = new Schema({
   //status (active, inactive, pending , deleted)
   //model
   //maximum product buy count
+  //type
 });
 
 const ProductModel = model("Product", productSchema);

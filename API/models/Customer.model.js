@@ -101,6 +101,23 @@ const CustomerSchema = new Schema({
   },
 });
 
+function isStrongPassword(password) {
+  const strongPasswordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return strongPasswordRegex.test(password);
+}
+
+CustomerSchema.pre("save", function (next) {
+  if (this.isModified("hash") && !isStrongPassword(this.hash)) {
+    return next(
+      new Error(
+        "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character"
+      )
+    );
+  }
+  next();
+});
+
 applyPasswordValidatingAndHashing(CustomerSchema);
 
 CustomerSchema.pre("save", function (next) {
