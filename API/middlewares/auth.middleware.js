@@ -1,13 +1,10 @@
 import jwt from "jsonwebtoken";
 import fs from "fs";
+import CustomerModel from "../models/Customer.model.js";
 
-// const userModels = {
-//   student: StudentModel,
-//   instructor: InstructorModel,
-//   parent: ParentModel,
-//   schoolAdmin: SchoolAdminModel,
-//   systemAdmin: SystemAdminModel,
-// };
+const userModels = {
+  customer: CustomerModel,
+};
 
 export const authenticateUser = async (req, res, next) => {
   try {
