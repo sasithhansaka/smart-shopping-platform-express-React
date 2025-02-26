@@ -8,9 +8,22 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const CustomerSchema = new Schema({
   username: {
     type: String,
-    unique: [true, "Username must be unique"],
+    unique: [true, "Username is already taken"],
     trim: true,
     required: [true, "Username is required"],
+  },
+  // first_name: {
+  //   type: String,
+  //   required: true,
+  //   trim: true,
+  // },
+  // last_name: {
+  //   type: String,
+  //   required: true,
+  //   trim: true,
+  // },
+  image: {
+    type: String,
   },
   email: {
     type: String,
