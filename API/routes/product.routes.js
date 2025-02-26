@@ -4,6 +4,7 @@ import {
   deleteProduct,
   updateProduct,
   getAllProducts,
+  getProduct,
 } from "../controllers/product.controller.js";
 import { authenticateUser } from "../middlewares/auth.middleware.js";
 import authorize from "../middlewares/role.middleware.js";
@@ -17,5 +18,7 @@ router.delete("/:id", authenticateUser, authorize(["seller"]), deleteProduct);
 router.patch("/:id", authenticateUser, authorize(["seller"]), updateProduct);
 
 router.get("/", authenticateUser, authorize(["seller"]), getAllProducts);
+
+router.get("/:id", authenticateUser, authorize(["seller"]), getProduct);
 
 export default router;

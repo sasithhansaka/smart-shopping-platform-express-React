@@ -63,4 +63,23 @@ const getAllProducts = async (req, res, next) => {
   }
 };
 
-export { addProduct, deleteProduct, updateProduct, getAllProducts };
+const getProduct = async (req, res, next) => {
+  try {
+    const product = await ProductModel.findOne({
+      _id: req.params.id,
+      sellerId: req.user.sellerId,
+    });
+
+    if (!product) {
+      return res
+        .status(HttpStatus.NOT_FOUND)
+        .json({ message: "Product not found" });
+    }
+
+    res.status(HttpStatus.OK).json({ data: product });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { addProduct, deleteProduct, updateProduct, getAllProducts, getProduct };

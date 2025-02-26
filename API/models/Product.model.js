@@ -91,6 +91,9 @@ const productSchema = new Schema({
   //   totalRatings
   //   reviews – Array of review objects ({ userId, comment, rating, date }).
   //   isApproved
+  //status (active, inactive, pending , deleted)
+  //model
+  //maximum product buy count
 });
 
 const ProductModel = model("Product", productSchema);
