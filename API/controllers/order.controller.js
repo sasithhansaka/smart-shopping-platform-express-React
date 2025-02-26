@@ -60,7 +60,7 @@ const getorders = async (req, res, next) => {
 
 const getOrdersById = async (req, res, next) => {
   try {
-    const orders = await OrderModel.findById(req.user._id);
+    const orders = await OrderModel.find({ customerId: req.user._id });
 
     if (!orders) {
       return res
