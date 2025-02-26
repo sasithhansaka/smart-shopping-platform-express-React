@@ -86,9 +86,9 @@ const UpdateSeller = async (req, res, next) => {
 
   try {
     const updatedSeller = await SelleModel.findByIdAndUpdate(
-      sellerId,
+      {_id:sellerId},
       UpdateData,
-      { new: true }
+      { new: true,  runValidators: true }
     );
 
     if (!updatedSeller) {
