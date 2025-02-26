@@ -9,6 +9,8 @@ import authRoutes from "./routes/auth.routes.js";
 import EmailRoutes from "./routes/email.routes.js";
 import SellerRoutes from "./routes/seller.routes.js";
 import productRoutes from "./routes/product.routes.js";
+import OrderRoutes from "./routes/Order.routes.js";
+
 const app = express();
 
 app.use(express.json());
@@ -19,6 +21,7 @@ app.use("/api/emails", EmailRoutes);
 
 app.use("/api/seller", SellerRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/order", OrderRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
