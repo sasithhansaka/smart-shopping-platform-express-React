@@ -16,7 +16,7 @@ const deleteProduct = async (req, res, next) => {
   try {
     const deletedProduct = await ProductModel.deleteOne({
       _id: productId,
-      sellerId: req.user._id,
+      sellerId: req.user.sellerId,
     });
 
     if (deletedProduct.deletedCount === 0) {
@@ -37,7 +37,7 @@ const updateProduct = async (req, res, next) => {
 
   try {
     const updatedProduct = await ProductModel.findOneAndUpdate(
-      { _id: productId, sellerId: req.user._id },
+      { _id: productId, sellerId: req.user.sellerId },
       updateData,
       { new: true, runValidators: true }
     );
@@ -54,4 +54,13 @@ const updateProduct = async (req, res, next) => {
   }
 };
 
-export { addProduct, deleteProduct, updateProduct };
+const getAllProducts = async (req, res, next) => {
+  try {
+    const products = await ProductModel.find({ sellerId: req.user.sellerId });
+    res.status(HttpStatus.OK).json({ data: products });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { addProduct, deleteProduct, updateProduct, getAllProducts };
