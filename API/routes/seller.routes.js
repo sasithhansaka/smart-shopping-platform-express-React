@@ -3,14 +3,18 @@ import {
   SellerRegister,
   UpdateSeller,
   SellerDetailsById,
-  deletSeller,
+  deleteSeller,
 } from "../controllers/seller.contoller.js";
 
-const SellerRouter = express.Router();
+import { authenticateUser } from "../middlewares/auth.middleware.js";
+import authorize from "../middlewares/role.middleware.js";
 
-SellerRouter.post("/", SellerRegister);
-SellerRouter.put("/", UpdateSeller);
-SellerRouter.get("/", SellerDetailsById);
-SellerRouter.delete("/", deletSeller);
 
-export default SellerRouter;
+const SellerRoutes = express.Router();
+
+SellerRoutes.post("/",authenticateUser, authorize(["customer"]) ,SellerRegister);
+SellerRoutes.put("/",authenticateUser,authorize(["seller"]) ,UpdateSeller);
+SellerRoutes.get("/",authenticateUser,authorize(["customer"]), SellerDetailsById);
+SellerRoutes.delete("/",authenticateUser,authorize(["seller"]), deleteSeller);
+
+export default SellerRoutes;
