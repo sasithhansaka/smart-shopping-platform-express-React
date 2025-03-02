@@ -39,8 +39,7 @@ const sendemail = async (req, res, next) => {
 };
 
 const confirmcode = async (req, res, next) => {
-  
-  const { ConfirmCode} = req.body;
+  const { ConfirmCode } = req.body;
 
   try {
     if (parseInt(ConfirmCode) === code) {
@@ -60,4 +59,4 @@ const confirmcode = async (req, res, next) => {
   }
 };
 
-export  { sendemail, confirmcode };
+export { sendemail, confirmcode };
