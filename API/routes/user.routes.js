@@ -2,15 +2,29 @@ import express from "express";
 
 import { authenticateUser } from "../middlewares/auth.middleware.js";
 import authorize from "../middlewares/role.middleware.js";
-import { changePassword } from "../controllers/user.controller.js";
+import { changePassword, updateAccount ,deleteAccount} from "../controllers/user.controller.js";
 
-const router = express.Router();
+const userRoutes = express.Router();
 
-router.patch(
+userRoutes.patch(
   "/customer/password",
   authenticateUser,
   authorize("customer"),
   changePassword
 );
 
-export default router;
+userRoutes.patch(
+  "/customer/update",
+  authenticateUser,
+  authorize("customer"),
+  updateAccount
+);
+
+userRoutes.delete(
+  "/customer/delete",
+  authenticateUser,
+  authorize("customer"),
+  deleteAccount
+);
+
+export default userRoutes ;
