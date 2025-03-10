@@ -1,5 +1,6 @@
 import HttpStatus from "../constants/httpStatus.js";
 import CustomerModel from "../models/Customer.model.js";
+import SiteFeedback from "../models/SiteFeedback.model.js";
 import { checkPassword } from "../utils/hashUtils.js";
 
 const changePassword = async (req, res, next) => {
@@ -24,4 +25,21 @@ const changePassword = async (req, res, next) => {
   }
 };
 
-export { changePassword };
+const addFeedback = async (req, res, next) => {
+  try {
+    const { message, ratings } = req.body;
+    const feedback = await SiteFeedback.create({
+      userId: req.user._id,
+      message,
+      ratings,
+    });
+
+    res
+      .status(HttpStatus.CREATED)
+      .json({ message: "Feedback submitted successfully", feedback });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { changePassword, addFeedback };

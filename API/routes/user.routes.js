@@ -9,8 +9,15 @@ const router = express.Router();
 router.patch(
   "/customer/password",
   authenticateUser,
-  authorize("customer"),
+  authorize(["customer"]),
   changePassword
+);
+
+router.post(
+  "/customer/feedback",
+  authenticateUser,
+  authorize(["customer"]),
+  addFeedback
 );
 
 export default router;
