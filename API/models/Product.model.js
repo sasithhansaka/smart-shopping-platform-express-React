@@ -88,13 +88,49 @@ const productSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  //   totalRatings
-  //   reviews – Array of review objects ({ userId, comment, rating, date }).
-  //   isApproved
-  //status (active, inactive, pending , deleted)
-  //model
-  //maximum product buy count
-  //type
+  totalRatings: {
+    type: Number,
+    default: 0,
+  },
+  reviews: {
+    type: [
+      {
+        userId: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
+        comment: {
+          type: String,
+          required: true,
+        },
+        rating: {
+          type: Number,
+          required: true,
+          min: 1,
+          max: 5,
+        },
+        date: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+    default: [],
+  },
+  isApproved: {
+    type: Boolean,
+    default: false,
+  },
+  status: {
+    type: String,
+    enum: ["active", "inactive", "pending", "deleted"],
+    default: "pending",
+  },
+  maxBuyCount: {
+    type: Number,
+    required: [true, "Maximum buy count is required"],
+  },
 });
 
 const ProductModel = model("Product", productSchema);
