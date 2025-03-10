@@ -37,9 +37,72 @@ const addFeedback = async (req, res, next) => {
     res
       .status(HttpStatus.CREATED)
       .json({ message: "Feedback submitted successfully", feedback });
+  } catch (e) {
+    next(e);
+  }
+};
+
+const updateAccount = async (req, res, next) => {
+  const { ...updateData } = req.body;
+  const userId = req.user._id;
+  const userexist = await CustomerModel.findById(userId);
+
+  if (!userexist) {
+    return res.status(HttpStatus.BAD_REQUEST).json({
+      success: false,
+      message: "User not found",
+    });
+  }
+
+  try {
+    const update_user = await Customer.findByIdAndUpdate(
+      { _id: userId },
+      updateData,
+      { new: true, runValidators: true }
+    );
+    if (!update_user) {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        success: false,
+        message: "User update failed",
+      });
+    }
+
+    res.status(HttpStatus.OK).json({
+      success: true,
+      message: "User updated successfully",
+    });
   } catch (err) {
     next(err);
   }
 };
 
-export { changePassword, addFeedback };
+const deleteAccount = async (req, res, next) => {
+  const userId = req.user._id;
+  const userexist = await Customer.findById(userId);
+
+  if (!userexist) {
+    return res.status(HttpStatus.BAD_REQUEST).json({
+      success: false,
+      message: "User not found",
+    });
+  }
+
+  try {
+    const delete_user = await Customer.findByIdAndDelete(userId);
+    if (!delete_user) {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        success: false,
+        message: "User delete failed",
+      });
+    }
+
+    res.status(HttpStatus.OK).json({
+      success: true,
+      message: "User deleted successfully",
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { changePassword, updateAccount, deleteAccount, addFeedback };
