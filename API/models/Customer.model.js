@@ -12,16 +12,7 @@ const CustomerSchema = new Schema({
     trim: true,
     required: [true, "Username is required"],
   },
-  // first_name: {
-  //   type: String,
-  //   required: true,
-  //   trim: true,
-  // },
-  // last_name: {
-  //   type: String,
-  //   required: true,
-  //   trim: true,
-  // },
+  
   image: {
     type: String,
   },
