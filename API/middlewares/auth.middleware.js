@@ -7,6 +7,7 @@ const userModels = {
 };
 
 export const authenticateUser = async (req, res, next) => {
+
   try {
     const token = req.cookies?.accessToken?.split(" ")[1];
     const refreshToken = req.cookies?.refreshToken;
@@ -75,6 +76,3 @@ export const authenticateUser = async (req, res, next) => {
     next(error);
   }
 };
-
-
-// ???????
