@@ -70,6 +70,7 @@ const login = async (req, res, next) => {
 
   try {
     let user;
+    
     if (email) {
       user = await CustomerModel.findOne({
         email,
