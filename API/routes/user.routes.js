@@ -28,7 +28,7 @@ userRoutes.post(
 userRoutes.patch(
   "/customer/update",
   authenticateUser,
-  authorize("customer"),
+  authorize("customer","seller"),
   updateAccount
 );
 

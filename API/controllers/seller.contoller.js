@@ -151,14 +151,13 @@ const SellerDetailsById = async (req, res, next) => {
   }
 };
 
-
-
 const deleteSeller = async (req, res, next) => {
+
   const sellerId = req.user.sellerId;
 
   console.log('Seller ID:', sellerId);
 
-  const sellerExist = await CustomerModel.find(sellerId); // Use findById to find by _id
+  const sellerExist = await CustomerModel.find(sellerId); 
 
   if (!sellerExist) {
     return res.status(HttpStatus.BAD_REQUEST).json({
