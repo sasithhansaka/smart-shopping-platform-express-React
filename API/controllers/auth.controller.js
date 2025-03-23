@@ -69,6 +69,11 @@ const login = async (req, res, next) => {
   const { username, password, email, userType } = req.body;
 
   try {
+    if (userType !== "customer" && userType !== "seller")
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json({ success: false, message: "Invalid user type" });
+
     let user;
     if (email) {
       user = await CustomerModel.findOne({
@@ -87,6 +92,10 @@ const login = async (req, res, next) => {
         .status(HttpStatus.UNAUTHORIZED)
         .json({ success: false, message: "Invalid credentials" });
     }
+
+    await CustomerModel.findByIdAndUpdate(user._id, {
+      userType: userType,
+    });
 
     const isMatch = checkPassword(password, user.salt, user.hash);
     if (!isMatch) {
