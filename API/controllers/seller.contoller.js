@@ -120,7 +120,7 @@ const UpdateSeller = async (req, res, next) => {
       });
     }
 
-    res.status(HttpStatus.ok).json({
+    res.status(HttpStatus.CREATED).json({
       success: true,
       message: "seller updated successfully",
     });
@@ -152,34 +152,49 @@ const SellerDetailsById = async (req, res, next) => {
 };
 
 const deleteSeller = async (req, res, next) => {
+
   const sellerId = req.user.sellerId;
 
-  const sellerExist = await SelleModel.findById(sellerId);
+  console.log('Seller ID:', sellerId);
+
+  const sellerExist = await CustomerModel.find(sellerId); 
 
   if (!sellerExist) {
     return res.status(HttpStatus.BAD_REQUEST).json({
       success: false,
-      message: "seller not found",
+      message: "Seller not found in CustomerModel",
     });
   }
 
   try {
-    const deleteSeller = await SelleModel.findByIdAndDelete(sellerId);
+    const sellerToDelete = await SelleModel.find(sellerId); 
+
+    if (!sellerToDelete) {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        success: false,
+        message: "Seller not found in SelleModel",
+      });
+    }
+
+    const deleteSeller = await SelleModel.deleteOne(sellerId);
+
+    console.log('Delete Seller:', deleteSeller);
 
     if (!deleteSeller) {
       return res.status(HttpStatus.BAD_REQUEST).json({
         success: false,
-        message: "seller delete failed",
+        message: "Seller delete failed",
       });
     }
 
-    res.status(HttpStatus.ok).json({
+    res.status(HttpStatus.OK).json({
       success: true,
-      message: "seller deleted successfully",
+      message: "Seller deleted successfully",
     });
   } catch (err) {
-    next(err);
+    next(err); 
   }
 };
+
 
 export { SellerRegister, UpdateSeller, SellerDetailsById, deleteSeller };

@@ -75,6 +75,7 @@ const login = async (req, res, next) => {
     //     .json({ success: false, message: "Invalid user type" });
 
     let user;
+    
     if (email) {
       user = await CustomerModel.findOne({
         email,

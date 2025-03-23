@@ -55,7 +55,7 @@ const updateAccount = async (req, res, next) => {
   }
 
   try {
-    const update_user = await Customer.findByIdAndUpdate(
+    const update_user = await CustomerModel.findByIdAndUpdate(
       { _id: userId },
       updateData,
       { new: true, runValidators: true }
@@ -78,7 +78,7 @@ const updateAccount = async (req, res, next) => {
 
 const deleteAccount = async (req, res, next) => {
   const userId = req.user._id;
-  const userexist = await Customer.findById(userId);
+  const userexist = await CustomerModel.findById(userId);
 
   if (!userexist) {
     return res.status(HttpStatus.BAD_REQUEST).json({
@@ -88,7 +88,7 @@ const deleteAccount = async (req, res, next) => {
   }
 
   try {
-    const delete_user = await Customer.findByIdAndDelete(userId);
+    const delete_user = await CustomerModel.findByIdAndDelete(userId);
     if (!delete_user) {
       return res.status(HttpStatus.BAD_REQUEST).json({
         success: false,
