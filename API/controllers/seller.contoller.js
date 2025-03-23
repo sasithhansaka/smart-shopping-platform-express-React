@@ -1,3 +1,4 @@
+import { issueJwt } from "../utils/jwtUtils.js";
 import HttpStatus from "../constants/httpStatus.js";
 import SelleModel from "../models/Seller.model.js";
 import CustomerModel from "../models/Customer.model.js";
@@ -43,28 +44,49 @@ const SellerRegister = async (req, res, next) => {
     const UpdateCustomer = await CustomerModel.findByIdAndUpdate(
       customerId,
       {
-        // _id:newSeller._id,
         userType: "seller",
         isSeller: true,
         sellerId: newSeller._id,
       },
       { new: true }
-    );
-
-    req.user = UpdateCustomer.select("-hash -salt");
-    if (!UpdateCustomer) throw new Error("User not found");
+    ).select("-hash -salt");
 
     if (!UpdateCustomer) {
       return res.status(HttpStatus.BAD_REQUEST).json({
         success: false,
-        message: "customer update failed ",
+        message: "customer update failed",
       });
     }
 
+    // Issue new JWT tokens with seller user type
+    const { access_token, refresh_Token } = issueJwt(
+      UpdateCustomer._id,
+      UpdateCustomer.username,
+      "seller"
+    );
+
+    // Update cookies with new tokens
+    res.cookie("accessToken", access_token, {
+      httpOnly: true,
+      maxAge: 900000,
+      sameSite: "Strict",
+      secure: true,
+    });
+
+    res.cookie("refreshToken", refresh_Token, {
+      httpOnly: true,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      sameSite: "Strict",
+      secure: true,
+    });
+
     res.status(HttpStatus.CREATED).json({
       success: true,
-      message: "seller upgrade successfully",
-      newSeller,
+      message: "seller upgrade successful",
+      data: {
+        customer: UpdateCustomer,
+        seller: newSeller,
+      },
     });
   } catch (err) {
     next(err);
@@ -86,9 +108,9 @@ const UpdateSeller = async (req, res, next) => {
 
   try {
     const updatedSeller = await SelleModel.findByIdAndUpdate(
-      {_id:sellerId},
+      { _id: sellerId },
       UpdateData,
-      { new: true,  runValidators: true }
+      { new: true, runValidators: true }
     );
 
     if (!updatedSeller) {

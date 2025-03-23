@@ -2,12 +2,7 @@ import jwt from "jsonwebtoken";
 import fs from "fs";
 import CustomerModel from "../models/Customer.model.js";
 
-const userModels = {
-  customer: CustomerModel,
-};
-
 export const authenticateUser = async (req, res, next) => {
-
   try {
     const token = req.cookies?.accessToken?.split(" ")[1];
     const refreshToken = req.cookies?.refreshToken;
@@ -21,11 +16,19 @@ export const authenticateUser = async (req, res, next) => {
         algorithms: ["RS256"],
       });
 
-      const userModel = userModels[decoded.userType];
-      if (!userModel) throw new Error("Invalid user type");
-
-      const user = await userModel.findById(decoded.id).select("-hash -salt");
+      // Find user in CustomerModel
+      const user = await CustomerModel.findById(decoded.id).select(
+        "-hash -salt"
+      );
       if (!user) throw new Error("User not found");
+
+      // Verify user type matches isSeller flag
+      if (decoded.userType === "seller" && !user.isSeller) {
+        throw new Error("Invalid user type");
+      }
+      if (decoded.userType === "customer" && user.isSeller) {
+        throw new Error("Invalid user type");
+      }
 
       req.user = user;
       return next();
@@ -39,13 +42,19 @@ export const authenticateUser = async (req, res, next) => {
           algorithms: ["RS256"],
         });
 
-        const userModel = userModels[refreshDecoded.userType];
-        if (!userModel) throw new Error("Invalid user type");
-
-        const user = await userModel
-          .findById(refreshDecoded.id)
-          .select("-hash -salt");
+        // Find user in CustomerModel
+        const user = await CustomerModel.findById(refreshDecoded.id).select(
+          "-hash -salt"
+        );
         if (!user) throw new Error("User not found");
+
+        // Verify user type matches isSeller flag
+        if (refreshDecoded.userType === "seller" && !user.isSeller) {
+          throw new Error("Invalid user type");
+        }
+        if (refreshDecoded.userType === "customer" && user.isSeller) {
+          throw new Error("Invalid user type");
+        }
 
         const ACCESS_TOKEN_PRIV_KEY = fs.readFile("accessToken_privateKey.pem");
 
@@ -53,7 +62,7 @@ export const authenticateUser = async (req, res, next) => {
           {
             id: user.id,
             username: user.username,
-            userType: user.userType,
+            userType: user.isSeller ? "seller" : "customer",
           },
           ACCESS_TOKEN_PRIV_KEY,
           { algorithm: "RS256", expiresIn: "15m" }

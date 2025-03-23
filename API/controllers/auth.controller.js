@@ -5,51 +5,40 @@ import CustomerModel from "../models/Customer.model.js";
 
 const register = async (req, res, next) => {
   const { password, ...userData } = req.body;
-
-  const models = [CustomerModel];
-
-  for (const model of models) {
-    let existingUser;
-
-    existingUser = await model.findOne({ email: userData.email });
-
-    if (existingUser) {
-      return res
-        .status(HttpStatus.BAD_REQUEST)
-        .json({ success: false, message: "Email already exist" });
-    }
-
-    existingUser = await model.findOne({ username: userData.username });
-
-    if (existingUser) {
-      return res
-        .status(HttpStatus.BAD_REQUEST)
-        .json({ success: false, message: "Username already exist" });
-    }
-  }
-
-  let Model;
-
-  switch (userData.userType) {
-    case "customer":
-      Model = CustomerModel;
-      break;
-    case "admin":
-      // Model = AdminModel;
-      break;
-    default:
-      return res
-        .status(HttpStatus.BAD_REQUEST)
-        .json({ success: false, message: "Invalid user type" });
-  }
+  console.log("Hiruna");
 
   try {
-    const newUser = await Model.create({ ...userData, hash: password });
+    // Check for existing email and username in CustomerModel
+    const existingEmail = await CustomerModel.findOne({
+      email: userData.email,
+    });
+    if (existingEmail) {
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json({ success: false, message: "Email already exists" });
+    }
+
+    const existingUsername = await CustomerModel.findOne({
+      username: userData.username,
+    });
+    if (existingUsername) {
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json({ success: false, message: "Username already exists" });
+    }
+
+    // Create new customer
+    const newUser = await CustomerModel.create({
+      ...userData,
+      hash: password,
+      userType: "customer",
+      isSeller: false,
+    });
 
     const { access_token, refresh_Token } = issueJwt(
       newUser._id,
       newUser.username,
-      newUser.userType
+      "customer"
     );
 
     res.cookie("accessToken", access_token, {
@@ -66,9 +55,11 @@ const register = async (req, res, next) => {
       secure: true,
     });
 
-    res
-      .status(HttpStatus.CREATED)
-      .json({ message: "User registered successfully", newUser });
+    res.status(HttpStatus.CREATED).json({
+      success: true,
+      message: "Customer registered successfully",
+      data: newUser,
+    });
   } catch (err) {
     next(err);
   }
@@ -77,45 +68,37 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
   const { username, password, email, userType } = req.body;
 
-  let Model;
-
-  switch (userType) {
-    case "customer":
-      Model = CustomerModel;
-      break;
-    case "admin":
-      // Model = AdminModel;
-      break;
-    default:
-      return res
-        .status(HttpStatus.BAD_REQUEST)
-        .json({ success: false, message: "Invalid user type" });
-  }
-
-  let user;
-
   try {
+    let user;
     if (email) {
-      user = await Model.findOne({ email });
+      user = await CustomerModel.findOne({
+        email,
+        ...(userType === "seller" ? { isSeller: true } : { isSeller: false }),
+      });
     } else {
-      user = await Model.findOne({ username });
+      user = await CustomerModel.findOne({
+        username,
+        ...(userType === "seller" ? { isSeller: true } : { isSeller: false }),
+      });
     }
 
     if (!user) {
       return res
         .status(HttpStatus.UNAUTHORIZED)
-        .json({ message: "Invalid email or password" });
+        .json({ success: false, message: "Invalid credentials" });
     }
 
     const isMatch = checkPassword(password, user.salt, user.hash);
     if (!isMatch) {
-      return res.status(HttpStatus.UNAUTHORIZED).json({ message: "Invalid password" });
+      return res
+        .status(HttpStatus.UNAUTHORIZED)
+        .json({ success: false, message: "Invalid credentials" });
     }
 
     const { access_token, refresh_Token } = issueJwt(
       user._id,
       user.username,
-      user.userType
+      userType
     );
 
     res.cookie("accessToken", access_token, {
