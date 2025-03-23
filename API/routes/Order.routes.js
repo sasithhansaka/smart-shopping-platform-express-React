@@ -10,7 +10,12 @@ import { authenticateUser } from "../middlewares/auth.middleware.js";
 
 const OrderRoutes = Router();
 
-OrderRoutes.post("/", authenticateUser, authorize(["customer"]), addOrder);
+OrderRoutes.post(
+  "/",
+  authenticateUser,
+  authorize(["customer", "seller"]),
+  addOrder
+);
 OrderRoutes.put(
   "/",
   authenticateUser,

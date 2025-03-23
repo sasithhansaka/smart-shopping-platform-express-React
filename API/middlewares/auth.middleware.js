@@ -23,12 +23,12 @@ export const authenticateUser = async (req, res, next) => {
       if (!user) throw new Error("User not found");
 
       // Verify user type matches isSeller flag
-      if (decoded.userType === "seller" && !user.isSeller) {
-        throw new Error("Invalid user type");
-      }
-      if (decoded.userType === "customer" && user.isSeller) {
-        throw new Error("Invalid user type");
-      }
+      // if (decoded.userType === "seller" && !user.isSeller) {
+      //   throw new Error("Invalid user type");
+      // }
+      // if (decoded.userType === "customer" && user.isSeller) {
+      //   throw new Error("Invalid user type");
+      // }
       req.user = user;
       return next();
     } catch (err) {
@@ -50,12 +50,12 @@ export const authenticateUser = async (req, res, next) => {
         if (!user) throw new Error("User not found");
 
         // Verify user type matches isSeller flag
-        if (refreshDecoded.userType === "seller" && !user.isSeller) {
-          throw new Error("Invalid user type");
-        }
-        if (refreshDecoded.userType === "customer" && user.isSeller) {
-          throw new Error("Invalid user type");
-        }
+        // if (refreshDecoded.userType === "seller" && !user.isSeller) {
+        //   throw new Error("Invalid user type");
+        // }
+        // if (refreshDecoded.userType === "customer" && user.isSeller) {
+        //   throw new Error("Invalid user type");
+        // }
 
         const ACCESS_TOKEN_PRIV_KEY = fs.readFileSync(
           "accessToken_privateKey.pem"

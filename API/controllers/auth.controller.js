@@ -66,24 +66,24 @@ const register = async (req, res, next) => {
 };
 
 const login = async (req, res, next) => {
-  const { username, password, email, userType } = req.body;
+  const { username, password, email } = req.body;
 
   try {
-    if (userType !== "customer" && userType !== "seller")
-      return res
-        .status(HttpStatus.BAD_REQUEST)
-        .json({ success: false, message: "Invalid user type" });
+    // if (userType !== "customer" && userType !== "seller")
+    //   return res
+    //     .status(HttpStatus.BAD_REQUEST)
+    //     .json({ success: false, message: "Invalid user type" });
 
     let user;
     if (email) {
       user = await CustomerModel.findOne({
         email,
-        ...(userType === "seller" ? { isSeller: true } : { isSeller: false }),
+        // ...(userType === "seller" ? { isSeller: true } : { isSeller: false }),
       });
     } else {
       user = await CustomerModel.findOne({
         username,
-        ...(userType === "seller" ? { isSeller: true } : { isSeller: false }),
+        // ...(userType === "seller" ? { isSeller: true } : { isSeller: false }),
       });
     }
 
@@ -93,9 +93,9 @@ const login = async (req, res, next) => {
         .json({ success: false, message: "Invalid credentials" });
     }
 
-    await CustomerModel.findByIdAndUpdate(user._id, {
-      userType: userType,
-    });
+    // await CustomerModel.findByIdAndUpdate(user._id, {
+    //   userType: userType,
+    // });
 
     const isMatch = checkPassword(password, user.salt, user.hash);
     if (!isMatch) {
@@ -107,7 +107,7 @@ const login = async (req, res, next) => {
     const { access_token, refresh_Token } = issueJwt(
       user._id,
       user.username,
-      userType
+      user.userType
     );
 
     res.cookie("accessToken", access_token, {
