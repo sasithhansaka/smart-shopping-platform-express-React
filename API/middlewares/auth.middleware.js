@@ -29,14 +29,13 @@ export const authenticateUser = async (req, res, next) => {
       if (decoded.userType === "customer" && user.isSeller) {
         throw new Error("Invalid user type");
       }
-
       req.user = user;
       return next();
     } catch (err) {
       if (err.name === "TokenExpiredError") {
         if (!refreshToken) throw new Error("unauthenticated user");
 
-        const REFRESH_TOKEN_PUB_KEY = fs.readFileSync("refreshToken_publicKey.pem");
+        const REFRESH_TOKEN_PUB_KEY = fs.readFile("refreshToken_publicKey.pem");
 
         const refreshDecoded = jwt.verify(refreshToken, REFRESH_TOKEN_PUB_KEY, {
           algorithms: ["RS256"],
@@ -56,7 +55,7 @@ export const authenticateUser = async (req, res, next) => {
           throw new Error("Invalid user type");
         }
 
-        const ACCESS_TOKEN_PRIV_KEY = fs.readFileSync("accessToken_privateKey.pem");
+        const ACCESS_TOKEN_PRIV_KEY = fs.readFile("accessToken_privateKey.pem");
 
         const newAccessToken = jwt.sign(
           {
