@@ -6,6 +6,7 @@ import {
   changePassword,
   updateAccount,
   deleteAccount,
+  addFeedback,
 } from "../controllers/user.controller.js";
 
 const userRoutes = express.Router();
