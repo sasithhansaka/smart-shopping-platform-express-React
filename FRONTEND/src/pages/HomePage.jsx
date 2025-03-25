@@ -1,11 +1,13 @@
 import React from "react";
 import NavBar from "../components/NavBar";
+import CategoryBoxContainer from "../components/Home/CategoryBoxContainer";
 
 function HomePage() {
   return (
     <main>
       <NavBar />
-      <h4>Home Page</h4>
+      <div className="home-banner"></div>
+      <CategoryBoxContainer />
     </main>
   );
 }
