@@ -44,21 +44,24 @@ const register = async (req, res, next) => {
     res.cookie("accessToken", access_token, {
       httpOnly: true,
       maxAge: 900000,
-      sameSite: "Strict",
-      secure: true,
+      sameSite: "Lax", // Changed from Strict to Lax for development
+      secure: false,
     });
 
     res.cookie("refreshToken", refresh_Token, {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "Strict",
-      secure: true,
+      maxAge: 900000,
+      sameSite: "Lax", // Changed from Strict to Lax for development
+      secure: false,
     });
 
     res.status(HttpStatus.CREATED).json({
       success: true,
       message: "Customer registered successfully",
-      data: newUser,
+      data: {
+        accessToken: access_token,
+        refreshToken: refresh_Token,
+      },
     });
   } catch (err) {
     next(err);
@@ -75,7 +78,7 @@ const login = async (req, res, next) => {
     //     .json({ success: false, message: "Invalid user type" });
 
     let user;
-    
+
     if (email) {
       user = await CustomerModel.findOne({
         email,
@@ -114,18 +117,25 @@ const login = async (req, res, next) => {
     res.cookie("accessToken", access_token, {
       httpOnly: true,
       maxAge: 900000,
-      sameSite: "Strict",
-      secure: true,
+      sameSite: "Lax", // Changed from Strict to Lax for development
+      secure: false,
     });
 
     res.cookie("refreshToken", refresh_Token, {
       httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "Strict",
-      secure: true,
+      maxAge: 900000,
+      sameSite: "Lax", // Changed from Strict to Lax for development
+      secure: false,
     });
 
-    res.status(HttpStatus.OK).json({ success: true, data: user });
+    res.status(HttpStatus.OK).json({
+      success: true,
+      message:'Login successful',
+      data: {
+        accessToken: access_token,
+        refreshToken: refresh_Token,
+      },
+    });
   } catch (err) {
     next(err);
   }

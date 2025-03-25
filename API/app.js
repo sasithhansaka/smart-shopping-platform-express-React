@@ -5,6 +5,7 @@ import errorHandler from "./middlewares/errorHandlere.middleware.js";
 
 import connectDB from "./config/db.js";
 
+import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import EmailRoutes from "./routes/email.routes.js";
 import SellerRoutes from "./routes/seller.routes.js";
@@ -13,6 +14,20 @@ import userRoutes from "./routes/user.routes.js";
 import OrderRoutes from "./routes/Order.routes.js";
 
 const app = express();
+
+const allowedOrigins = ['http://localhost:5173', 'http://example.com']; 
+
+// CORS setup
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,  
+}));
 
 app.use(express.json());
 app.use(cookieParser());
