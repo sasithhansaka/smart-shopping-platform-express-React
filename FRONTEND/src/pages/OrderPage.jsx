@@ -5,6 +5,7 @@ import styles from "./OrderPage.module.css";
 import ProductImageGroup from "../components/Order/ProductImageGroup";
 import ProductImage from "../components/Order/ProductImage";
 import ProductDetails from "../components/Order/ProductDetails";
+import ProductBuyContainer from "../components/Order/ProductBuyContainer";
 
 function OrderPage() {
   const [product, setProduct] = useState(null);
@@ -30,6 +31,8 @@ function OrderPage() {
     fetchProduct();
   }, []);
 
+  // useEffect(() => {
+
   return (
     <div>
       <h1>Order Page</h1>
@@ -53,6 +56,10 @@ function OrderPage() {
                productDescription={product.description}/>
 
           </div>
+          <div>
+            <ProductBuyContainer/>
+          </div>
+            
         </div>
       )}
     </div>

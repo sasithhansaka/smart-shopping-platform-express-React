@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CheckoutPage() {
+function ProductBuyContainer() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function CheckoutPage() {
   )
 }
 
-export default CheckoutPage
+export default ProductBuyContainer
