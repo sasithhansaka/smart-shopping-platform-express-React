@@ -19,6 +19,6 @@ router.patch("/:id", authenticateUser, authorize(["seller"]), updateProduct);
 
 router.get("/", authenticateUser, authorize(["seller"]), getAllProducts);
 
-router.get("/:id", authenticateUser, authorize(["seller"]), getProduct);
+router.get("/:id", authenticateUser, authorize(["customer", "seller"]), getProduct);
 
 export default router;

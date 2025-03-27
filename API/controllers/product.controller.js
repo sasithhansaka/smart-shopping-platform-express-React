@@ -55,6 +55,7 @@ const updateProduct = async (req, res, next) => {
 };
 
 const getAllProducts = async (req, res, next) => {
+   console.log(req.user);
   try {
     const products = await ProductModel.find({ sellerId: req.user.sellerId });
     res.status(HttpStatus.OK).json({ data: products });
