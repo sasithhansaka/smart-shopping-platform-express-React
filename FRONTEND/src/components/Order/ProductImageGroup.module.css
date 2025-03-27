@@ -1,0 +1,9 @@
+.productImageGroup{
+    background-color: aqua;
+    width: 120px;
+}
+
+.productImageGroup img{
+    width: 100px;
+    height: 100px;
+}

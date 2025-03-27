@@ -1,0 +1,11 @@
+.productImage{
+    /* width: ; */
+    width: 400px;
+    background-color: blueviolet;
+    height: 300px;
+}
+
+.productImage img{
+    width: 100%;
+    height: 100%;
+}
