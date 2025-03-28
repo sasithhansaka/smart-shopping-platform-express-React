@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Added import
 import axios from "axios";
 
 function LoginComponent() {
   const [userfield, setUserField] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // Added useNavigate hook
 
   const handleUserField = (event) => setUserField(event.target.value);
   const handlePassword = (event) => setPassword(event.target.value);
@@ -42,9 +44,10 @@ function LoginComponent() {
 
       alert("Login successful");
 
-
       setUserField("");
       setPassword("");
+
+      navigate("/order"); // Navigate to home page after successful login
     } catch (err) {
       const errorMessage = err.response
         ? err.response.data.message
@@ -78,7 +81,4 @@ function LoginComponent() {
 
 export default LoginComponent;
 
-
 // SecureP@ss123
-
-

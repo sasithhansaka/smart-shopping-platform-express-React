@@ -1,0 +1,18 @@
+.productDetailsContainer{
+    width: 400px;
+    height: auto;
+    background-color: rgb(104, 103, 104);
+}
+
+.productDetailsContainer .colorsContainer {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+ .productDetailsContainer .colorCircle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+  }
