@@ -9,7 +9,7 @@ function CategoryBox({ label1, label2, image, box_width, color, children }) {
       <span>{label1}</span>
       <span>{label2}</span>
       {children}
-      <img src={image} />
+      {/* <img src={image} /> */}
     </div>
   );
 }

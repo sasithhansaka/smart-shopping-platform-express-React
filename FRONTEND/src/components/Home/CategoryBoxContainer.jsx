@@ -1,5 +1,6 @@
 import React from "react";
 import CategoryBox from "./CategoryBox";
+import Button from "../Button";
 
 const category_box_btn_styles = {};
 
