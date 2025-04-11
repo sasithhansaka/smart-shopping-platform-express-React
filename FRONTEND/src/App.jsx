@@ -19,8 +19,6 @@ import Reviews from "./components/Seller/Orders-Reviews/Reviews";
 import Settings from "./components/Seller/Settings/Settings";
 import MyProfile from "./components/Seller/Profile/MyProfile";
 
-
-
 const queryClient = new QueryClient();
 
 function App() {

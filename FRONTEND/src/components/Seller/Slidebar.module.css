@@ -9,7 +9,7 @@
 .sidebar {
   width: 250px;
   background-color: #FFFFFF;
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 10;
 }
@@ -99,7 +99,7 @@
 }
 
 .verticalLine {
-  width: 2px;
+  width: 1.5px;
   background-color: #e0e0e0;
   margin-left: 40px;
   min-height: 100%;
@@ -131,15 +131,12 @@
   font-weight: 500;
 }
 
-.mainContent {
-  flex: 1;
-  padding: 20px;
-  background-color: #ffffff;
-}
+
 
 
 .navItemActive span {
   background-color: #147aff00;
 
 }
+
 

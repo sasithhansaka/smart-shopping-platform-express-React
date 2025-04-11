@@ -1,0 +1,30 @@
+/* components/Seller/Breadcrumbs.module.css */
+.breadcrumbs {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  
+  .link {
+    color: #147AFF;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  .current {
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .separator {
+    margin: 0 5px;
+    color: #999;
+  }
