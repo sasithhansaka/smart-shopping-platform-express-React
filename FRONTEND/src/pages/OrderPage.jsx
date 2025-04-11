@@ -57,7 +57,13 @@ function OrderPage() {
 
           </div>
           <div>
-            <ProductBuyContainer/>
+            <ProductBuyContainer
+            productPrice={product.price}
+            productDiscount={product.discountPercentage}
+            productStock={product.stock}
+            productSellerId={product.sellerId}
+            />
+            
           </div>
             
         </div>
