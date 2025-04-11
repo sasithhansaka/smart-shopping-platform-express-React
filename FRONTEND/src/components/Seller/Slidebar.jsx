@@ -48,8 +48,9 @@ const Slidebar = () => {
             to="/seller/dashboard" 
             end 
             className={({ isActive }) => 
-              `${styles.navItem} ${isActive ? styles.active : ''}`
+              isActive ? styles.navItemActive : styles.navItem
             }
+            style={{ textDecoration: 'none' }}
           >
             <FiHome className={`${styles.navIcon} ${isActive('/seller/dashboard') ? styles.activeIcon : ''}`} />
             <span>Dashboard</span>
@@ -60,14 +61,19 @@ const Slidebar = () => {
             <div 
               className={`${styles.navItem} ${isActive('/seller/manage-products') || 
                 isActive('/seller/add-products') || 
-                isActive('/seller/brand-management') ? styles.active : ''}`} 
+                isActive('/seller/brand-management') ? styles.navItemActive : ''}`} 
               onClick={() => toggleExpand('products')}
+              style={{ textDecoration: 'none' }}
             >
               <FiPackage className={`${styles.navIcon} ${isActive('/seller/manage-products') || 
                 isActive('/seller/add-products') || 
                 isActive('/seller/brand-management') ? styles.activeIcon : ''}`} />
               <span>Products</span>
-              {expandedItem === 'products' ? <FiChevronDown /> : <FiChevronRight />}
+              {expandedItem === 'products' ? (
+                <FiChevronDown className={styles.chevronIcon} />
+              ) : (
+                <FiChevronRight className={styles.chevronIcon} />
+              )}
             </div>
             <div className={styles.subItemsContainer}>
               <div className={styles.verticalLine}></div>
@@ -75,24 +81,27 @@ const Slidebar = () => {
                 <NavLink 
                   to="/seller/manage-products" 
                   className={({ isActive }) => 
-                    `${styles.subItem} ${isActive ? styles.active : ''}`
+                    isActive ? styles.subItemActive : styles.subItem
                   }
+                  style={{ textDecoration: 'none' }}
                 >
                   Manage Products
                 </NavLink>
                 <NavLink 
                   to="/seller/add-products" 
                   className={({ isActive }) => 
-                    `${styles.subItem} ${isActive ? styles.active : ''}`
+                    isActive ? styles.subItemActive : styles.subItem
                   }
+                  style={{ textDecoration: 'none' }}
                 >
                   Add Products
                 </NavLink>
                 <NavLink 
                   to="/seller/brand-management" 
                   className={({ isActive }) => 
-                    `${styles.subItem} ${isActive ? styles.active : ''}`
+                    isActive ? styles.subItemActive : styles.subItem
                   }
+                  style={{ textDecoration: 'none' }}
                 >
                   Brand Management
                 </NavLink>
@@ -104,8 +113,9 @@ const Slidebar = () => {
           <NavLink 
             to="/seller/growth" 
             className={({ isActive }) => 
-              `${styles.navItem} ${isActive ? styles.active : ''}`
+              isActive ? styles.navItemActive : styles.navItem
             }
+            style={{ textDecoration: 'none' }}
           >
             <FiTrendingUp className={`${styles.navIcon} ${isActive('/seller/growth') ? styles.activeIcon : ''}`} />
             <span>Growth</span>
@@ -115,13 +125,18 @@ const Slidebar = () => {
           <div className={`${styles.navGroup} ${expandedItem === 'ordersReviews' ? styles.expanded : ''}`}>
             <div 
               className={`${styles.navItem} ${isActive('/seller/orders') || 
-                isActive('/seller/reviews') ? styles.active : ''}`} 
+                isActive('/seller/reviews') ? styles.navItemActive : ''}`} 
               onClick={() => toggleExpand('ordersReviews')}
+              style={{ textDecoration: 'none' }}
             >
               <FiShoppingBag className={`${styles.navIcon} ${isActive('/seller/orders') || 
                 isActive('/seller/reviews') ? styles.activeIcon : ''}`} />
               <span>Orders Reviews</span>
-              {expandedItem === 'ordersReviews' ? <FiChevronDown /> : <FiChevronRight />}
+              {expandedItem === 'ordersReviews' ? (
+                <FiChevronDown className={styles.chevronIcon} />
+              ) : (
+                <FiChevronRight className={styles.chevronIcon} />
+              )}
             </div>
             <div className={styles.subItemsContainer}>
               <div className={styles.verticalLine}></div>
@@ -129,16 +144,18 @@ const Slidebar = () => {
                 <NavLink 
                   to="/seller/orders" 
                   className={({ isActive }) => 
-                    `${styles.subItem} ${isActive ? styles.active : ''}`
+                    isActive ? styles.subItemActive : styles.subItem
                   }
+                  style={{ textDecoration: 'none' }}
                 >
                   Orders
                 </NavLink>
                 <NavLink 
                   to="/seller/reviews" 
                   className={({ isActive }) => 
-                    `${styles.subItem} ${isActive ? styles.active : ''}`
+                    isActive ? styles.subItemActive : styles.subItem
                   }
+                  style={{ textDecoration: 'none' }}
                 >
                   Reviews
                 </NavLink>
@@ -150,8 +167,9 @@ const Slidebar = () => {
           <NavLink 
             to="/seller/settings" 
             className={({ isActive }) => 
-              `${styles.navItem} ${isActive ? styles.active : ''}`
+              isActive ? styles.navItemActive : styles.navItem
             }
+            style={{ textDecoration: 'none' }}
           >
             <FiSettings className={`${styles.navIcon} ${isActive('/seller/settings') ? styles.activeIcon : ''}`} />
             <span>Settings</span>
@@ -161,8 +179,9 @@ const Slidebar = () => {
           <NavLink 
             to="/seller/my-profile" 
             className={({ isActive }) => 
-              `${styles.navItem} ${isActive ? styles.active : ''}`
+              isActive ? styles.navItemActive : styles.navItem
             }
+            style={{ textDecoration: 'none' }}
           >
             <FiUser className={`${styles.navIcon} ${isActive('/seller/my-profile') ? styles.activeIcon : ''}`} />
             <span>My Profile</span>

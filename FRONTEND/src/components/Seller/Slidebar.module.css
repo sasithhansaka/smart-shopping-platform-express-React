@@ -10,7 +10,6 @@
   width: 250px;
   background-color: #FFFFFF;
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   position: relative;
   z-index: 10;
 }
@@ -22,7 +21,7 @@
 
 .sidebarHeader h2 {
   margin: 0;
-  font-size: 25px;
+  font-size: 28px;
   font-weight: bold;
   color: #000000;
   text-align: center;
@@ -31,42 +30,59 @@
 }
 
 .sidebarNav {
-  padding: 15px 0;
+  padding: 30px 0;
 }
 
-.navItem {
+.navItem, .navItemActive {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  margin: 1px 20px 1px 25px;
+  border-radius: 24px;
+  padding: 6px 10px;
   color: #9A9A9A;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .navItem:hover {
-  background-color: #f0f7ff;
   color: #147AFF;
 }
 
-.navItem:hover .navIcon {
+.navItemActive {
   color: #147AFF;
-}
-
-.navItem.active {
-  background-color: #f0f7ff;
-  color: #147AFF;
+  background-color: #147aff3a;
   font-weight: 500;
 }
 
 .navIcon {
   margin-right: 12px;
-  color: #9A9A9A;
+  color: #7D7D7D;
   font-size: 18px;
   transition: color 0.2s ease;
+
 }
 
 .navIcon.activeIcon {
   color: #147AFF;
+  background-color: #147aff00;
+}
+
+.navIcon:hover {
+  color: #147AFF;
+} 
+
+
+.chevronIcon {
+  margin-left: auto;
+  color: #7D7D7D;
+}
+
+.navItemActive .chevronIcon,
+.navItem:hover .chevronIcon {
+  color: #147AFF;
+  background-color: #147aff00;
 }
 
 .navGroup {
@@ -85,33 +101,33 @@
 .verticalLine {
   width: 2px;
   background-color: #e0e0e0;
-  margin-left: 30px;
+  margin-left: 40px;
   min-height: 100%;
 }
 
 .subItems {
   flex: 1;
   padding-left: 15px;
-  background-color: #f9f9f9;
+  background-color: transparent;
 }
 
-.subItem {
+.subItem, .subItemActive {
   display: block;
-  padding: 10px 20px;
+  padding: 10px 2px;
   color: #666;
   font-size: 14px;
   transition: all 0.2s ease;
   position: relative;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .subItem:hover {
   color: #147AFF;
-  background-color: #f0f7ff;
 }
 
-.subItem.active {
+.subItemActive {
   color: #147AFF;
-  background-color: #f0f7ff;
   font-weight: 500;
 }
 
@@ -120,3 +136,10 @@
   padding: 20px;
   background-color: #ffffff;
 }
+
+
+.navItemActive span {
+  background-color: #147aff00;
+
+}
+
