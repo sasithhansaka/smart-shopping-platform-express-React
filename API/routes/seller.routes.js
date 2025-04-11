@@ -14,7 +14,7 @@ const SellerRoutes = express.Router();
 
 SellerRoutes.post("/",authenticateUser, authorize(["customer"]) ,SellerRegister);
 SellerRoutes.put("/",authenticateUser,authorize(["seller"]) ,UpdateSeller);
-SellerRoutes.get("/",authenticateUser,authorize(["customer"]), SellerDetailsById);
+SellerRoutes.get("/",authenticateUser,authorize(["customer","seller"]), SellerDetailsById);
 SellerRoutes.delete("/",authenticateUser,authorize(["seller"]), deleteSeller);
 
 export default SellerRoutes;
