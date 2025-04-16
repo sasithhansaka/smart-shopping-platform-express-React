@@ -24,7 +24,7 @@
   font-size: 28px;
   font-weight: bold;
   color: #000000;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -139,4 +139,8 @@
 
 }
 
+
+.mainContent{
+  margin-left:80px;
+}
 

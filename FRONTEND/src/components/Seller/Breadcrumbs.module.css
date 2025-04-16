@@ -5,23 +5,25 @@
     color: #666;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
     padding-bottom: 15px;
+    margin: 40px 0px 5px 0px;
   }
   
   .link {
-    color: #147AFF;
+    color: #969696;
     text-decoration: none;
     transition: color 0.2s ease;
+    font-size: 16px;
   }
   
-  .link:hover {
+  /* .link:hover {
     text-decoration: underline;
   }
-  
+   */
   .current {
-    color: #333;
+    color: #000000;
     font-weight: 500;
+    font-size: 16px;
   }
   
   .separator {

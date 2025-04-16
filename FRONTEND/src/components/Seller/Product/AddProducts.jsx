@@ -1,15 +1,15 @@
-import React from 'react'
-import Breadcrumbs from '../Breadcrumbs'
-
+import React from "react";
+import Breadcrumbs from "../Breadcrumbs";
+import styles from "./AddProducts.module.css";
 
 function AddProducts() {
+  
   return (
     <div>
-              <Breadcrumbs />
-      <h1>Add Products</h1>
-      <p>This is the Add Products page.</p>
+      <Breadcrumbs />
+      <h3 className={styles.addProductTitle}>Add Products</h3>
     </div>
-  )
+  );
 }
 
-export default AddProducts
+export default AddProducts;
