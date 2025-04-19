@@ -57,13 +57,13 @@ const productSchema = new Schema({
   }, //Minimum stock before triggering a warning.
   images: {
     type: [String], // Array of image URLs
-    // required: [true, "At least 3 images are required"],
-    // validate: {
-    //   validator: function (v) {
-    //     return v.length >= 3; // Ensures minimum 3 images
-    //   },
-    //   message: "A product must have at least 3 images",
-    // },
+    required: [true, "At least 3 images are required"],
+    validate: {
+      validator: function (v) {
+        return v.length >= 3; // Ensures minimum 3 images
+      },
+      message: "A product must have at least 3 images",
+    },
   },
   thumbnail: {
     type: String,
@@ -76,13 +76,13 @@ const productSchema = new Schema({
   },
   colors: {
     type: [String],
-    // required: [true, "At least one color is required"],
-    // validate: {
-    //   validator: function (v) {
-    //     return v.length >= 1;
-    //   },
-    //   message: "A product must have at least one color",
-    // },
+    required: [true, "At least one color is required"],
+    validate: {
+      validator: function (v) {
+        return v.length >= 1;
+      },
+      message: "A product must have at least one color",
+    },
   },
   isDeleted: {
     type: Boolean,
