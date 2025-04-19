@@ -130,6 +130,7 @@ const UpdateSeller = async (req, res, next) => {
 };
 
 const SellerDetailsById = async (req, res, next) => {
+  // console.log("SellerDetailsById called");
   const sellerId = req.user.sellerId;
 
   const sellerExist = await SelleModel.findById(sellerId);
@@ -141,7 +142,7 @@ const SellerDetailsById = async (req, res, next) => {
     });
   }
   try {
-    res.status(HttpStatus.ok).json({
+    res.status(HttpStatus.OK).json({
       success: true,
       message: "seller found",
       sellerExist,
@@ -152,12 +153,11 @@ const SellerDetailsById = async (req, res, next) => {
 };
 
 const deleteSeller = async (req, res, next) => {
-
   const sellerId = req.user.sellerId;
 
-  console.log('Seller ID:', sellerId);
+  console.log("Seller ID:", sellerId);
 
-  const sellerExist = await CustomerModel.find(sellerId); 
+  const sellerExist = await CustomerModel.find(sellerId);
 
   if (!sellerExist) {
     return res.status(HttpStatus.BAD_REQUEST).json({
@@ -167,7 +167,7 @@ const deleteSeller = async (req, res, next) => {
   }
 
   try {
-    const sellerToDelete = await SelleModel.find(sellerId); 
+    const sellerToDelete = await SelleModel.find(sellerId);
 
     if (!sellerToDelete) {
       return res.status(HttpStatus.BAD_REQUEST).json({
@@ -178,7 +178,7 @@ const deleteSeller = async (req, res, next) => {
 
     const deleteSeller = await SelleModel.deleteOne(sellerId);
 
-    console.log('Delete Seller:', deleteSeller);
+    console.log("Delete Seller:", deleteSeller);
 
     if (!deleteSeller) {
       return res.status(HttpStatus.BAD_REQUEST).json({
@@ -192,9 +192,8 @@ const deleteSeller = async (req, res, next) => {
       message: "Seller deleted successfully",
     });
   } catch (err) {
-    next(err); 
+    next(err);
   }
 };
-
 
 export { SellerRegister, UpdateSeller, SellerDetailsById, deleteSeller };

@@ -9,12 +9,26 @@ import {
 import { authenticateUser } from "../middlewares/auth.middleware.js";
 import authorize from "../middlewares/role.middleware.js";
 
-
 const SellerRoutes = express.Router();
 
-SellerRoutes.post("/",authenticateUser, authorize(["customer"]) ,SellerRegister);
-SellerRoutes.put("/",authenticateUser,authorize(["seller"]) ,UpdateSeller);
-SellerRoutes.get("/",authenticateUser,authorize(["customer","seller"]), SellerDetailsById);
-SellerRoutes.delete("/",authenticateUser,authorize(["seller"]), deleteSeller);
+SellerRoutes.post(
+  "/",
+  authenticateUser,
+  authorize(["seller", "customer"]),
+  SellerRegister
+);
+SellerRoutes.put(
+  "/",
+  authenticateUser,
+  authorize(["seller", "customer"]),
+  UpdateSeller
+);
+SellerRoutes.get(
+  "/",
+  authenticateUser,
+  authorize(["seller", "customer"]),
+  SellerDetailsById
+);
+SellerRoutes.delete("/", authenticateUser, authorize(["seller"]), deleteSeller);
 
 export default SellerRoutes;
