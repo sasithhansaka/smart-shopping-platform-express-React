@@ -42,12 +42,12 @@
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background-color: #4a6cf7;
-    color: white;
+    background-color: #147aff3a;
+    color: #147AFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     box-shadow: 0 4px 10px rgba(74, 108, 247, 0.2);
   }
@@ -58,9 +58,10 @@
   
   .profileInfo h1 {
     margin: 0;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 600;
     color: #1e293b;
+    text-transform: uppercase;
   }
   
   .accountType {
@@ -75,12 +76,12 @@
   
   /* Button Styles */
   .editButton, .saveButton {
-    background-color: #4a6cf7;
-    color: white;
+    background-color: #147aff3a;
+    color: #147AFF;
     border: none;
-    border-radius: 6px;
+    border-radius: 20px;
     padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -88,7 +89,7 @@
   }
   
   .editButton:hover, .saveButton:hover {
-    background-color: #3b5bea;
+    /* background-color: #0b73fc; */
     box-shadow: 0 4px 8px rgba(74, 108, 247, 0.3);
   }
   
@@ -96,9 +97,9 @@
     background-color: transparent;
     color: #64748b;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
+    border-radius: 20px;
+    padding: 0.55rem 1rem;
+    font-size: 0.65rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;

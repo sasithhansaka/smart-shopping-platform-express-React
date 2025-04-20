@@ -130,10 +130,10 @@ function MyProfile() {
     return (
       <div className={styles.container}>
         <Breadcrumbs />
-        <div className={styles.loadingContainer}>
+        {/* <div className={styles.loadingContainer}>
           <div className={styles.spinner}></div>
           <p>Loading profile information...</p>
-        </div>
+        </div> */}
       </div>
     );
   }
@@ -172,7 +172,7 @@ function MyProfile() {
           <div>
             {!isEditing ? (
               <button className={styles.editButton} onClick={toggleEditMode}>
-                Edit Profile
+                Edit
               </button>
             ) : (
               <div className={styles.editActions}>
@@ -180,7 +180,7 @@ function MyProfile() {
                   Cancel
                 </button>
                 <button className={styles.saveButton} onClick={handleSubmit}>
-                  Save Changes
+                  Save 
                 </button>
               </div>
             )}
@@ -277,20 +277,7 @@ function MyProfile() {
           </form>
         </div>
 
-        {/* <div className={styles.profileStats}>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>0</div>
-            <div className={styles.statLabel}>Products Listed</div>
-          </div>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>0</div>
-            <div className={styles.statLabel}>Total Sales</div>
-          </div>
-          <div className={styles.statCard}>
-            <div className={styles.statNumber}>0%</div>
-            <div className={styles.statLabel}>Positive Ratings</div>
-          </div>
-        </div> */}
+      
 
         <div className={styles.profileActivity}>
           <h2>Recent Activity</h2>
