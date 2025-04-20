@@ -9,3 +9,9 @@
   gap: 20px;
   margin-top: 20px;
 }
+
+.detailsContainer{
+  width:800px;
+  height: auto;
+  background-color: rgb(20, 101, 171);
+}
