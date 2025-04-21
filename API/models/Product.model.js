@@ -120,12 +120,12 @@ const productSchema = new Schema({
   },
   isApproved: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   status: {
     type: String,
     enum: ["active", "inactive", "pending", "deleted"],
-    default: "pending",
+    default: "active",
   },
   maxBuyCount: {
     type: Number,
