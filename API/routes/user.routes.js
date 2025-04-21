@@ -7,6 +7,7 @@ import {
   updateAccount,
   deleteAccount,
   addFeedback,
+  getUser
 } from "../controllers/user.controller.js";
 
 const userRoutes = express.Router();
@@ -28,8 +29,15 @@ userRoutes.post(
 userRoutes.patch(
   "/customer/update",
   authenticateUser,
-  authorize("customer","seller"),
+  authorize(["customer", "seller"]),
   updateAccount
+);
+
+userRoutes.get(
+  "/customer",
+  authenticateUser,
+  authorize(["customer", "seller"]),
+  getUser
 );
 
 userRoutes.delete(

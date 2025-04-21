@@ -105,4 +105,26 @@ const deleteAccount = async (req, res, next) => {
   }
 };
 
-export { changePassword, updateAccount, deleteAccount, addFeedback };
+const getUser = async (req, res, next) => {
+  const userId = req.user._id;
+
+  try {
+    const user = await CustomerModel.findById(userId).select("-hash -salt");
+    if (!user) {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    res.status(HttpStatus.OK).json({
+      success: true,
+      message: "User details retrieved successfully",
+      data: user,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { changePassword, updateAccount, deleteAccount, addFeedback, getUser };

@@ -18,6 +18,7 @@ import Orders from "./components/Seller/Orders-Reviews/Orders";
 import Reviews from "./components/Seller/Orders-Reviews/Reviews";
 import Settings from "./components/Seller/Settings/Settings";
 import MyProfile from "./components/Seller/Profile/MyProfile";
+import ProfilePage from "./pages/ProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/auth" element={<AuthenticationPage />} />
           <Route path="/order" element={<OrderPage />} />
           <Route path="/Seller" element={<SellerPage />} />
+          <Route path="/Profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFound />} />
         
         <Route path="/seller" element={<SellerPage />}>
