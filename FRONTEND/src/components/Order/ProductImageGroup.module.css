@@ -1,9 +1,14 @@
 .productImageGroup{
-    background-color: aqua;
     width: 120px;
+    margin-left: 80px;
+    margin-top: 20px;
 }
 
 .productImageGroup img{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 140px;
+    background-color: #CDCDCD;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #2424240c;
 }

@@ -1,11 +1,16 @@
 .productImage{
     /* width: ; */
-    width: 400px;
-    background-color: blueviolet;
-    height: 300px;
+    width: 430px;
+    height: 500px;
+    margin-left: 10px;
 }
 
 .productImage img{
     width: 100%;
     height: 100%;
+    background-color: #CDCDCD;
+    object-fit: cover;
+    border-radius: 6px;
+    border-bottom: 3px solid black;
+
 }
