@@ -8,9 +8,10 @@
 
 .sidebar {
   width: 250px;
+  height: 100%;
   background-color: #FFFFFF;
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
-  position: relative;
+  position: fixed;
   z-index: 10;
 }
 
@@ -141,7 +142,7 @@
 
 
 .mainContent{
-  margin-left:80px;
+  margin-left:330px;
 
 }
 

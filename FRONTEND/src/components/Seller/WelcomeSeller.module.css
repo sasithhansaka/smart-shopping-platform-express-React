@@ -1,20 +1,68 @@
 /* src/components/Seller/WelcomeSeller.module.css */
 .welcomeSeller {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    text-align: center;
-    border-radius: 8px;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  .welcomeSeller h1 {
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .welcomeSeller p {
-    color: #666;
-    font-size: 18px;
-    line-height: 1.6;
-  }
+  display: flex;
+  gap:50px;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 20px 0;
+}
+
+.loading {
+  font-size: 1rem;
+  color: #555;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(20, 122, 255, 0.15);
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.sellerName {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.verified {
+  color: #147AFF;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.notificationTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.notificationText {
+  margin: 4px 0 0;
+  color: #333;
+  font-size: 0.95rem;
+}
