@@ -29,7 +29,7 @@ function WelcomeSeller() {
   if (loading) {
     return (
       <div className={styles.welcomeSeller}>
-        <div className={styles.loading}>Loading seller info…</div>
+        {/* <div className={styles.loading}>Loading seller info…</div> */}
       </div>
     );
   }

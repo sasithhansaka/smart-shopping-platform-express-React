@@ -24,15 +24,17 @@
     overflow-x: auto;
   }
   
-  .productsTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+
+ .productContainer table{
+    background-color: #1a365c;
+    border-radius: 16px;
+    border: #010b17;
   }
+
   
   .productsTable th,
   .productsTable td {
-    border: 1px solid #ddd;
+    border:  1px solid #010b17;
     padding: 8px;
     text-align: left;
   }
@@ -72,4 +74,16 @@
     text-align: center;
     color: #888;
     font-size: 16px;
+  }
+
+  .productContainer{
+    /* background-color: #5f1010; */
+    padding: 20px;
+    width: 1060px;
+    height: auto;
+    border-radius: 16px;
+  }
+  .productDetailsTitle{
+    font-size: 16px;
+    margin-bottom: 20px;
   }
