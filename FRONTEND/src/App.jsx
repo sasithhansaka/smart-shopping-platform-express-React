@@ -19,6 +19,7 @@ import Reviews from "./components/Seller/Orders-Reviews/Reviews";
 import Settings from "./components/Seller/Settings/Settings";
 import MyProfile from "./components/Seller/Profile/MyProfile";
 import ProfilePage from "./pages/ProfilePage";
+import BecomeSeller from "./pages/BecomeSeller";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/order" element={<OrderPage />} />
           <Route path="/Seller" element={<SellerPage />} />
           <Route path="/Profile" element={<ProfilePage />} />
+          <Route path="/BecomeSeller" element={<BecomeSeller />} />
           <Route path="*" element={<NotFound />} />
         
         <Route path="/seller" element={<SellerPage />}>

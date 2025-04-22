@@ -1,77 +1,91 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-  /* .profilePage{
+/* .profilePage{
     
     background-color: #000000;
   } */
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #212121;
-    border-bottom: 1px solid #dee2e6;
-  }
-  
-  .brandName {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #ffffff;
-    background-color: #212121;
-  }
-  
-  .navLinks {
-    display: flex;
-    gap: 1.5rem;
-    background-color: #212121;
-    color: #ffffff;
-    margin-right: 500px;
 
-  }
-  
-  .navButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    padding: 0.5rem 0;
-    position: relative;
-    background-color: #212121;
-    color: #ffffff;
-    text-transform: uppercase;
-  }
-  
-  .navButton.active {
-    font-weight: bold;
-  }
-  
-  .navButton.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #147AFF;
-  }
-  
-  .languageSelector {
-    cursor: pointer;
-    background-color: #181818;
-    color: #ffffff;
-  }
-  
-  .mainContent {
-    flex: 1;
-    padding: 2rem;
-  }
-  
-  .content {
-    /* Add styles for your content components here */
-    /* background-color: #000000; */
-  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #212121;
+  /* border-bottom: 1px solid #dee2e6; */
+}
+
+.brandName {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: #212121;
+  font-family: "Poppins", sans-serif;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+  background-color: #212121;
+  color: #ffffff;
+  margin-right: 400px;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0.5rem 0;
+  position: relative;
+  background-color: #212121;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: 'Quantico', sans-serif; /* Added Quantico font family */
+}
+
+.navButton.active {
+  font-weight: bold;
+}
+
+.navButton.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #147aff;
+}
+
+.sellerButton {
+  background-color: #147aff;
+  border: none;
+  width: 80px;
+  height: 27px;
+  cursor: pointer;
+  border-radius: 25px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.languageSelector {
+  cursor: pointer;
+  background-color: #212121;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.mainContent {
+  /* flex: 1; */
+  /* padding: 2rem; */
+  /* background-color: aqua; */
+}
+
+.content {
+  /* Add styles for your content components here */
+  /* background-color: #000000; */
+}
