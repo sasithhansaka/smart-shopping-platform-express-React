@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './ProfilePage.module.css';
 import MyProfile from '../components/Profile/MyProfile';
+import Settings from '../components/Profile/Settings';
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState('profile');
@@ -14,7 +15,7 @@ const ProfilePage = () => {
       case 'profile':
         return <div className={styles.content}><MyProfile/></div>;
       case 'settings':
-        return <div className={styles.content}>Settings Content</div>;
+        return <div className={styles.content}><Settings/></div>;
       default:
         return <div className={styles.content}>Profile Content</div>;
     }
