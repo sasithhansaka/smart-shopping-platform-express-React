@@ -25,7 +25,6 @@ function MyProfile() {
   // Success message state
   const [successMessage, setSuccessMessage] = useState('');
 
-  // Fetch seller data on component mount
   useEffect(() => {
     const fetchSellerData = async () => {
       try {

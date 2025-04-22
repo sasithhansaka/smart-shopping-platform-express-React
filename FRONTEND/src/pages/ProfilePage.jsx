@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ProfilePage.module.css';
+import MyProfile from '../components/Profile/MyProfile';
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState('profile');
@@ -8,10 +9,10 @@ const ProfilePage = () => {
     switch (activeTab) {
       case 'shop ':
         return <div className={styles.content}>Shop Content</div>;
-      case 'Orders':
+      case 'orders':
         return <div className={styles.content}>Groups Content</div>;
       case 'profile':
-        return <div className={styles.content}>Orders Content</div>;
+        return <div className={styles.content}><MyProfile/></div>;
       case 'settings':
         return <div className={styles.content}>Settings Content</div>;
       default:
@@ -22,7 +23,7 @@ const ProfilePage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
-        <div className={styles.brandName}>BRAND NAME</div>
+        <div className={styles.brandName}>LOGO</div>
         
         <nav className={styles.navLinks}>
           <button 
@@ -33,8 +34,8 @@ const ProfilePage = () => {
           </button>
           
           <button 
-            className={`${styles.navButton} ${activeTab === 'groups' ? styles.active : ''}`}
-            onClick={() => setActiveTab('groups')}
+            className={`${styles.navButton} ${activeTab === 'orders' ? styles.active : ''}`}
+            onClick={() => setActiveTab('orders')}
           >
             ORDERS
           </button>
@@ -60,6 +61,7 @@ const ProfilePage = () => {
             SALES
           </button> */}
         </nav>
+        <button className={styles.sellerButton}>SELLER</button>
         
         <div className={styles.languageSelector}>ENGLISH</div>
       </div>
