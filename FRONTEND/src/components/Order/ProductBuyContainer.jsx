@@ -30,8 +30,8 @@ function ProductBuyContainer({
   // }, [productSellerId]);
 
   const originalPrice = productPrice;
-  const discountedPrice = originalPrice - (originalPrice * productDiscount) / 100;
-  const totalPrice = discountedPrice * quantity;
+  const discountedPrice = originalPrice + (originalPrice * productDiscount) / 100;
+  // const totalPrice = discountedPrice * quantity;
 
   const handleQuantityChange = (e) => {
     const value = parseInt(e.target.value);
@@ -39,6 +39,18 @@ function ProductBuyContainer({
       setQuantity(value);
     }
   };
+
+  const MinusIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+    </svg>
+  );
+  
+  const PlusIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+    </svg>
+  );
 
   const incrementQuantity = () => {
     if (quantity < productStock) {
@@ -77,33 +89,41 @@ function ProductBuyContainer({
             {originalPrice.toLocaleString()} LKR
           </span>
           <span className={styles.discountBadge}>save {productDiscount}%</span>
-        </div>
-        <div className={styles.discountedPrice}>
+          <div className={styles.discountedPrice}>
           {discountedPrice.toLocaleString()} LKR
         </div>
-      </div>
-
-      <div className={styles.condition}>Condition: New</div>
-
-      <div className={styles.quantitySection}>
-        <label>Quantity:</label>
-        <div className={styles.quantityControl}>
-          <button onClick={decrementQuantity} className={styles.quantityButton}>
-            -
-          </button>
-          <input
-            type="number"
-            value={quantity}
-            onChange={handleQuantityChange}
-            className={styles.quantityInput}
-            min="1"
-            max={productStock}
-          />
-          <button onClick={incrementQuantity} className={styles.quantityButton}>
-            +
-          </button>
         </div>
       </div>
+
+      <div className={styles.condition}>Condition: NEW</div>
+
+      <div className={styles.quantitySection}>
+  <label className={styles.quantityLabel}>Quantity:</label>
+  <div className={styles.quantityControl}>
+    <button 
+      onClick={decrementQuantity} 
+      className={styles.quantityButton}
+      disabled={quantity <= 1}
+    >
+      <MinusIcon className={styles.quantityIcon} />
+    </button>
+    <input
+      type="number"
+      value={quantity}
+      onChange={handleQuantityChange}
+      className={styles.quantityInput}
+      min="1"
+      max={productStock}
+    />
+    <button 
+      onClick={incrementQuantity} 
+      className={styles.quantityButton}
+      disabled={quantity >= productStock}
+    >
+      <PlusIcon className={styles.quantityIcon} />
+    </button>
+  </div>
+</div>
 
       {/* <div className={styles.totalPrice}>
         Total: {totalPrice.toLocaleString()} LKR
