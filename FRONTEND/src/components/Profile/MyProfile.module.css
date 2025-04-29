@@ -1,0 +1,231 @@
+.profileContainer {
+  padding: 50px 10px 20px 150px;
+  color: #333;
+  background-color: #000000;
+}
+
+.profileTitle {
+  color: #ddd;
+  width: 110px;
+  height: 40px;
+  border-radius: 35px;
+  border: 1px solid #147aff39;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #147aff2c;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-left: 12px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  /* padding: 10px; */
+  background-color: #181818;
+  width: 1272px;
+  height: 168px;
+  border-radius: 10px;
+}
+
+.profileImage {
+  width: 120px;
+  height: 115px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  margin-right: 20px;
+  overflow: hidden;
+  margin-left: 70px;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.profileInfo {
+  flex-grow: 1;
+  background-color: #181818;
+}
+
+.profileInfo h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  background-color: #181818;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.verifiedBadge {
+  margin: 5px 0 0;
+  color: #928e8e;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #181818;
+  font-family: "Poppins", sans-serif;
+}
+
+.editButton {
+  background-color: #147aff;
+  border: 1px solid #147aff;
+  /* padding: 8px 16px; */
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 100px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  width: 84px;
+  height: 34px;
+}
+
+.editButton:hover {
+  background-color: #147aff79;
+}
+
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 20px 0;
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+  margin-top: 30px;
+  width: 1272px;
+  height: 352px;
+  border-radius: 10px;
+  padding-left: 70px;
+}
+
+.profileDetails p {
+  font-weight: 600;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  background-color: #181818;
+  margin-top: 40px;
+}
+
+.nameFields {
+  display: flex;
+  gap: 400px;
+  background-color: #181818;
+  margin-top: 30px;
+}
+
+.detailGroup {
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+  font-family: "Poppins", sans-serif;
+}
+
+.detailLabel {
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #181818;
+}
+
+.detailValue {
+  font-size: 16px;
+  background-color: #181818;
+  color: #ffffff74;
+  margin-bottom: 10px;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  background-color: #181818;
+  width: 1272px;
+  height: 352px;
+  border-radius: 10px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+  background-color: #181818;
+}
+
+.formGroup label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #181818;
+}
+
+.formGroup input {
+  font-size: 16px;
+  background-color: #181818;
+  color: #ffffff74;
+  border: #000000;
+  margin-bottom: 10px;
+}
+
+.readOnlyInput {
+  background-color: #f8f9fa;
+  color: #666;
+}
+
+.formButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancelButton {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.saveButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background-color: #45a049;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+  font-size: 14px;
+  background-color: #000000;
+}
+
+.footerLinks a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}
