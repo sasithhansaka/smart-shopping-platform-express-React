@@ -2,7 +2,7 @@
 .sellerDashboard {
   display: flex;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #F1F2F5;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -143,6 +143,7 @@
 
 .mainContent{
   margin-left:330px;
+  background-color: #F1F2F5;
 
 }
 

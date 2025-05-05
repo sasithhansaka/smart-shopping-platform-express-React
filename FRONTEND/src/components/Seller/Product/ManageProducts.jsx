@@ -52,8 +52,8 @@ function ManageProducts() {
   return (
     <div>
       <Breadcrumbs />
-      <h3 className={styles.addProductTitle}>Manage Products</h3>
-      <div style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
+      <h3 className={styles.addProductTitle}  style={{backgroundColor:"#F1F2F5"}}>Manage Products</h3>
+      <div style={{ display: "flex", gap: "20px",backgroundColor:"#F1F2F5" }}>
         {STATUS_TYPES.map((tab) => (
           <span
             key={tab}
@@ -63,6 +63,7 @@ function ManageProducts() {
               color: activeTab === tab ? "#147AFF" : "#000",
               borderBottom: activeTab === tab ? "2px solidrgb(43, 53, 66)" : "none",
               paddingBottom: "4px",
+              backgroundColor:"#F1F2F5"
             }}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -71,6 +72,7 @@ function ManageProducts() {
       </div>
       <div className={styles.productContainer}>
         <p className={styles.productDetailsTitle}>Product Details</p>
+        <div className={styles.tableDiv}>
         <table className={styles.productTable}>
           <thead>
             <tr>
@@ -135,6 +137,7 @@ function ManageProducts() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

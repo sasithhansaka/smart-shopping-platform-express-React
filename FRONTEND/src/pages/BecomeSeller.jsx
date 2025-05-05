@@ -22,7 +22,6 @@ function BecomeSeller() {
     setMessage("");
     
     try {
-      // Simulate API call to send OTP
       await new Promise(resolve => setTimeout(resolve, 1000));
       setOtpSent(true);
       sendemail();
@@ -75,9 +74,9 @@ function BecomeSeller() {
     fetchUserData();
   }, []);
 
-  const handleVerifyOtp = async () => {
-
-    
+  const handleVerifyOtp = async (e) => {
+    e.preventDefault();
+    console.log("Verifying OTP:", otp);
     try {
       const response = await axios.post(
         "http://localhost:3000/api/emails/confirm-customer",
@@ -91,8 +90,19 @@ function BecomeSeller() {
         alert("Invalid OTP. Please try again.");
       }
     } catch (error) {
-      console.error("Error confirming OTP:", error);
-      alert("An error occurred while confirming OTP.");
+      if (error.response) {
+        // Server responded with a status other than 2xx
+        console.error("Error confirming OTP:", error.response.data);
+        alert(error.response.data.message || "An error occurred while confirming OTP.");
+      } else if (error.request) {
+        // Request was made but no response received
+        console.error("Error confirming OTP:", error.request);
+        alert("No response from the server. Please try again later.");
+      } else {
+        // Something else happened
+        console.error("Error confirming OTP:", error.message);
+        alert("An unexpected error occurred. Please try again.");
+      }
     }
   };
 
