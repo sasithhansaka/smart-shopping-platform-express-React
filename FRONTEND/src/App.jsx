@@ -63,3 +63,9 @@ export default App;
 // }
 
 // seller id =67e53d69e6c9ad24fd658a39
+
+// {
+//   "username":"sasithhr Hansaka",
+//   "password":"Str0ng!P@ssw0rd"
+// }
+
