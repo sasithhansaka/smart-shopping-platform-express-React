@@ -9,14 +9,14 @@
     text-align: center;
     padding: 2rem;
   }
-  
+
   .errorCode {
     font-size: 8rem;
     font-weight: 800;
     color: #ff4d4f;
     margin: 0;
     animation: popIn 0.6s ease-in-out;
-    background: linear-gradient(135deg, #f0f2f5, #e0e3e7);
+    background: transparent;
 
   }
   
@@ -25,7 +25,7 @@
     color: #333;
     margin-top: 0.5rem;
     animation: fadeIn 1s ease-in-out;
-    background: linear-gradient(135deg, #f0f2f5, #e0e3e7);
+    background: transparent;
 
   }
   
@@ -35,12 +35,12 @@
     margin-top: 0.5rem;
     max-width: 400px;
     animation: fadeIn 1.2s ease-in-out;
-    background: linear-gradient(135deg, #f0f2f5, #e0e3e7);
+    background: transparent;
   }
   
   .button {
     margin-top: 2rem;
-    background-color: #0070f3;
+    background-color: #8a8a8b;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -50,9 +50,6 @@
     transition: background-color 0.3s ease;
   }
   
-  .button:hover {
-    background-color: #005fcc;
-  }
   
   @keyframes popIn {
     0% {
