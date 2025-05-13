@@ -52,8 +52,13 @@ function ManageProducts() {
   return (
     <div>
       <Breadcrumbs />
-      <h3 className={styles.addProductTitle}  style={{backgroundColor:"#F1F2F5"}}>Manage Products</h3>
-      <div style={{ display: "flex", gap: "20px",backgroundColor:"#F1F2F5" }}>
+      <h3
+        className={styles.addProductTitle}
+        style={{ backgroundColor: "#F1F2F5" }}
+      >
+        Manage Products
+      </h3>
+      <div style={{ display: "flex", gap: "30px", backgroundColor: "#F1F2F5" }}>
         {STATUS_TYPES.map((tab) => (
           <span
             key={tab}
@@ -61,9 +66,11 @@ function ManageProducts() {
             style={{
               cursor: "pointer",
               color: activeTab === tab ? "#147AFF" : "#000",
-              borderBottom: activeTab === tab ? "2px solidrgb(43, 53, 66)" : "none",
-              paddingBottom: "4px",
-              backgroundColor:"#F1F2F5"
+              borderBottom:
+                activeTab === tab ? "2px solidrgb(43, 53, 66)" : "none",
+              paddingBottom: "20px",
+              paddingTop: "20px",
+              backgroundColor: "#F1F2F5",
             }}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -71,72 +78,77 @@ function ManageProducts() {
         ))}
       </div>
       <div className={styles.productContainer}>
-        <p className={styles.productDetailsTitle}>Product Details</p>
         <div className={styles.tableDiv}>
-        <table className={styles.productTable}>
-          <thead>
-            <tr>
-              <th>Product Info</th>
-              <th>Price</th>
-              <th>Stock</th>
-              <th>Active</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((product) => (
-              <tr key={product._id}>
-                <td>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
-                    }}
-                  >
-                    <img src={product.images?.[0]} alt="Product" width="50" />
-                    {product.long_title}
-                  </div>
-                </td>
-                {product.isApproved === false ? (
-                  <td colSpan="3">
+          <p className={styles.productDetailsTitle}>Product Details</p>
+          <table className={styles.productTable}>
+            <thead>
+              <tr>
+                <th>Product Info</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Active</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((product) => (
+                <tr key={product._id}>
+                  <td>
                     <div
                       style={{
-                        padding: "10px",
-                        background: "#E6F4EA",
-                        color: "#333",
-                        borderRadius: "5px",
+                        display: "flex",
+                        alignItems: "center",
+
+
+                        gap: "10px",
+                        backgroundColor:"#F9FBFF",
+                      
                       }}
                     >
-                      Product Will Be Activated After Passing QC.{" "}
-                      <strong>Updated On: 2025-04-04</strong>
+                      <img src={product.images?.[0]} alt="Product" width="50" height="50" style={{backgroundColor:"#F5F8FD",borderRadius:"10px"}} />
+                      <p className={styles.productLongTitle}>{product.long_title}</p>
                     </div>
                   </td>
-                ) : (
-                  <>
-                    <td>{product.price}</td>
-                    <td>{product.stock}</td>
-                    <td>
-                      <button
-                        onClick={() => toggleActiveStatus(product)}
+                  {product.isApproved === false ? (
+                    <td colSpan="3">
+                      <div
                         style={{
-                          backgroundColor:
-                            product.status === "active" ? "#147AFF" : "black",
-                          border: "none",
-                          padding: "6px 12px",
-                          color: "white",
-                          borderRadius: "20px",
-                          cursor: "pointer",
+                          padding: "5px",
+                          background: "#E6F4EA",
+                          color: "#333",
+                          borderRadius: "5px",
+                          fontSize: "13px",
                         }}
                       >
-                        {product.status === "active" ? "Active" : "Inactive"}
-                      </button>
+                        Product Will Be Activated After Passing QC.
+                        <strong style={{backgroundColor:'#E6F4EA'}}>Updated Before: 2025-06-04</strong>
+                      </div>
                     </td>
-                  </>
-                )}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  ) : (
+                    <>
+                      <td className={styles.productPrice}>LKR.{product.price}.00</td>
+                      <td>{product.stock}</td>
+                      <td>
+                        <button
+                          onClick={() => toggleActiveStatus(product)}
+                          style={{
+                            backgroundColor:
+                              product.status === "active" ? "#147AFF" : "black",
+                            border: "none",
+                            padding: "6px 12px",
+                            color: "white",
+                            borderRadius: "20px",
+                            cursor: "pointer",
+                          }}
+                        >
+                          {product.status === "active" ? "Active" : "Inactive"}
+                        </button>
+                      </td>
+                    </>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

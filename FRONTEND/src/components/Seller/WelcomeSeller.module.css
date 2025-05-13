@@ -1,12 +1,14 @@
 /* src/components/Seller/WelcomeSeller.module.css */
 .welcomeSeller {
   display: flex;
-  gap:50px;
+  gap: 50px;
   justify-content: flex-start;
   align-items: stretch;
-  /* margin: 20px 0; */
-  background-color: #F5F6F9;
+  margin: 20px 0;
+  background-color: #F1F2F5;
   height: auto;
+  font-family: "Poppins", sans-serif;
+  
 }
 
 .loading {
@@ -24,6 +26,8 @@
   display: flex;
   align-items: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 558px;
+  height: 100px;
 }
 
 .card:hover {
@@ -52,7 +56,7 @@
 }
 
 .verified {
-  color: #147AFF;
+  color: #147aff;
   margin-top: 4px;
   font-weight: 500;
 }

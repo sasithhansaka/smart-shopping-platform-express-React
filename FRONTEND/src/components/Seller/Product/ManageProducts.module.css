@@ -4,6 +4,14 @@
   height: auto;
   border-radius: 16px;
   background-color: #F1F2F5;
+      font-family: 'Poppins', sans-serif;
+
+}
+
+.addProductTitle {
+  color: #5d5a5a;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 body{
@@ -13,16 +21,15 @@ body{
 .tableDiv{
   padding: 20px;
   background-color: #ffffff;
+  border-radius: 16px;
 }
 
 .productTable {
-  border-radius: 36px;
   width: 100%;
-  border-collapse: collapse; /* Ensures proper border rendering */
-  border-top-right-radius: 19px;
-  border-top-left-radius: 19px; /* Rounded corners for the header */
-  border: 1px solid #147aff2d; /* Blue horizontal border */
-  padding: 20px;
+  
+  border: 1px solid #147aff13; /* Blue horizontal border */
+  /* padding: 20px; */
+  background-color: #ffffff;
 }
 
 .productTable th {
@@ -43,7 +50,7 @@ body{
 .productDetailsTitle {
   font-size: 16px;
   /* margin-bottom: 20px; */
-  background-color: #F1F2F5;
+  background-color: #ffffff;
 }
 
 .tabContainer {
@@ -106,4 +113,14 @@ body{
   text-align: center;
   color: #888;
   font-size: 16px;
+}
+
+.productLongTitle{
+  font-size: 14px;
+  background-color: #F5F8FD;
+  margin-top: 10px;
+}
+
+.productPrice{
+  font-size: 13px;
 }
