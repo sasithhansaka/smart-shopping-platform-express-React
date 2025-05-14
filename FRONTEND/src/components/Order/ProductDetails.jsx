@@ -18,7 +18,7 @@ function ProductDetails({
         <p>17, ratings</p>
       </div>
       <p style={{fontSize:'13px',marginTop:'5px'}}>9K+ bought in past month</p>
-      <div className={styles.colorsContainer}>
+      <div className={styles.OredrcolorsContainer}>
         {productColors.map((color, index) => (
           <div
             key={index}
@@ -27,7 +27,7 @@ function ProductDetails({
           ></div>
         ))}
       </div>
-            <p style={{marginTop:'10px',fontWeight:'600'}}>Abouth this item</p>
+            <p style={{fontWeight:'600',marginTop:'5px'}}>Abouth this item</p>
 <hr></hr>
 
       <div className={styles.productDescription}>

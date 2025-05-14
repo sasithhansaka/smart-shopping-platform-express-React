@@ -19,10 +19,10 @@
   color: aqua;
 }
 
-.productDetailsContainer .colorsContainer {
+.productDetailsContainer .OredrcolorsContainer {
   display: flex;
   gap: 14px;
-  margin-top: 5px;
+  margin-top: -15px;
   border-left: 4px solid #147AFF;
 ;
 }
@@ -52,7 +52,10 @@
   font-size: 14px;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
-
+  /* align-items: center;
+  display: flex;
+  justify-content: center; */
+  margin-top: 23px;
 }
 
 .productRatingContainer img {
@@ -64,7 +67,7 @@
   width: 450px;
   height: 350px;
   padding: 10px;
-  margin-top: 5px;
+  margin-top: -10px;
 }
 
 .productDescription p{
