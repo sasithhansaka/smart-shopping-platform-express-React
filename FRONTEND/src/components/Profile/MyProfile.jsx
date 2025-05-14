@@ -108,6 +108,7 @@ function MyProfile() {
 
       {isEditing ? (
         <form onSubmit={handleSubmit} className={styles.editForm}>
+                    <p className={styles.ProfileTitle}>Personal Information</p>
           <div className={styles.nameFields}>
             <div className={styles.formGroup}>
               <label>First Name</label>
@@ -158,7 +159,7 @@ function MyProfile() {
               Cancel
             </button>
             <button type="submit" className={styles.saveButton}>
-              Save Changes
+              Save
             </button>
           </div>
         </form>

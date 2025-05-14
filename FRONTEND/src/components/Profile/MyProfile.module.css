@@ -119,7 +119,7 @@
   display: flex;
   gap: 400px;
   background-color: #181818;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .detailGroup {
@@ -154,6 +154,7 @@
   width: 1272px;
   height: 352px;
   border-radius: 10px;
+  margin-top: 30px;
 }
 
 .formGroup {
@@ -188,35 +189,52 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 20px;
+  color: #ffffff;
+  background-color: #181818;
+  width: 1272px;
+  /* height: 352px; */
+  border-radius: 10px;
+  margin-top: 30px;
+  align-items: center;
+  padding: 20px;
 }
 
 .cancelButton {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa;
   border: 1px solid #ddd;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
+  width: 60px;
+  height: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center; */
+  background-color: white;
+  border: 1px solid #d0d7de;
+  color: black;
+  padding: 10px 26px;
+  border-radius: 8px;
+  /* font-weight: 600; */
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
 }
 
 .saveButton {
-  background-color: #4caf50;
-  color: white;
+  background-color: #007bff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  color: white;
+  padding: 10px 26px;
+  border-radius: 8px;
   cursor: pointer;
-}
-
-.saveButton:hover {
-  background-color: #45a049;
+  font-family: "Poppins", sans-serif;
 }
 
 .footerLinks {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  margin-top: 30px;
+  margin-top: 80px;
   font-size: 14px;
   background-color: #000000;
 }
@@ -228,4 +246,14 @@
 
 .footerLinks a:hover {
   text-decoration: underline;
+}
+
+.ProfileTitle {
+  font-weight: 600;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  background-color: #181818;
+  margin-top: 40px;
+  padding-left: 70px;
 }
