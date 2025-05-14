@@ -3,15 +3,25 @@ import OrderModel from "../models/Order.model.js";
 
 const addOrder = async (req, res, next) => {
   try {
-    const order = await OrderModel.create(req.body);
+    const customerId = req.user._id;
+
+    const orderData = {
+      ...req.body,
+      customerId
+    };
+
+    const order = await OrderModel.create(orderData);
+
     return res.status(HttpStatus.CREATED).json({
       success: true,
       message: "Order added successfully",
+      order // optionally return the order data
     });
   } catch (err) {
     next(err);
   }
 };
+
 
 const updateOrder = async (req, res, next) => {
   const orderId = req.params._id;

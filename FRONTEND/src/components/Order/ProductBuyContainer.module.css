@@ -87,7 +87,7 @@
 .originalPrice {
   /* text-decoration: line-through; */
   color: #ffffff;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   background-color: #242424;
@@ -110,7 +110,7 @@
 }
 
 .discountedPrice {
-  font-size: 18px;
+  font-size: 14px;
   color: #949494;
   background-color: #242424;
 }

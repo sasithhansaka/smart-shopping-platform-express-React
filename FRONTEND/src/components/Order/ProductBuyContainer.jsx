@@ -8,6 +8,7 @@ function ProductBuyContainer({
   productDiscount,
   productStock,
   productSellerId,
+  productId,
 }) {
   const [seller, setSeller] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -39,6 +40,39 @@ function ProductBuyContainer({
     const value = parseInt(e.target.value);
     if (!isNaN(value) && value > 0 && value <= productStock) {
       setQuantity(value);
+    }
+  };
+
+  const handleBuyNow = async () => {
+    const data = {
+      items: {
+        productId,
+        quantity,
+        price: productPrice,
+        discountPercentage: productDiscount,
+      },
+      totalamount: productPrice * quantity, // or use discounted price if needed
+      shippingAddress: {
+        address: "123 Main Street",
+        city: "Colombo",
+        postal_code: "10000",
+        country: "Sri Lanka",
+      },
+    };
+
+    try {
+      console.log("Order data:", data);
+      const response = await axios.post(
+        "http://localhost:3000/api/order",
+        data,
+        { withCredentials: true }
+      );
+
+      alert("Order placed successfully!");
+      console.log("Order response:", response.data);
+    } catch (error) {
+      console.error("Error placing order:", error);
+      alert("Failed to place order. Please try again.");
     }
   };
 
@@ -158,7 +192,9 @@ function ProductBuyContainer({
       </div> */}
 
       <div className={styles.buttonGroup}>
-        <button className={styles.buyNowButton}>Buy Now</button>
+        <button className={styles.buyNowButton} onClick={handleBuyNow}>
+          Buy Now
+        </button>
         <button className={styles.addToCartButton}>Add to cart</button>
       </div>
 

@@ -11,7 +11,7 @@ function OrderPage() {
   const [product, setProduct] = useState(null);
   const [selectIndex, setSelectIndex] = useState("0");
 
-  const PRODUCTID = "680661bb7cdeb68f20d9093d";
+  const PRODUCTID = "6824361b9e3e21e745583786";
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -61,6 +61,7 @@ function OrderPage() {
             productDiscount={product.discountPercentage}
             productStock={product.stock}
             productSellerId={product.sellerId}
+            productId={PRODUCTID}
             />
             
           </div>
