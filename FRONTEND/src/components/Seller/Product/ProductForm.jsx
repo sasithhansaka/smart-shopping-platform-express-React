@@ -171,14 +171,6 @@ function ProductForm() {
     "Pink",
     "Brown",
     "Orange",
-    "Cyan",
-    "Magenta",
-    "Beige",
-    "Maroon",
-    "Navy",
-    "Teal",
-    "Lime",
-    "Olive",
     "Gold",
   ];
 
@@ -230,54 +222,60 @@ function ProductForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <div className={styles.detailsContainer}>
-        <h1>Basic Information</h1>
-        <label>Product Short Name</label>
-        <input
-          type="text"
-          name="short_title"
-          placeholder="Ex : nikon coolpix a300 digital cemara"
-          maxLength="40"
-          value={short_title}
-          onChange={handleShortTitle}
-          required
-        />
-
-        <label>Product long Name</label>
-        <input
-          type="text"
-          name="long_title"
-          placeholder="Ex : nikon coolpix a300 digital cemara"
-          maxLength="300"
-          value={long_title}
-          onChange={handleLongTitle}
-          required
-        />
-
-        <label>Category</label>
-        <select
-          name="category"
-          value={category}
-          onChange={handleCategory}
-          required
-        >
-          <option value="">Select your product category</option>
-          <option value="Sports">Sports</option>
-          <option value="Gaming">Gaming</option>
-          <option value="Earphones">Earphones</option>
-        </select>
-
-        <div className={styles.imageUploadSection}>
-          {/* <h3>Product Images (Minimum 3 required)</h3> */}
-          <label>Product Images</label>
+    <div>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.detailsContainer}>
+          <h1>Basic Information</h1>
+          <label>Product Short Name</label>
           <input
-            type="file"
-            multiple
-            accept="image/*"
-            onChange={handleImageUpload}
+            type="text"
+            name="short_title"
+            placeholder="Ex : nikon coolpix a300 digital cemara"
+            maxLength="40"
+            value={short_title}
+            onChange={handleShortTitle}
+            required
           />
-          {imageError && <p className={styles.errorMessage}>{imageError}</p>}
+
+          <label>Product long Name</label>
+          <input
+            type="text"
+            name="long_title"
+            placeholder="Ex : nikon coolpix a300 digital cemara"
+            maxLength="300"
+            value={long_title}
+            onChange={handleLongTitle}
+            required
+          />
+
+          <label>Category</label>
+          <select
+            name="category"
+            value={category}
+            onChange={handleCategory}
+            required
+          >
+            <option value="">Select your product category</option>
+            <option value="Sports">Sports</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Earphones">Earphones</option>
+            <option value="Toys">Toys</option>
+          </select>
+          <label>Product Images</label>
+
+          <div className={styles.uploadWrapper}>
+            <label className={styles.customFileUpload}>
+              <span className={styles.plusIcon}>＋</span>
+              <input
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={handleImageUpload}
+                className={styles.hiddenInput}
+              />
+            </label>
+            {imageError && <p className={styles.errorMessage}>{imageError}</p>}
+          </div>
 
           {imagePreviewUrls.length > 0 && (
             <div className={styles.imagePreviewContainer}>
@@ -303,110 +301,128 @@ function ProductForm() {
             </div>
           )}
         </div>
-      </div>
 
-      <div className={styles.detailsContainer}>
-        <h1>Product Specification</h1>
-        <label>Brand</label>
-        <input
-          type="text"
-          name="brand"
-          placeholder="Brand"
-          value={brand}
-          onChange={handleBrand}
-          required
-        />
-        <label>Model</label>
-        <input
-          type="text"
-          name="model"
-          placeholder="Model"
-          value={model}
-          onChange={handleModel}
-          required
-        />
-        <div className={styles.colorSelection}>
-          <h3>Select Colors</h3>
-          <div className={styles.colorList}>
-            {worldColors.map((color) => (
-              <label key={color} className={styles.colorCheckbox}>
-                <input
-                  type="checkbox"
-                  checked={colors.includes(color)}
-                  onChange={() => handleColors(color)}
-                />
-                {color}
-              </label>
-            ))}
+        <div className={styles.detailsContainer}>
+          <h1>Product Specification</h1>
+          <label>Brand</label>
+          <input
+            type="text"
+            name="brand"
+            placeholder="Brand"
+            value={brand}
+            onChange={handleBrand}
+            required
+          />
+          <label>Model</label>
+          <input
+            type="text"
+            name="model"
+            placeholder="Model"
+            value={model}
+            onChange={handleModel}
+            required
+          />
+          <div className={styles.colorSelection}>
+            <h3>Select Colors</h3>
+            <div className={styles.colorList}>
+              {worldColors.map((color) => (
+                <label key={color} className={styles.colorSwatch}>
+                  <input
+                    type="checkbox"
+                    checked={colors.includes(color)}
+                    onChange={() => handleColors(color)}
+                  />
+                  <span
+                    className={styles.colorBox}
+                    style={{ backgroundColor: color.toLowerCase() }}
+                  ></span>
+                </label>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={styles.detailsContainer}>
-        <h1>Price, Stock & Variants</h1>
-        <input
-          type="number"
-          name="price"
-          placeholder="Price"
-          value={price}
-          onChange={handlePrice}
-          required
-          min="0"
-        />
-        <input
-          type="number"
-          name="discountPercentage"
-          placeholder="Discount %"
-          value={discountPercentage}
-          onChange={handleDiscountPercentage}
-          min="0"
-          max="100"
-        />
-        <input
-          type="number"
-          name="stock"
-          placeholder="Stock"
-          value={stock}
-          onChange={handleStock}
-          required
-          min="0"
-        />
-        <input
-          type="number"
-          name="maxBuyCount"
-          placeholder="Maximum Purchase Quantity"
-          value={maxBuyCount}
-          onChange={handleMaxBuyCount}
-          required
-          min="1"
-        />
-      </div>
+        <div className={styles.detailsContainer}>
+          <h1>Price, Stock & Variants</h1>
+          <label>Product Price</label>
 
-      <div className={styles.detailsContainer}>
-        <h1>Product Description</h1>
-        <textarea
-          name="description"
-          placeholder="Description"
-          value={description}
-          onChange={handleDescription}
-          required
-          rows="6"
-        ></textarea>
-      </div>
+          <input
+            type="number"
+            name="price"
+            placeholder="Price"
+            value={price}
+            onChange={handlePrice}
+            required
+            min="0"
+          />
+          <label>Product Discount</label>
 
-      <div className={styles.formButtons}>
-        <button
-          type="button"
-          onClick={handleReset}
-          className={styles.resetButton}
-        >
-          Reset
-        </button>
-        <button type="submit" className={styles.submitButton}>
-          Submit
-        </button>
-      </div>
-    </form>
+          <input
+            type="number"
+            name="discountPercentage"
+            placeholder="Discount %"
+            value={discountPercentage}
+            onChange={handleDiscountPercentage}
+            min="0"
+            max="100"
+          />
+          <label>Product Stock</label>
+
+          <input
+            type="number"
+            name="stock"
+            placeholder="Stock"
+            value={stock}
+            onChange={handleStock}
+            required
+            min="0"
+          />
+          <label>Product Maximum Buys</label>
+
+          <input
+            type="number"
+            name="maxBuyCount"
+            placeholder="Maximum Purchase Quantity"
+            value={maxBuyCount}
+            onChange={handleMaxBuyCount}
+            required
+            min="1"
+          />
+        </div>
+
+        <div className={styles.detailsContainer}>
+          <h1>Product Description</h1>
+          <textarea
+            name="description"
+            placeholder="Add a detailed description of the product"
+            value={description}
+            onChange={handleDescription}
+            required
+            rows="10"
+            cols={120}
+            className={styles.descriptionTextarea}
+          ></textarea>
+        </div>
+
+        <div className={styles.formButtons}>
+          <button
+            type="button"
+            onClick={handleReset}
+            className={styles.resetButton}
+          >
+            Reset
+          </button>
+          <button type="submit" className={styles.submitButton}>
+            Submit
+          </button>
+        </div>
+      </form>
+
+      {/* <div className={styles.contentScoreContainer}>
+        <h1>Content Score</h1>
+        <ContentScore />
+      </div> */}
+    </div>
   );
 }
 

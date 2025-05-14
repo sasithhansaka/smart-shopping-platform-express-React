@@ -49,7 +49,7 @@ const productSchema = new Schema({
   },
   discountPercentage: {
     type: Number,
-    default: 0,
+    // default: 0,
   },
   lowStockThreshold: {
     type: Number,
@@ -120,12 +120,12 @@ const productSchema = new Schema({
   },
   isApproved: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   status: {
     type: String,
     enum: ["active", "inactive", "pending", "deleted"],
-    default: "active",
+    default: "pending",
   },
   maxBuyCount: {
     type: Number,
