@@ -25,7 +25,6 @@ function MyProfile() {
           { withCredentials: true }
         );
         
-        // Split username into first and last names
         const username = response.data.data.username || "";
         const [firstName = "", lastName = ""] = username.split(" ");
         

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./ProfilePage.module.css";
 import MyProfile from "../components/Profile/MyProfile";
 import Settings from "../components/Profile/Settings";
+import OrderHistory from "../components/Profile/OrderHistory";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -49,7 +50,11 @@ const ProfilePage = () => {
         navigate("/"); // Redirect to home
         return null;
       case "orders":
-        return <div className={styles.content}>Groups Content</div>;
+        return (
+          <div className={styles.content}>
+            <OrderHistory />
+          </div>
+        );
       case "profile":
         return (
           <div className={styles.content}>

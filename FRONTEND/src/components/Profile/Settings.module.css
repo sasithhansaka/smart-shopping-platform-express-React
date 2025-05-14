@@ -37,7 +37,7 @@
   .settingsSection h2 {
     color: #FFFFFF;
     font-size: 18px;
-    margin-top: 0;
+    margin-top: 20px;
     margin-bottom: 15px;
     background-color: #181818;
   }
@@ -52,7 +52,7 @@
   .actionButton {
     position: absolute;
     right: 30px;
-    bottom: 30px;
+    bottom: 60px;
     background-color: #147AFF;
     color: white;
     border: none;
@@ -67,7 +67,7 @@
   .countryButton {
     position: absolute;
     right: 30px;
-    bottom: 30px;
+    bottom: 60px;
     background-color: transparent;
     color: #147aff;
     border: 1px solid #147AFF;
