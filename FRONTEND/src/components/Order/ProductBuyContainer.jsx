@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./ProductBuyContainer.module.css";
+import { FaCheckCircle } from "react-icons/fa";
 
 function ProductBuyContainer({
   productPrice,
@@ -11,27 +12,28 @@ function ProductBuyContainer({
   const [seller, setSeller] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
-  // useEffect(() => {
-  //   const fetchSeller = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://localhost:3000/api/seller/${productSellerId}`,
-  //         { withCredentials: true }
-  //       );
-  //       setSeller(response.data.data);
-  //     } catch (err) {
-  //       console.error("Error fetching seller:", err);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchSeller = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/seller/${productSellerId}`,
+          { withCredentials: true }
+        );
+        setSeller(response.data.data);
+        console.log("Seller data:", response.data.data);
+      } catch (err) {
+        console.error("Error fetching seller:", err);
+      }
+    };
 
-  //   if (productSellerId) {
-  //     fetchSeller();
-  //   }
-  // }, [productSellerId]);
+    if (productSellerId) {
+      fetchSeller();
+    }
+  }, [productSellerId]);
 
   const originalPrice = productPrice;
-  const discountedPrice = originalPrice + (originalPrice * productDiscount) / 100;
-  // const totalPrice = discountedPrice * quantity;
+  const discountedPrice =
+    originalPrice + (originalPrice * productDiscount) / 100;
 
   const handleQuantityChange = (e) => {
     const value = parseInt(e.target.value);
@@ -41,14 +43,36 @@ function ProductBuyContainer({
   };
 
   const MinusIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M20 12H4"
+      />
     </svg>
   );
-  
+
   const PlusIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 4v16m8-8H4"
+      />
     </svg>
   );
 
@@ -69,16 +93,20 @@ function ProductBuyContainer({
       {seller && (
         <div className={styles.sellerSection}>
           <div className={styles.sellerInfo}>
-            {/* <img
-              src={seller.profileImage}
+            <img
+              // src={seller.profileImage}
               alt={seller.name}
               className={styles.sellerImage}
             />
             <div>
-              <p className={styles.sellerName}>{seller.name}</p>
+              <p className={styles.sellerName}>
+                {seller.Store_name}
+                <FaCheckCircle className={styles.verifiedIcon} />
+              </p>
+
               <p className={styles.sellerLink}>Seller's other items</p>
-              <p className={styles.sellerLink}>About this seller</p>
-            </div> */}
+              {/* <p className={styles.sellerLink}>About this seller</p> */}
+            </div>
           </div>
         </div>
       )}
@@ -90,40 +118,40 @@ function ProductBuyContainer({
           </span>
           <span className={styles.discountBadge}>save {productDiscount}%</span>
           <div className={styles.discountedPrice}>
-          {discountedPrice.toLocaleString()} LKR
-        </div>
+            {discountedPrice.toLocaleString()} LKR
+          </div>
         </div>
       </div>
 
       <div className={styles.condition}>Condition: NEW</div>
 
       <div className={styles.quantitySection}>
-  <label className={styles.quantityLabel}>Quantity:</label>
-  <div className={styles.quantityControl}>
-    <button 
-      onClick={decrementQuantity} 
-      className={styles.quantityButton}
-      disabled={quantity <= 1}
-    >
-      <MinusIcon className={styles.quantityIcon} />
-    </button>
-    <input
-      type="number"
-      value={quantity}
-      onChange={handleQuantityChange}
-      className={styles.quantityInput}
-      min="1"
-      max={productStock}
-    />
-    <button 
-      onClick={incrementQuantity} 
-      className={styles.quantityButton}
-      disabled={quantity >= productStock}
-    >
-      <PlusIcon className={styles.quantityIcon} />
-    </button>
-  </div>
-</div>
+        <label className={styles.quantityLabel}>Quantity:</label>
+        <div className={styles.quantityControl}>
+          <button
+            onClick={decrementQuantity}
+            className={styles.quantityButton}
+            disabled={quantity <= 1}
+          >
+            <MinusIcon className={styles.quantityIcon} />
+          </button>
+          <input
+            type="number"
+            value={quantity}
+            onChange={handleQuantityChange}
+            className={styles.quantityInput}
+            min="1"
+            max={productStock}
+          />
+          <button
+            onClick={incrementQuantity}
+            className={styles.quantityButton}
+            disabled={quantity >= productStock}
+          >
+            <PlusIcon className={styles.quantityIcon} />
+          </button>
+        </div>
+      </div>
 
       {/* <div className={styles.totalPrice}>
         Total: {totalPrice.toLocaleString()} LKR

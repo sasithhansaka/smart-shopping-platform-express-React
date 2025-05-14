@@ -152,6 +152,31 @@ const SellerDetailsById = async (req, res, next) => {
   }
 };
 
+const SellerDetailsByRequestId = async (req, res, next) => {
+  const sellerId = req.params.id; 
+  console.log("Seller ID:", sellerId);
+
+  try {
+    const seller = await SelleModel.findById(sellerId); // Fetch seller details by ID
+
+    if (!seller) {
+      return res.status(HttpStatus.NOT_FOUND).json({
+        success: false,
+        message: "Seller not found",
+      });
+    }
+
+    res.status(HttpStatus.OK).json({
+      success: true,
+      message: "Seller details retrieved successfully",
+      data: seller,
+    });
+  } catch (err) {
+    console.error("Error fetching seller details:", err);
+    next(err); // Pass error to the error-handling middleware
+  }
+};
+
 const deleteSeller = async (req, res, next) => {
   const sellerId = req.user.sellerId;
 
@@ -196,4 +221,4 @@ const deleteSeller = async (req, res, next) => {
   }
 };
 
-export { SellerRegister, UpdateSeller, SellerDetailsById, deleteSeller };
+export { SellerRegister, UpdateSeller, SellerDetailsById, deleteSeller , SellerDetailsByRequestId };

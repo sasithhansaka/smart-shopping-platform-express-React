@@ -1,272 +1,294 @@
 .container {
-  
-    width: 340px;
-    height: 600px;
-    background-color: #242424;
-    font-family: "Poppins", sans-serif;
-    padding: 10px;
-    margin-left: 20px;
-  }
-  
-  .sellerSection {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .sellerInfo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .sellerImage {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .sellerName {
-    font-weight: bold;
-    margin: 0 0 5px 0;
-    font-size: 14px;
-  }
-  
-  .sellerLink {
-    color: #0066c0;
-    font-size: 12px;
-    margin: 3px 0;
-    cursor: pointer;
-  }
-  
-  .sellerLink:hover {
-    text-decoration: underline;
-    color: #c45500;
-  }
-  
-  .priceSection {
-    margin-bottom: 15px;
-    /* width: 340px;
+  width: 340px;
+  height: 600px;
+  background-color: #242424;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.sellerSection {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border: 1px solid #4a4a4a;
+  width: 303px;
+  height: 67px;
+  align-items: center;
+  display: flex;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+}
+
+.sellerInfo {
+  display: flex;
+  gap: 12px;
+  background-color: #2d2d2d;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.sellerImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* object-fit: cover; */
+
+  background-color: #2baffb;
+  margin-top: 1px;
+}
+
+.sellerName {
+  font-weight: bold;
+  margin: 0 0 0px 0;
+  font-size: 14px;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  /* margin-top: 1px; */
+}
+.verifiedIcon {
+  color: #0057ff; /* Blue verified checkmark */
+  font-size: 1rem;
+  background-color: #2d2d2d;
+  margin-left: 4px;
+}
+
+.sellerLink {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 0px 0px 0px 0px;
+  cursor: pointer;
+  background-color: #2d2d2d;
+  /* text-decoration: underline; */
+}
+
+.sellerLink:hover {
+  text-decoration: underline;
+}
+
+.priceSection {
+  margin-bottom: 15px;
+  /* width: 340px;
     height: 600px;
     background-color: #242424; */
-    background-color: #242424;
-    border-bottom: 2px solid #FFFFFF;
-  }
-  
-  .priceRow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 5px;
-    background-color: #242424;
-  }
-  
-  .originalPrice {
-    /* text-decoration: line-through; */
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
-    background-color: #242424;
-  }
-  
-  .discountBadge {
-    background-color: #147AFF;
-    color: white;
-    /* padding: 2px 6px; */
-    /* border-radius: 3px; */
-    font-size: 15px;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
-    width: 100px;
-    height: 25px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 5px;
-  }
-  
-  .discountedPrice {
-    font-size: 18px;
-    color: #949494;
-    background-color: #242424;
-  }
-  
-  .condition {
-    font-size: 15px;
-    margin-bottom: 15px;
-    color: #ffffff;
-    background-color: #242424;
-  }
-  
-  .quantitySection {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 16px;
-    background-color: #242424;
+  background-color: #242424;
+  border-bottom: 2px solid #ffffff;
+}
 
-  }
-  
-  .quantityLabel {
-    font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
-    letter-spacing: 0.025em;
-    background-color: #242424;
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+  background-color: #242424;
+}
 
-  }
-  
-  .quantityControl {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    border: 1px solid #147AFF;
-    transition: all 0.2s ease;
-    background-color: #147AFF;
-  }
-  
-  .quantityControl:focus-within {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-  }
-  
-  .quantityButton {
-    width: 40px;
-    height: 100%;
-    background-color: #147AFF;
-    border: none;
-    color: #374151;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-  }
-  
-  .quantityButton:hover {
-    background-color: #f3f4f6;
-    color: #1f2937;
-  }
-  
-  .quantityButton:active {
-    background-color: #147AFF;
-  }
-  
-  .quantityButton:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background-color: #147AFF;
-  }
-  
-  .quantityInput {
-    width: 50px;
-    height: 100%;
-    text-align: center;
-    border: none;
-    border-left: 1px solid #e5e7eb;
-    border-right: 1px solid #e5e7eb;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    font-weight: 500;
-    color: #111827;
-    background-color: white;
-    -moz-appearance: textfield;
-  }
-  
-  .quantityInput:focus {
-    outline: none;
-    box-shadow: none;
-  }
-  
-  .quantityInput::-webkit-outer-spin-button,
-  .quantityInput::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  .quantityIcon {
-    width: 16px;
-    height: 16px;
-    stroke-width: 2;
-  }
-  
-  .totalPrice {
-    font-weight: bold;
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-  
-  .buttonGroup {
-    /* display: flex;
+.originalPrice {
+  /* text-decoration: line-through; */
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  background-color: #242424;
+}
+
+.discountBadge {
+  background-color: #147aff;
+  color: white;
+  /* padding: 2px 6px; */
+  /* border-radius: 3px; */
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  width: 100px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 5px;
+}
+
+.discountedPrice {
+  font-size: 18px;
+  color: #949494;
+  background-color: #242424;
+}
+
+.condition {
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  background-color: #242424;
+}
+
+.quantitySection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+  background-color: #242424;
+}
+
+.quantityLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.025em;
+  background-color: #242424;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #147aff;
+  transition: all 0.2s ease;
+  background-color: #147aff;
+}
+
+.quantityControl:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.quantityButton {
+  width: 40px;
+  height: 100%;
+  background-color: #147aff;
+  border: none;
+  color: #374151;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* .quantityButton:hover {
+  background-color: #147aff;
+  color: #1f2937;
+} */
+
+.quantityButton:active {
+  background-color: #ffffff;
+}
+
+.quantityInput {
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  background-color: white;
+  -moz-appearance: textfield;
+}
+
+.quantityInput:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  /* background-color: #147aff; */
+}
+
+.quantityIcon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  background-color: #147aff;
+}
+
+.totalPrice {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.buttonGroup {
+  /* display: flex;
     gap: 10px; */
-    margin-bottom: 10px;
-    align-items: center;
-    justify-content: center;
-    background-color: #242424;
-    font-family: "Poppins", sans-serif;
+  /* display: flex; */
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #242424;
+  font-family: "Poppins", sans-serif;
+}
 
-    }
-  
-  .buyNowButton {
-    flex: 1;
-    /* padding: 10px; */
-    background-color: #147AFF;
-    border: 1px solid #147AFF;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    color: #ffffff;
-    width: 240px;
-    height: 40px;
-    font-size: 14px;
-  }
-  
-  .buyNowButton:hover {
-    background-color: #f7ca00;
-    border-color: #f2c200;
-  }
-  
-  .addToCartButton {
-    flex: 1;
-    padding: 10px;
-    background-color: #242424;
-    border: 1px solid #147AFF;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    color: #ffffff;
-    width: 240px;
-    height: 40px;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .addToCartButton:hover {
-    background-color: #fa8900;
-    border-color: #e27a00;
-  }
-  
-  .watchlistButton {
-    background-color: #242424;
-    border: 1px solid #147AFF;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    color: #ffffff;
-    width: 240px;
-    height: 40px;
-    font-size: 14px;
-    margin-top: 10px;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .watchlistButton:hover {
-    background-color: #f7fafa;
-  }
+.buyNowButton {
+  flex: 1;
+  /* padding: 10px; */
+  background-color: #147aff;
+  border: 1px solid #147aff;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ffffff;
+  width: 279px;
+  height: 45px;
+  font-size: 14px;
+  margin-left: 20px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 30px;
+}
+
+.buyNowButton:hover {
+  /* background-color: #f7ca00; */
+  /* border-color: #f2c200; */
+}
+
+.addToCartButton {
+  flex: 1;
+  padding: 10px;
+  background-color: #242424;
+  border: 1px solid #147aff;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ffffff;
+  width: 279px;
+  height: 45px;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 12px;
+  font-family: "Poppins", sans-serif;
+}
+
+.addToCartButton:hover {
+  /* background-color: #fa8900; */
+  /* border-color: #e27a00; */
+}
+
+.watchlistButton {
+  background-color: #242424;
+  border: 1px solid #147aff;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ffffff;
+  width: 279px;
+  height: 45px;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 12px;
+  font-family: "Poppins", sans-serif;
+}
+/* 
+.watchlistButton:hover {
+  background-color: #f7fafa;
+} */
