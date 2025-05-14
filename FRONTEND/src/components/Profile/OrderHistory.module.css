@@ -1,0 +1,91 @@
+.profileContainer {
+  padding: 50px 10px 20px 150px;
+  color: #333;
+  background-color: #000000;
+}
+
+.profileTitle {
+  color: #ddd;
+  width: 110px;
+  height: 40px;
+  border-radius: 35px;
+  border: 1px solid #147aff39;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #147aff2c;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-left: 24px;
+}
+
+.ordersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  background-color: #000000;
+}
+
+.orderCard {
+  border-radius: 14px;
+  padding: 20px;
+  background-color: #121212;
+  width: 372px;
+  height: 427px;
+}
+
+.productName {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #222;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  background-color: #ffffff;
+  width: 250px;
+  align-items: center;
+}
+
+.orderDetails {
+  margin-bottom: 15px;
+  background-color: #121212;
+}
+
+.orderDetails span {
+  font-size: 14px;
+  background-color: #121212;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.detailRow span:first-child {
+  font-weight: 600;
+  color: #555;
+}
+
+.detailRow span:last-child {
+  color: #333;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-weight: bold;
+  background-color: #121212;
+}
+
+.priceValue {
+  font-size: 18px;
+  color: #2a6496;
+}
