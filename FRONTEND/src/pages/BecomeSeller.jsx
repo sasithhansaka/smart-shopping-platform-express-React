@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./BecomeSeller.module.css";
 import axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function BecomeSeller() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,8 @@ function BecomeSeller() {
     isSeller: false,
     username: "",
   });
+
+  const navigate = useNavigate();
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
@@ -87,27 +90,15 @@ function BecomeSeller() {
 
       if (response.data.success) {
         alert("OTP confirmed successfully!");
-        navigate("/UpgradeSeller"); 
+        navigate("/UpgradeSeller");
       } else {
         alert("Invalid OTP. Please try again.");
       }
-    } catch (error) {
-      if (error.response) {
-        // Server responded with a status other than 2xx
-        console.error("Error confirming OTP:", error.response.data);
-        alert(
-          error.response.data.message ||
-            "An error occurred while confirming OTP."
-        );
-      } else if (error.request) {
-        // Request was made but no response received
-        console.error("Error confirming OTP:", error.request);
-        alert("No response from the server. Please try again later.");
-      } else {
-        // Something else happened
-        console.error("Error confirming OTP:", error.message);
-        alert("An unexpected error occurred. Please try again.");
-      }
+    } catch (err) {
+      const errorMessage = err.response
+        ? err.response.data.message
+        : "An error occurred";
+      alert(errorMessage);
     }
   };
 

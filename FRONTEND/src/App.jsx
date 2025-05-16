@@ -20,6 +20,7 @@ import Settings from "./components/Seller/Settings/Settings";
 import MyProfile from "./components/Seller/Profile/MyProfile";
 import ProfilePage from "./pages/ProfilePage";
 import BecomeSeller from "./pages/BecomeSeller";
+import UpgradeSeller from "./pages/UpgradeSeller";
 
 const queryClient = new QueryClient();
 
@@ -34,20 +35,21 @@ function App() {
           <Route path="/Seller" element={<SellerPage />} />
           <Route path="/Profile" element={<ProfilePage />} />
           <Route path="/BecomeSeller" element={<BecomeSeller />} />
+          <Route path="/UpgradeSeller" element={<UpgradeSeller />} />
           <Route path="*" element={<NotFound />} />
-        
-        <Route path="/seller" element={<SellerPage />}>
-          <Route path="dashboard" element={<WelcomeSeller />} />
-          <Route path="manage-products" element={<ManageProducts />} />
-          <Route path="add-products" element={<AddProducts />} />
-          <Route path="brand-management" element={<BrandManagement />} />
-          <Route path="growth" element={<Growth />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="my-profile" element={<MyProfile />} />
-        </Route>
-      </Routes>
+
+          <Route path="/seller" element={<SellerPage />}>
+            <Route path="dashboard" element={<WelcomeSeller />} />
+            <Route path="manage-products" element={<ManageProducts />} />
+            <Route path="add-products" element={<AddProducts />} />
+            <Route path="brand-management" element={<BrandManagement />} />
+            <Route path="growth" element={<Growth />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="my-profile" element={<MyProfile />} />
+          </Route>
+        </Routes>
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
@@ -69,8 +71,8 @@ export default App;
 //   "password":"Str0ng!P@ssw0rd"
 // }
 
-
- {/* <div className={styles.tipsGrid}>
+{
+  /* <div className={styles.tipsGrid}>
         <div className={styles.tipCard}>
           <h3>Optimize Product Listings</h3>
           <p>
@@ -98,9 +100,13 @@ export default App;
             negative reviews.
           </p>
         </div>
-      </div> */}
-      {/* <h2 className={styles.videoTitle}>Watch & Learn</h2> */}
-      {/* <div className={styles.videoContainer}>
+      </div> */
+}
+{
+  /* <h2 className={styles.videoTitle}>Watch & Learn</h2> */
+}
+{
+  /* <div className={styles.videoContainer}>
         <iframe
           src="https://www.youtube.com/embed/1P4Hn6eCwZU"
           title="E-commerce Tips for Growth"
@@ -117,5 +123,5 @@ export default App;
           allowFullScreen
           className={styles.video}
         ></iframe>
-      </div> */}
-
+      </div> */
+}
