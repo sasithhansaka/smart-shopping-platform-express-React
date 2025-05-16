@@ -1,0 +1,22 @@
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 110px;
+  padding-top: 20px;
+  font-size: 14px;
+  background-color: #000000;
+  border-top: 1px solid #666666;
+}
+
+.footerLinks a {
+  color: #0066cc;
+  text-decoration: none;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}

@@ -1,5 +1,5 @@
 .profileContainer {
-  padding: 50px 10px 20px 150px;
+  padding: 50px 80px 20px 150px;
   color: #333;
   background-color: #000000;
 }
@@ -230,23 +230,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-.footerLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 80px;
-  font-size: 14px;
-  background-color: #000000;
-}
-
-.footerLinks a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.footerLinks a:hover {
-  text-decoration: underline;
-}
 
 .ProfileTitle {
   font-weight: 600;

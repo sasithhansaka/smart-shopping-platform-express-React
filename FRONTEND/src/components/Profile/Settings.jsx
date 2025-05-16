@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './Settings.module.css';
+import FooterLinks from "./footerLinks";
 
 function Settings() {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ function Settings() {
           Sri Lanka
         </button>
       </div>
+      <FooterLinks />
     </div>
   );
 }

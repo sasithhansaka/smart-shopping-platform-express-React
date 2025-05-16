@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./MyProfile.module.css";
 import axios from "axios";
+import FooterLinks from "./footerLinks";
 
 function MyProfile() {
   const [user, setUser] = useState({
@@ -21,19 +22,19 @@ function MyProfile() {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/user/customer", 
+          "http://localhost:3000/api/user/customer",
           { withCredentials: true }
         );
-        
+
         const username = response.data.data.username || "";
         const [firstName = "", lastName = ""] = username.split(" ");
-        
+
         const userData = {
           ...response.data.data,
           firstName,
-          lastName
+          lastName,
         };
-        
+
         setUser(userData);
         setEditData(userData);
       } catch (error) {
@@ -61,17 +62,17 @@ function MyProfile() {
     try {
       const updatedData = {
         ...editData,
-        username: `${editData.firstName} ${editData.lastName}`.trim()
+        username: `${editData.firstName} ${editData.lastName}`.trim(),
       };
 
       console.log("Updated Data:", updatedData); // Log the updated data
-      
+
       const response = await axios.patch(
         "http://localhost:3000/api/user/customer/update",
         updatedData,
         { withCredentials: true }
       );
-      
+
       setUser(updatedData);
       setIsEditing(false);
     } catch (err) {
@@ -107,7 +108,7 @@ function MyProfile() {
 
       {isEditing ? (
         <form onSubmit={handleSubmit} className={styles.editForm}>
-                    <p className={styles.ProfileTitle}>Personal Information</p>
+          <p className={styles.ProfileTitle}>Personal Information</p>
           <div className={styles.nameFields}>
             <div className={styles.formGroup}>
               <label>First Name</label>
@@ -181,7 +182,13 @@ function MyProfile() {
             <span className={styles.detailValue}>{user.email}</span>
           </div>
 
-          <div style={{ display: "flex", gap: '390px', backgroundColor: '#181818' }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "390px",
+              backgroundColor: "#181818",
+            }}
+          >
             <div className={styles.detailGroup}>
               <span className={styles.detailLabel}>Bio</span>
               <span className={styles.detailValue} style={{ color: "#CCF642" }}>
@@ -196,13 +203,14 @@ function MyProfile() {
           </div>
         </div>
       )}
+      <FooterLinks />
 
-      <div className={styles.footerLinks}>
+      {/* <div className={styles.footerLinks}>
         <a href="#">Refund Policy</a>
         <a href="#">Shipping Policy</a>
         <a href="#">Term Of Service</a>
         <a href="#">Contact Information</a>
-      </div>
+      </div> */}
     </div>
   );
 }

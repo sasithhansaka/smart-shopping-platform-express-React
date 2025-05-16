@@ -3,6 +3,7 @@ import styles from "./BecomeSeller.module.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+// import FooterLinks from "../components/Profile/footerLinks";
 
 function BecomeSeller() {
   const [email, setEmail] = useState("");
@@ -148,6 +149,8 @@ function BecomeSeller() {
           {message}
         </p>
       )}
+
+      {/* <FooterLinks /> */}
     </div>
   );
 }

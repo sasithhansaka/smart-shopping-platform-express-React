@@ -18,6 +18,7 @@ SellerRoutes.post(
   authorize(["seller", "customer"]),
   SellerRegister
 );
+
 SellerRoutes.put(
   "/",
   authenticateUser,

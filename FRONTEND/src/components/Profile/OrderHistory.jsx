@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./OrderHistory.module.css";
 import axios from "axios";
+import FooterLinks from "./footerLinks";
 
 function OrderHistory() {
   const [orders, setOrders] = useState([]);
@@ -127,9 +128,7 @@ function OrderHistory() {
           return (
             <div key={order._id} className={styles.orderCard}>
               <h3 className={styles.productName}>
-                {product
-                  ? product.short_title
-                  : ""}
+                {product ? product.short_title : ""}
               </h3>
               {product && product.images && product.images.length > 0 && (
                 <img
@@ -159,7 +158,7 @@ function OrderHistory() {
                 <div className={styles.priceSection}>
                   <span></span>
                   <span className={styles.priceValue}>
-                     LKR {totalPrice.toFixed(2)}
+                    LKR {totalPrice.toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -167,6 +166,7 @@ function OrderHistory() {
           );
         })}
       </div>
+      <FooterLinks />
     </div>
   );
 }
