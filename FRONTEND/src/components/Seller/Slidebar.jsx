@@ -39,6 +39,7 @@ const Slidebar = () => {
   return (
     <div className={styles.sellerDashboard}>
       <div className={styles.sidebar}>
+
         <div className={styles.sidebarHeader}>
           <h2>BRAND SELLER CENTER</h2>
         </div>
@@ -52,7 +53,8 @@ const Slidebar = () => {
             }
             style={{ textDecoration: 'none' }}
           >
-            <FiHome className={`${styles.navIcon} ${isActive('/seller/dashboard') ? styles.activeIcon : ''}`} />
+
+          <FiHome className={`${styles.navIcon} ${isActive('/seller/dashboard') ? styles.activeIcon : ''}`} />
             <span>Dashboard</span>
           </NavLink>
 
@@ -163,17 +165,7 @@ const Slidebar = () => {
             </div>
           </div>
 
-          {/* Settings */}
-          <NavLink 
-            to="/seller/settings" 
-            className={({ isActive }) => 
-              isActive ? styles.navItemActive : styles.navItem
-            }
-            style={{ textDecoration: 'none' }}
-          >
-            <FiSettings className={`${styles.navIcon} ${isActive('/seller/settings') ? styles.activeIcon : ''}`} />
-            <span>Settings</span>
-          </NavLink>
+         
 
           {/* My Profile */}
           <NavLink 
