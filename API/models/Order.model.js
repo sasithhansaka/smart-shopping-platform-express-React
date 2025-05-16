@@ -8,6 +8,11 @@ const OrderSchema = new Schema({
     ref: "Customer",
     required: true,
   },
+  sellerId: {
+    type: Schema.Types.ObjectId,
+    ref: "Customer",
+    required: true,
+  },
   items: {
     productId: {
       type: Schema.Types.ObjectId,

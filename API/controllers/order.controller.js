@@ -84,4 +84,22 @@ const getOrdersById = async (req, res, next) => {
   }
 };
 
-export { addOrder, updateOrder, getorders, getOrdersById };
+const getSellerOrders = async (req, res, next) => {
+  try {
+    const orders = await OrderModel.find({ sellerId: req.user.sellerId });
+
+    if (!orders) {
+      return res
+        .status(HttpStatus.NOT_FOUND)
+        .json({ message: "Order not found" });
+    }
+
+    res.status(HttpStatus.OK).json({ data: orders });
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
+export { addOrder, updateOrder, getorders, getOrdersById, getSellerOrders };

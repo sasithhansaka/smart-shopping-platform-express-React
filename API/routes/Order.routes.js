@@ -4,6 +4,7 @@ import {
   updateOrder,
   getorders,
   getOrdersById,
+  getSellerOrders
 } from "../controllers/order.controller.js";
 import authorize from "../middlewares/role.middleware.js";
 import { authenticateUser } from "../middlewares/auth.middleware.js";
@@ -31,8 +32,14 @@ OrderRoutes.get(
 OrderRoutes.get(
   "/customer-orders",
   authenticateUser,
-  authorize(["customer","seller"]),
+  authorize(["customer", "seller"]),
   getOrdersById
 );
 
+OrderRoutes.get(
+  "/seller-orders",
+  authenticateUser,
+  authorize(["customer", "seller"]),
+  getSellerOrders
+);
 export default OrderRoutes;

@@ -1,16 +1,48 @@
 .productContainer {
-  /* padding: 20px; */
   width: 1080px;
   height: auto;
   border-radius: 16px;
-  background-color: #F1F2F5;
-      font-family: 'Poppins', sans-serif;
-
+  background-color: #f1f2f5;
+  font-family: "Poppins", sans-serif;
 }
 
 .addProductTitle {
   color: #5d5a5a;
   font-size: 20px;
   font-weight: 600;
-  background-color: #F1F2F5;
+  background-color: #f1f2f5;
+}
+
+.addProductTitle {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.ordersTable th,
+.ordersTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.ordersTable th {
+  background-color: #f4f4f4;
+}
+
+.productThumbnail {
+  width: 60px;
+  height: auto;
+  border-radius: 4px;
 }
