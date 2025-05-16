@@ -1,36 +1,36 @@
 /* components/Seller/Breadcrumbs.module.css */
 .breadcrumbs {
-    padding: 10px 0;
-    font-size: 14px;
-    color: #666;
-    font-family: 'Poppins', sans-serif;
-    /* margin-bottom: 20px; */
-    /* padding-bottom: 15px; */
-    margin:30px 0px 0px 0px;
-  background-color: #F1F2F5;
-  }
-  
-  .link {
-    color: #969696;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-size: 16px;
-  background-color: #F1F2F5;
-  }
-  
-  /* .link:hover {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  /* margin-bottom: 20px; */
+  /* padding-bottom: 15px; */
+  margin: 30px 0px 0px 0px;
+  background-color: #f1f2f5;
+}
+
+.link {
+  color: #969696;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 16px;
+  background-color: #f1f2f5;
+}
+
+/* .link:hover {
     text-decoration: underline;
   }
    */
-  .current {
-    color: #000000;
-    font-weight: 500;
-    font-size: 16px;
-  background-color: #F1F2F5;
-  }
-  
-  .separator {
-    margin: 0 5px;
-    color: #999;
-  background-color: #F1F2F5;
-  }
+.current {
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #f1f2f5;
+}
+
+.separator {
+  margin: 0 5px;
+  color: #999;
+  background-color: #f1f2f5;
+}

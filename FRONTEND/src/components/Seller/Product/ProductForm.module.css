@@ -203,7 +203,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-
 .formButtons {
   display: flex;
   justify-content: flex-end;
@@ -211,8 +210,7 @@
   padding: 1rem;
   /* background-color: #f5f6f8; */
   border-radius: 8px;
-    font-family: "Poppins", sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
 
 .resetButton {
@@ -224,6 +222,7 @@
   /* font-weight: 600; */
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .resetButton:hover {
@@ -239,9 +238,13 @@
   /* font-weight: 600; */
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .submitButton:hover {
   background-color: #0056d2;
 }
 
+.contentScoreContainer {
+  background-color: #f1f2f5;
+}

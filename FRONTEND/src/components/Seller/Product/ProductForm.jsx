@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./ProductForm.module.css";
 import ContentScore from "./ContentScore";
+// import useState from "react";
 
 function ProductForm() {
   const [seller, setSeller] = useState(null);
@@ -200,6 +201,53 @@ function ProductForm() {
     }
   };
 
+  const [completionStatus, setCompletionStatus] = useState({
+    basicInfo: false,
+    productSpec: false,
+    priceStock: false,
+    description: false,
+  });
+
+  // Add this useEffect to track completion status
+  useEffect(() => {
+    // Check Basic Information completion
+    const basicInfoComplete =
+      short_title.trim() !== "" &&
+      long_title.trim() !== "" &&
+      category.trim() !== "" &&
+      images.length >= 3;
+
+    // Check Product Specification completion
+    const productSpecComplete =
+      brand.trim() !== "" && model.trim() !== "" && colors.length > 0;
+
+    // Check Price, Stock & Variants completion
+    const priceStockComplete =
+      price !== "" && stock !== "" && maxBuyCount !== "";
+
+    // Check Product Description completion
+    const descriptionComplete = description.trim() !== "";
+
+    setCompletionStatus({
+      basicInfo: basicInfoComplete,
+      productSpec: productSpecComplete,
+      priceStock: priceStockComplete,
+      description: descriptionComplete,
+    });
+  }, [
+    short_title,
+    long_title,
+    category,
+    images,
+    brand,
+    model,
+    colors,
+    price,
+    stock,
+    maxBuyCount,
+    description,
+  ]);
+
   const handleReset = () => {
     setShortTitle("");
     setLongTitle("");
@@ -222,7 +270,7 @@ function ProductForm() {
   };
 
   return (
-    <div>
+    <div  style={{display: "flex"}}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.detailsContainer}>
           <h1>Basic Information</h1>
@@ -418,10 +466,9 @@ function ProductForm() {
         </div>
       </form>
 
-      {/* <div className={styles.contentScoreContainer}>
-        <h1>Content Score</h1>
-        <ContentScore />
-      </div> */}
+      <div className={styles.contentScoreContainer}>
+        <ContentScore completionStatus={completionStatus} />
+      </div>
     </div>
   );
 }
