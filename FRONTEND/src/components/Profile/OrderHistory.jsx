@@ -97,35 +97,35 @@ function OrderHistory() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className={styles.profileContainer}>
-        <h1 className={styles.profileTitle}>Orders</h1>
-        <p>Loading your orders...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className={styles.profileContainer}>
+  //       {/* <h1 className={styles.profileTitle}>Orders</h1> */}
+  //       {/* <p>Loading your orders...</p> */}
+  //     </div>
+  //   );
+  // }
 
-  if (error) {
-    return (
-      <div className={styles.profileContainer}>
-        <h1 className={styles.profileTitle}>Orders</h1>
-        <div className={styles.errorMessage}>
-          <p>Error: {error}</p>
-          <p>Please try again later or contact support.</p>
-        </div>
-      </div>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <div className={styles.profileContainer}>
+  //       {/* <h1 className={styles.profileTitle}>Orders</h1>
+  //       <div className={styles.errorMessage}>
+  //         <p>Error: {error}</p>
+  //         <p>Please try again later or contact support.</p>
+  //       </div> */}
+  //     </div>
+  //   );
+  // }
 
-  if (!orders.length) {
-    return (
-      <div className={styles.profileContainer}>
-        <h1 className={styles.profileTitle}>Orders</h1>
-        <p>No orders found.</p>
-      </div>
-    );
-  }
+  // if (!orders.length) {
+  //   return (
+  //     <div className={styles.profileContainer}>
+  //       <h1 className={styles.profileTitle}>Orders</h1>
+  //       <p>No orders found.</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={styles.profileContainer}>

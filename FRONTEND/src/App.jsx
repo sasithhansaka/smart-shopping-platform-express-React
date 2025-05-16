@@ -69,3 +69,53 @@ export default App;
 //   "password":"Str0ng!P@ssw0rd"
 // }
 
+
+ {/* <div className={styles.tipsGrid}>
+        <div className={styles.tipCard}>
+          <h3>Optimize Product Listings</h3>
+          <p>
+            Use high-quality images, detailed descriptions, and keywords that
+            your customers are searching for.
+          </p>
+        </div>
+        <div className={styles.tipCard}>
+          <h3>Respond Promptly to Inquiries</h3>
+          <p>
+            Fast response times build trust and improve your seller ratings.
+          </p>
+        </div>
+        <div className={styles.tipCard}>
+          <h3>Offer Promotions</h3>
+          <p>
+            Attract more buyers by offering discounts, bundles, and seasonal
+            offers.
+          </p>
+        </div>
+        <div className={styles.tipCard}>
+          <h3>Maintain Stock Levels</h3>
+          <p>
+            Keep your inventory updated to avoid order cancellations and
+            negative reviews.
+          </p>
+        </div>
+      </div> */}
+      {/* <h2 className={styles.videoTitle}>Watch & Learn</h2> */}
+      {/* <div className={styles.videoContainer}>
+        <iframe
+          src="https://www.youtube.com/embed/1P4Hn6eCwZU"
+          title="E-commerce Tips for Growth"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className={styles.video}
+        ></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/0t2zstQ84Tw"
+          title="How to Grow Your Online Store"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className={styles.video}
+        ></iframe>
+      </div> */}
+
