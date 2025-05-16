@@ -92,14 +92,9 @@ function Orders() {
     }
   };
 
-  if (loading) return <p>Loading orders...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
-  if (orders.length === 0) return <p>No orders found.</p>;
-
   return (
     <div>
       <Breadcrumbs />
-      <h3 className={styles.addProductTitle}>Your Orders</h3>
 
       <div className={styles.tableContainer}>
         <table className={styles.ordersTable}>
@@ -116,7 +111,7 @@ function Orders() {
           </thead>
           <tbody>
             {orders.map((order) => {
-              const item = order.items; // Single item object
+              const item = order.items; 
               const product = products[item.productId];
               const totalPrice =
                 ((product?.price || 0) *
