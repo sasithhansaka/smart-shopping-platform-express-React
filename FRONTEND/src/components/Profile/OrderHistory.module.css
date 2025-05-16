@@ -34,28 +34,39 @@
   padding: 20px;
   background-color: #121212;
   width: 372px;
-  height: 427px;
+  height: 487px;
 }
 
 .productName {
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 15px;
-  color: #222;
-  border-bottom: 1px solid #eee;
+  color: #ffffff;
   padding-bottom: 10px;
-  background-color: #ffffff;
-  width: 250px;
+  background-color: #4a4a4a;
+  width: 230px;
   align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  border-radius: 24px;
+  text-transform: uppercase;
+  padding: 10px;
 }
 
 .orderDetails {
   margin-bottom: 15px;
-  background-color: #121212;
+  background-color: #1b1a1a;
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 10px;
 }
 
 .orderDetails span {
   font-size: 14px;
-  background-color: #121212;
+  background-color: #1b1a1a;
+  color: #ffffff;
 }
 
 .detailRow {
@@ -63,29 +74,54 @@
   justify-content: space-between;
   margin-bottom: 8px;
   font-size: 14px;
+  background-color: #1b1a1a;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
 }
 
 .detailRow span:first-child {
   font-weight: 600;
-  color: #555;
+  color: #ffffff;
 }
 
 .detailRow span:last-child {
-  color: #333;
+  color: #ffffff;
 }
 
 .priceSection {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 15px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
+  /* margin-top: 15px; */
+  /* padding-top: 10px; */
+  /* border-top: 1px solid #eee; */
   font-weight: bold;
+  background-color: #121212;
+  width: 133px;
+  height: 40px;
+  border-radius: 19px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin-left: 100px;
+}
+
+.priceSection span {
   background-color: #121212;
 }
 
 .priceValue {
   font-size: 18px;
   color: #2a6496;
+  background-color: #121212;
+}
+
+.productImage {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  /* margin-top: 10px; */
+  border-radius: 4px;
+  margin-left: 60px;
+  background-color: #121212;
 }

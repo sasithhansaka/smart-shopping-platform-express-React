@@ -13,13 +13,16 @@ function OrderHistory() {
       try {
         // 1. First check if the order endpoint exists
         console.log("Attempting to fetch orders...");
-        const ordersResponse = await axios.get("http://localhost:3000/api/order", {
-          withCredentials: true,
-          timeout: 5000
-        });
-        
+        const ordersResponse = await axios.get(
+          "http://localhost:3000/api/order/customer-orders",
+          {
+            withCredentials: true,
+            timeout: 5000,
+          }
+        );
+
         console.log("Orders response:", ordersResponse);
-        
+
         if (!ordersResponse.data?.data) {
           throw new Error("Invalid orders data format");
         }
@@ -30,17 +33,21 @@ function OrderHistory() {
         // 2. Only fetch products if we have orders
         if (ordersData.length > 0) {
           console.log("Fetching products for", ordersData.length, "orders...");
-          const productIds = [...new Set(ordersData.map(order => order.items.productId))];
-          
+          const productIds = [
+            ...new Set(ordersData.map((order) => order.items.productId)),
+          ];
+
           const productResponses = await Promise.all(
-            productIds.map(id => 
-              axios.get(`http://localhost:3000/api/product/${id}`, {
-                withCredentials: true,
-                timeout: 5000
-              }).catch(e => {
-                console.warn(`Failed to fetch product ${id}:`, e);
-                return { data: { data: null } }; // Return null if fetch fails
-              })
+            productIds.map((id) =>
+              axios
+                .get(`http://localhost:3000/api/product/${id}`, {
+                  withCredentials: true,
+                  timeout: 5000,
+                })
+                .catch((e) => {
+                  console.warn(`Failed to fetch product ${id}:`, e);
+                  return { data: { data: null } }; // Return null if fetch fails
+                })
             )
           );
 
@@ -50,20 +57,20 @@ function OrderHistory() {
               productMap[productIds[index]] = response.data.data;
             }
           });
-          
+
           setProducts(productMap);
           console.log("Fetched", Object.keys(productMap).length, "products");
         }
       } catch (error) {
         console.error("Data fetching error:", error);
         let errorMessage = "Failed to load orders";
-        
+
         if (error.response) {
           // The request was made and the server responded with a status code
           console.error("Response data:", error.response.data);
           console.error("Response status:", error.response.status);
           console.error("Response headers:", error.response.headers);
-          
+
           if (error.response.status === 404) {
             errorMessage = "Orders endpoint not found (404)";
           } else if (error.response.status === 500) {
@@ -78,7 +85,7 @@ function OrderHistory() {
           console.error("Request setup error:", error.message);
           errorMessage = error.message;
         }
-        
+
         setError(errorMessage);
       } finally {
         setLoading(false);
@@ -97,27 +104,6 @@ function OrderHistory() {
     }
   };
 
-  // if (loading) {
-  //   return (
-  //     <div className={styles.profileContainer}>
-  //       {/* <h1 className={styles.profileTitle}>Orders</h1> */}
-  //       {/* <p>Loading your orders...</p> */}
-  //     </div>
-  //   );
-  // }
-
-  // if (error) {
-  //   return (
-  //     <div className={styles.profileContainer}>
-  //       {/* <h1 className={styles.profileTitle}>Orders</h1>
-  //       <div className={styles.errorMessage}>
-  //         <p>Error: {error}</p>
-  //         <p>Please try again later or contact support.</p>
-  //       </div> */}
-  //     </div>
-  //   );
-  // }
-
   // if (!orders.length) {
   //   return (
   //     <div className={styles.profileContainer}>
@@ -134,14 +120,24 @@ function OrderHistory() {
       <div className={styles.ordersGrid}>
         {orders.map((order) => {
           const product = products[order.items.productId];
-          const discountedPrice = order.items.price * (1 - order.items.discountPercentage / 100);
+          const discountedPrice =
+            order.items.price * (1 - order.items.discountPercentage / 100);
           const totalPrice = discountedPrice * order.items.quantity;
 
           return (
             <div key={order._id} className={styles.orderCard}>
               <h3 className={styles.productName}>
-                {product ? product.short_title : "Product information not available"}
+                {product
+                  ? product.short_title
+                  : ""}
               </h3>
+              {product && product.images && product.images.length > 0 && (
+                <img
+                  src={product.images[0]}
+                  alt={product.short_title || "Product image"}
+                  className={styles.productImage}
+                />
+              )}
 
               <div className={styles.orderDetails}>
                 <div className={styles.detailRow}>
@@ -160,13 +156,12 @@ function OrderHistory() {
                   <span>Delivery By:</span>
                   <span>{formatDate(order.delieveredBefore)}</span>
                 </div>
-              </div>
-
-              <div className={styles.priceSection}>
-                <span>Total:</span>
-                <span className={styles.priceValue}>
-                  R{totalPrice.toFixed(2)}
-                </span>
+                <div className={styles.priceSection}>
+                  <span></span>
+                  <span className={styles.priceValue}>
+                     LKR {totalPrice.toFixed(2)}
+                  </span>
+                </div>
               </div>
             </div>
           );

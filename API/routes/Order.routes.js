@@ -31,7 +31,7 @@ OrderRoutes.get(
 OrderRoutes.get(
   "/customer-orders",
   authenticateUser,
-  authorize(["customer"]),
+  authorize(["customer","seller"]),
   getOrdersById
 );
 
