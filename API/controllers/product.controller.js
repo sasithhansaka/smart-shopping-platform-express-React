@@ -68,7 +68,7 @@ const getProduct = async (req, res, next) => {
   try {
     const product = await ProductModel.findOne({
       _id: req.params.id,
-      sellerId: req.user.sellerId,
+      // sellerId: req.user.sellerId,
     });
 
     if (!product) {

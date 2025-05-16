@@ -45,6 +45,7 @@ function ProductBuyContainer({
 
   const handleBuyNow = async () => {
     const data = {
+      sellerId: productSellerId,
       items: {
         productId,
         quantity,
