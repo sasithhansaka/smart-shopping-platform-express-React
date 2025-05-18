@@ -5,7 +5,7 @@ import BrandContainer from "../components/Login/BrandContainer";
 import styles from "./AuthenticationPage.module.css";
 
 function AuthenticationPage() {
-  const [isLogin, setIsLogin] = useState(true); 
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
     <div className={styles.container}>
@@ -16,12 +16,24 @@ function AuthenticationPage() {
         {isLogin ? (
           <>
             <LoginComponent />
-            <p onClick={() => setIsLogin(false)} style={{marginLeft:"200px"}}  className={styles.toggleText}>Don't have an account? <span>Register</span></p>
+            <p
+              onClick={() => setIsLogin(false)}
+              style={{ marginLeft: "200px" }}
+              className={styles.toggleText}
+            >
+              Don't have an account? <span>Register</span>
+            </p>
           </>
         ) : (
           <>
             <RegisterComponent />
-            <p onClick={() => setIsLogin(true)} className={styles.toggleText}>Already registered? <span>Login</span></p>
+            <p
+              onClick={() => setIsLogin(true)}
+              style={{ marginLeft: "200px" }}
+              className={styles.toggleText}
+            >
+              Already registered? <span>Login</span>
+            </p>
           </>
         )}
       </div>
