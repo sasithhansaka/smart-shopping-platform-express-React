@@ -9,6 +9,7 @@
 }
 
 .form {
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -16,6 +17,7 @@
   padding: 2rem;
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.05);
 }
 
 .formGroup {
@@ -58,17 +60,17 @@
     background-color: #1d4ed8;
   } */
 
-.button:disabled {
+/* .button:disabled {
   background-color: #93c5fd;
   cursor: not-allowed;
-}
+} */
 
 .secondaryButton {
   padding: 0.8rem;
   background-color: white;
   color: #2563eb;
   border: 1px solid #2563eb;
-  border-radius: 4px;
+  border-radius: 14px;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s;
@@ -95,12 +97,43 @@
   margin-top: 0.2rem;
 }
 
-h2 {
+.container h2 {
   margin-bottom: 0.5rem;
-  color: #1e293b;
+  color: #ffffff;
+  background-color: #171717;
+  text-transform: uppercase;
+  margin-left: 130px;
 }
 
-p {
+/* p {
   margin-bottom: 1.5rem;
-  color: #64748b;
+  color: #ffffff;
+  background-color: #171717;
+} */
+
+.verifyText {
+  margin-top: 0.6rem;
+  color: #ffffff;
+  background-color: #171717;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.formGroup label {
+  color: #c3c2c2;
+  background-color: #171717;
+  font-weight: 500;
+}
+
+.formGroup p {
+  color: #ffffff;
+  background-color: #171717;
+  font-weight: 400;
+  font-size: 1rem;
+  border: 1px solid #dddddd38;
+  border-radius: 8px;
+  padding: 10px;
+  /* align-items: center;
+  display: flex;
+  justify-content: center; */
 }

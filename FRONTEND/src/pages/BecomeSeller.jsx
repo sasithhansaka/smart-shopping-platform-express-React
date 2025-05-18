@@ -3,7 +3,6 @@ import styles from "./BecomeSeller.module.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import FooterLinks from "../components/Profile/footerLinks";
 
 function BecomeSeller() {
   const [email, setEmail] = useState("");
@@ -29,7 +28,6 @@ function BecomeSeller() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setOtpSent(true);
       sendemail();
-      // setMessage("OTP has been sent to your email");
     } catch (error) {
       // setMessage("Failed to send OTP. Please try again.");
     } finally {
@@ -108,19 +106,24 @@ function BecomeSeller() {
       {!otpSent ? (
         <form onSubmit={handleSendOtp} className={styles.form}>
           <h2>Brand name</h2>
-          <p>Verify your email to continue</p>
+          <p className={styles.verifyText}>Verify Email</p>
           <div className={styles.formGroup}>
             <label htmlFor="email">Email Address</label>
             {/* <p>{user.username}</p> */}
-            <p>{user.email}</p>
+            <p className={styles.userEmail}>{user.email}</p>
           </div>
           <button type="submit" disabled={loading} className={styles.button}>
-            {loading ? "Sending..." : "Send OTP"}
+            {/* {loading ? "Sending..." : "Send OTP"} */}
+            Send OTP
           </button>
         </form>
       ) : (
         <form onSubmit={handleVerifyOtp} className={styles.form}>
+          <h2>Brand name</h2>
+          <p className={styles.verifyText}>Verify Your OTP</p>
           <div className={styles.formGroup}>
+            {/* <h2>Brand name</h2> */}
+          {/* <p className={styles.verifyText}>Verify Email</p> */}
             <label htmlFor="otp">Enter OTP</label>
             <input
               type="text"
@@ -129,8 +132,9 @@ function BecomeSeller() {
               onChange={(e) => setOtp(e.target.value)}
               required
               placeholder="Enter the OTP you received"
+              style={{ backgroundColor: "#242424" ,color: "#fff" , border: "1px solid #5A5A5A"}}
             />
-            <p className={styles.emailNote}>OTP sent to {email}</p>
+            {/* <p className={styles.emailNote}>OTP sent to {email}</p> */}
           </div>
           <button type="submit" disabled={loading} className={styles.button}>
             {loading ? "Verifying..." : "Verify OTP"}
@@ -138,7 +142,7 @@ function BecomeSeller() {
         </form>
       )}
 
-      {message && (
+      {/* {message && (
         <p
           className={
             otpSent && message.includes("successfully")
@@ -148,7 +152,7 @@ function BecomeSeller() {
         >
           {message}
         </p>
-      )}
+      )} */}
 
       {/* <FooterLinks /> */}
     </div>
