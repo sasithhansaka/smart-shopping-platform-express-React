@@ -16,7 +16,7 @@ function AuthenticationPage() {
         {isLogin ? (
           <>
             <LoginComponent />
-            <p onClick={() => setIsLogin(false)}  className={styles.toggleText}>Don't have an account? <span>Register</span></p>
+            <p onClick={() => setIsLogin(false)} style={{marginLeft:"200px"}}  className={styles.toggleText}>Don't have an account? <span>Register</span></p>
           </>
         ) : (
           <>

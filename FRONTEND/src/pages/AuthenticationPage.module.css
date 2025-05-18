@@ -1,15 +1,30 @@
-.container{
-    display: flex;
-    height: 755px;
-    width: 100%;
+.container {
+  display: flex;
+  height: 755px;
+  width: 100%;
 }
 
-.authContainer{
-    background-color: #000000;
-    width: 100%;
+.authContainer {
+  background-color: #000000;
+  width: 100%;
 }
 
 .toggleText {
-    color: #ffffff;
-    cursor: pointer;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.authContainer p {
+  background-color: #000000;
+  color: #777777;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+  /* margin-left: 200px; */
+}
+
+.authContainer span {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
 }

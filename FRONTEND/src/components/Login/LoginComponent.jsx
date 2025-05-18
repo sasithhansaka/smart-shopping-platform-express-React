@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Added import
 import axios from "axios";
+import styles from "./LoginComponent.module.css"; // Assuming you have a CSS file for styles
 
 function LoginComponent() {
   const [userfield, setUserField] = useState("");
@@ -57,24 +58,27 @@ function LoginComponent() {
   };
 
   return (
-    <div>
+    <div className={styles.loginContainer}>
+      <h1>LOGIN</h1>
+      <p>login to your brand account</p>
       <form onSubmit={handleLogin}>
-        <h1>Login</h1>
+        <h3>email</h3>
         <input
           type="text"
           name="userfield"
           placeholder="Enter your username or email"
           onChange={handleUserField}
         />
+        <h3>password</h3>
         <input
           type="password"
           name="password"
           placeholder="Enter your password"
           onChange={handlePassword}
         />
-        <button type="submit">Login</button>
+        <button type="submit">Sign IN</button>
       </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
     </div>
   );
 }
