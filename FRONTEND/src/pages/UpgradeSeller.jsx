@@ -61,82 +61,89 @@ function UpgradeSeller() {
   };
 
   return (
-    <div className={styles.upgradeSellerContainer}>
-      <h2>Upgrade to Seller</h2>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label>
-          Account Type:
-          <select
-            name="AccountType"
-            value={formData.AccountType}
-            onChange={handleChange}
-          >
-            <option value="Personal">Personal</option>
-            <option value="Business">Business</option>
-          </select>
-        </label>
+    <div className={styles.fullContainer}>
+      <div className={styles.upgradeSellerContainer}>
+        <h2>Upgrade to Seller</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label>
+            Account Type:
+            <select
+              name="AccountType"
+              value={formData.AccountType}
+              onChange={handleChange}
+            >
+              <option value="Personal">Personal</option>
+              <option value="Business">Business</option>
+            </select>
+          </label>
 
-        <label>
-          Store Name:
-          <input
-            type="text"
-            name="Store_name"
-            value={formData.Store_name}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Store Name:
+            <input
+              type="text"
+              name="Store_name"
+              value={formData.Store_name}
+              onChange={handleChange}
+              required
+              placeholder="Enter your store name"
+            />
+          </label>
 
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="Enter your email address"
+            />
+          </label>
 
-        <label>
-          Address:
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Address:
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              required
+              placeholder="Enter your address"
+            />
+          </label>
 
-        <label>
-          Bank Number:
-          <input
-            type="text"
-            name="BankNumber"
-            value={formData.BankNumber}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Bank Number:
+            <input
+              type="text"
+              name="BankNumber"
+              value={formData.BankNumber}
+              onChange={handleChange}
+              required
+              placeholder="Enter your bank number"
+            />
+          </label>
 
-        <label>
-          Pin Number:
-          <input
-            type="password"
-            name="PinNumber"
-            value={formData.PinNumber}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <label>
+            Pin Number:
+            <input
+              type="password"
+              name="PinNumber"
+              value={formData.PinNumber}
+              onChange={handleChange}
+              required
+              placeholder="Enter your bank pin"
+            />
+          </label>
 
-        {error && <p className={styles.error}>{error}</p>}
+          {error && <p className={styles.error}>{error}</p>}
 
-        <button type="submit" className={styles.button}>
-          Upgrade
-        </button>
-      </form>
+          <button type="submit" className={styles.button}>
+            Upgrade
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
