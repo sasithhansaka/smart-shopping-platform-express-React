@@ -32,20 +32,24 @@
   border-radius: 10px;
 }
 
+.proPic {
+  background-color: #181818;
+}
 .profileImage {
-  width: 120px;
-  height: 115px;
+  width: 110px;
+  height: 105px;
   border-radius: 50%;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   margin-right: 20px;
   overflow: hidden;
   margin-left: 70px;
+  background-color: #181818;
 }
 
 .imagePlaceholder {
   width: 100%;
   height: 100%;
-  background-color: #ccc;
+  background-color: #494949;
 }
 
 .profileInfo {
@@ -229,7 +233,6 @@
   cursor: pointer;
   font-family: "Poppins", sans-serif;
 }
-
 
 .ProfileTitle {
   font-weight: 600;

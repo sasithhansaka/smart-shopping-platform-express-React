@@ -92,9 +92,10 @@ function MyProfile() {
     <div className={styles.profileContainer}>
       <h1 className={styles.profileTitle}>My Profile</h1>
       <div className={styles.profileHeader}>
-        <div className={styles.profileImage}>
-          <div className={styles.imagePlaceholder}></div>
+        <div className={styles.proPic} >
+          <img className={styles.profileImage} src="./src/images/Profile Photo.png" />
         </div>
+
         <div className={styles.profileInfo}>
           <h1>{`${user.firstName} ${user.lastName}`}</h1>
           <p className={styles.verifiedBadge}>
