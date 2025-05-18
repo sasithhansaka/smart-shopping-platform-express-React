@@ -4,7 +4,10 @@ import styles from './BrandContainer.module.css'
 function BrandContainer() {
   return (
     <div className={styles.brandContainer}>
-      
+      <div className={styles.brandLogo}>
+         <p>the world number online shooping platform <strong>brand name</strong> </p>
+      </div>
+       <p className={styles.brandSite}>www.brand name .com</p>
     </div>
   )
 }

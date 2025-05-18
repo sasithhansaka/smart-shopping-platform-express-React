@@ -1,5 +1,23 @@
-.brandContainer{
-    width: 750px;
-    height: 750px;
-    background-color: #E8F2FA;
+.brandContainer {
+  width: 750px;
+  height: 750px;
+  background-color: #e8f2fa;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+}
+
+.brandLogo {
+  width: 260px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.brandContainer .brandSite {
+  background-color: #e8f2fa;
+  margin-top: 440px;
+  margin-left: 200px;
 }
