@@ -1,0 +1,224 @@
+.fab {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: #1976d2;
+  color: #8e3636;
+  font-size: 2rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.17);
+  cursor: pointer;
+  z-index: 2001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+}
+.fab:hover {
+  background: #1356a2;
+}
+.giftIcon {
+  font-size: 2.3rem;
+}
+
+.popupOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 2000;
+}
+
+.popupBox {
+  background: #242424;
+  /* padding: 1.5rem 1rem 1rem 1rem; */
+  /* border-radius: 18px 18px 0 0; */
+  /* min-width: 320px;
+  max-width: 98vw; */
+  height: 590px;
+  width: 100%;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  position: relative;
+  /* margin: 0 32px 32px 0; */
+  animation: slideUp 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  border-top-left-radius: 18px;
+  padding: 1rem 1rem 1rem 1rem;
+  /* Add these lines: */
+  overflow-y: auto;
+  /* Optional: for touch devices */
+  -webkit-overflow-scrolling: touch;
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #888;
+  background: #242424;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #242424;
+}
+
+.formgiftBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #242424;
+}
+
+/* .formgiftBox p {
+  background: #272727;
+  width: 200px;
+  padding: 0.5rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #fff;
+  border : 1px solid #aaa;
+    border-bottom: none; /* Remove bottom border */
+
+.formgiftBox .inputGroup{
+    width: 1327px;
+    height: 270px;
+    border-radius: 25px;
+    border: 1px solid #ffffff1f;
+    background: #272727;
+    margin-left: 80px;
+}
+
+.formgiftBox .input {
+  /* flex: 1; */
+  /* padding: 0.5rem; */
+    /* border: none; */
+
+  border-radius: 6px;
+  border: 1px solid rgba(147, 120, 120, 0.253)53A;
+  font-size: 0.6rem;
+  width: 1230px;
+    background: #ff592b0a;
+  height: 130px;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+.formgiftBox .button {
+  padding: 0.5rem 1.2rem;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.15s;
+  width: 200px;
+  height: 40px;
+  border-radius: 25px;
+}
+.button:hover {
+  background: #1356a2;
+}
+
+.loading {
+  margin-top: 1.1rem;
+  color: #1976d2;
+  font-weight: 500;
+  font-size: 1.07rem;
+}
+
+.answer {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  color: #333;
+  font-size: 1.07rem;
+  border: 1px solid #1976d2;
+  border-radius: 6px;
+  background: #f3f8ff;
+  font-weight: 500;
+}
+
+.suggestionList {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 0px 100px 0 100px;
+  background: #242424;
+}
+
+.suggestionCard {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #47342c;
+  border: 1px solid #b3542b;
+  border-radius: 8px;
+  padding: 0.3rem;
+  height: auto;
+}
+
+.productImage {
+  width: 120px;
+  height: 121px;
+  object-fit: cover;
+  border-radius: 7px;
+  background: #47342c;
+}
+
+.productInfo {
+  flex: 1;
+  background-color: #47342c;
+}
+
+.productName {
+  font-weight: bold;
+  font-size: 1.08rem;
+  margin-bottom: 0.2rem;
+  background-color: #47342c;
+  margin-top: 1rem;
+  color: #fff;
+}
+
+.productReason {
+  color: #000000;
+  font-size: 0.78rem;
+  background-color: #6d4c42;
+  padding: 0.5rem;
+  width: 98%;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+  padding-left: 20px;
+  margin-top: 10px;
+}
