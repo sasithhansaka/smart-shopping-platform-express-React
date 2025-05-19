@@ -270,7 +270,7 @@ function ProductForm() {
   };
 
   return (
-    <div  style={{display: "flex"}}>
+    <div style={{ display: "flex" }}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.detailsContainer}>
           <h1>Basic Information</h1>
@@ -304,10 +304,12 @@ function ProductForm() {
             required
           >
             <option value="">Select your product category</option>
-            <option value="Sports">Sports</option>
-            <option value="Gaming">Gaming</option>
-            <option value="Earphones">Earphones</option>
-            <option value="Toys">Toys</option>
+            <option value="sports">Sports</option>
+            <option value="gaming">Gaming</option>
+            <option value="earphones">Earphones</option>
+            <option value="toys">Toys</option>
+            <option value="mobilephones">Mobile-Phones</option>
+            <option value="laptops">Laptops</option>
           </select>
           <label>Product Images</label>
 

@@ -1,0 +1,152 @@
+/* components/Seller/Slidebar.module.css */
+.sellerDashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f2f5;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #373737;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 10;
+}
+
+.sidebarHeader {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background-color: #373737;
+  color: #ffffff;
+}
+
+.sidebarHeader h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #373737;
+}
+
+.sidebarNav {
+  padding: 30px 0;
+  background-color: #373737;
+}
+
+.navItem,
+.navItemActive {
+  display: flex;
+  align-items: center;
+  margin: 1px 20px 1px 25px;
+  border-radius: 24px;
+  padding: 6px 10px;
+  color: #9a9a9a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  background-color: transparent;
+  background-color: #373737;
+}
+
+.navItem:hover {
+  color: #147aff;
+}
+
+.navItemActive {
+  color: #147aff;
+  background-color: #147aff3a;
+  font-weight: 500;
+}
+
+.navIcon {
+  margin-right: 12px;
+  color: #7d7d7d;
+  font-size: 18px;
+  transition: color 0.2s ease;
+  background-color: #373737;
+}
+
+.navIcon.activeIcon {
+  color: #147aff;
+  background-color: #373737;
+}
+
+.navIcon:hover {
+  color: #147aff;
+}
+
+.chevronIcon {
+  margin-left: auto;
+  color: #7d7d7d;
+}
+
+.navItemActive .chevronIcon,
+.navItem:hover .chevronIcon {
+  color: #147aff;
+  background-color: #147aff00;
+}
+
+.navGroup {
+  margin-bottom: 5px;
+}
+
+.navGroup.expanded .subItemsContainer {
+  display: flex;
+}
+
+.subItemsContainer {
+  display: none;
+  position: relative;
+}
+
+.verticalLine {
+  width: 1.5px;
+  background-color: #e0e0e0;
+  margin-left: 40px;
+  min-height: 100%;
+}
+
+.subItems {
+  flex: 1;
+  padding-left: 15px;
+  background-color: transparent;
+}
+
+.subItem,
+.subItemActive {
+  display: block;
+  padding: 10px 2px;
+  color: #666;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  position: relative;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.subItem:hover {
+  color: #147aff;
+}
+
+.subItemActive {
+  color: #147aff;
+  font-weight: 500;
+}
+
+.navItemActive span {
+  background-color: #147aff00;
+}
+
+.mainContent {
+  margin-left: 330px;
+  background-color: #f1f2f5;
+}
+
+.navItem span {
+  background-color: #373737;
+}
