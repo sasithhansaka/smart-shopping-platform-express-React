@@ -77,9 +77,7 @@ function GiftBoxSuggestion() {
         onClick={openPopup}
         title="Open Gift Box Suggester"
       >
-        <span role="img" aria-label="gift" className={styles.giftIcon}>
-          🎁
-        </span>
+        <img src="./src/images/Gift.png" alt="Gift" />
       </button>
 
       {showPopup && (

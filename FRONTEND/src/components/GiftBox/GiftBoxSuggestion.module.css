@@ -1,9 +1,9 @@
 .fab {
   position: fixed;
-  right: 0px;
-  bottom: 0px;
-  width: 64px;
-  height: 64px;
+  bottom: 150px;
+  right: 29px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: none;
   background: #1976d2;
@@ -11,17 +11,16 @@
   font-size: 2rem;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.17);
   cursor: pointer;
-  z-index: 2001;
+  z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.18s;
 }
-.fab:hover {
-  background: #1356a2;
-}
-.giftIcon {
-  font-size: 2.3rem;
+
+
+.fab img {
+  background: #1976d2;
 }
 
 .popupOverlay {
@@ -109,25 +108,25 @@
   border : 1px solid #aaa;
     border-bottom: none; /* Remove bottom border */
 
-.formgiftBox .inputGroup{
-    width: 1327px;
-    height: 270px;
-    border-radius: 25px;
-    border: 1px solid #ffffff1f;
-    background: #272727;
-    margin-left: 80px;
+.formgiftBox .inputGroup {
+  width: 1327px;
+  height: 270px;
+  border-radius: 25px;
+  border: 1px solid #ffffff1f;
+  background: #272727;
+  margin-left: 80px;
 }
 
 .formgiftBox .input {
   /* flex: 1; */
   /* padding: 0.5rem; */
-    /* border: none; */
+  /* border: none; */
 
   border-radius: 6px;
-  border: 1px solid rgba(147, 120, 120, 0.253)53A;
+  border: 1px solid rgba(147, 120, 120, 0.253) 53A;
   font-size: 0.6rem;
   width: 1230px;
-    background: #ff592b0a;
+  background: #ff592b0a;
   height: 130px;
   margin-top: 40px;
   margin-left: 50px;

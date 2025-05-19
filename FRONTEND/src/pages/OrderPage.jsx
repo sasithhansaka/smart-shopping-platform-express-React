@@ -6,10 +6,15 @@ import ProductImageGroup from "../components/Order/ProductImageGroup";
 import ProductImage from "../components/Order/ProductImage";
 import ProductDetails from "../components/Order/ProductDetails";
 import ProductBuyContainer from "../components/Order/ProductBuyContainer";
+import Chatbot from "../components/Chatbot/Chatbot";
+import ChatButton from "../components/Chatbot/ChatButton";
+// import { useState } from "react";
+import GiftBoxSuggestion from "../components/GiftBox/GiftBoxSuggestion";
 
 function OrderPage() {
   const [product, setProduct] = useState(null);
   const [selectIndex, setSelectIndex] = useState("0");
+  const [chatOpen, setChatOpen] = useState(false);
 
   const PRODUCTID = "6824361b9e3e21e745583786";
 
@@ -48,26 +53,27 @@ function OrderPage() {
             <ProductImage image={product.images[selectIndex]} />
           </div>
           <div>
-            <ProductDetails 
-               productName={product.long_title}
-               productReviews={product.reviews}
-               productColors={product.colors}
-               productDescription={product.description}/>
-
+            <ProductDetails
+              productName={product.long_title}
+              productReviews={product.reviews}
+              productColors={product.colors}
+              productDescription={product.description}
+            />
           </div>
           <div>
             <ProductBuyContainer
-            productPrice={product.price}
-            productDiscount={product.discountPercentage}
-            productStock={product.stock}
-            productSellerId={product.sellerId}
-            productId={PRODUCTID}
+              productPrice={product.price}
+              productDiscount={product.discountPercentage}
+              productStock={product.stock}
+              productSellerId={product.sellerId}
+              productId={PRODUCTID}
             />
-            
           </div>
-            
         </div>
       )}
+      <ChatButton onClick={() => setChatOpen(true)} />
+      <Chatbot isOpen={chatOpen} onClose={() => setChatOpen(false)} />
+      <GiftBoxSuggestion />
     </div>
   );
 }

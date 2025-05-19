@@ -18,10 +18,7 @@
   transition: all 0.2s ease;
 }
 
-/*  */
-
-.chatIcon {
-  color: #fff; /* White icon */
-  font-size: 24px;
-  background-color: #000;
+.chatButton img{
+background-color: #000;
 }
+
