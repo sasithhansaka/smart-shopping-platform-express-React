@@ -101,19 +101,22 @@ function GiftBoxSuggestion() {
                   type="text"
                   value={story}
                   onChange={(e) => setStory(e.target.value)}
-                  placeholder="e.g. I want a gift for my friend for his birthday, budget under 20000 LKR, he likes cricket."
+                  placeholder="Example : I want a gift for my friend for his birthday, budget under 20000 LKR, he likes cricket."
                   className={styles.input}
                   required
                   autoFocus
                 />
 
                 <button type="submit" className={styles.button}>
-                  Suggest
+                  <span className={styles.iconCircle}>
+                    <img src="./src/images/Gift.png" alt="Gift" />
+                  </span>
+                  Find the gift
                 </button>
               </div>
             </form>
 
-            {loading && <div className={styles.loading}>Loading...</div>}
+            {/* {loading && <div className={styles.loading}>Loading...</div>} */}
 
             {/* Show answer if present */}
             {answer && <div className={styles.answer}>{answer}</div>}

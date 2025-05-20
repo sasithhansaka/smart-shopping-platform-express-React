@@ -1,6 +1,6 @@
 .fab {
   position: fixed;
-  bottom: 150px;
+  bottom: 140px;
   right: 29px;
   width: 60px;
   height: 60px;
@@ -17,7 +17,6 @@
   justify-content: center;
   transition: background 0.18s;
 }
-
 
 .fab img {
   background: #1976d2;
@@ -118,20 +117,56 @@
 }
 
 .formgiftBox .input {
-  /* flex: 1; */
-  /* padding: 0.5rem; */
-  /* border: none; */
+  all: unset; /* Reset all default styles */
+  width: 100%;
+  max-width: 1000px;
+  height: 90px;
+  margin: 20px auto;
+  padding: 20px;
+  display: block;
 
-  border-radius: 6px;
-  border: 1px solid rgba(147, 120, 120, 0.253) 53A;
-  font-size: 0.6rem;
-  width: 1230px;
-  background: #ff592b0a;
-  height: 130px;
-  margin-top: 40px;
-  margin-left: 50px;
+  /* Text alignment fixes */
+  text-align: left !important; /* Force left alignment */
+  vertical-align: top !important; /* Force top alignment */
+  /* Text styling */
+  font-size: 1rem;
+  color: #892727;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+
+  /* Border and background */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background: #ff592b08;
+
+  /* Shadow for subtle depth */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-color: #ff592b29;
+
+  /* Placeholder styling */
+
+  &::placeholder {
+    color: #ffffff8d;
+    font-style: italic;
+  }
+
+  /* Focus state */
+  &:focus {
+    border-color: #ff592b29;
+    outline: none;
+    background: #ff592b08;
+    color: #ffffff;
+  }
+
+  /* Focus/typing state */
+  &:focus,
+  &:not(:placeholder-shown) {
+    border-color: #ff592b29;
+    outline: none;
+    background: #ff592b08;
+    color: #ffffff;
+  }
 }
-
 .formgiftBox .button {
   padding: 0.5rem 1.2rem;
   background: #1976d2;
@@ -143,11 +178,36 @@
   font-size: 1rem;
   transition: background 0.15s;
   width: 200px;
-  height: 40px;
+  height: 50px;
   border-radius: 25px;
+  font-family: "Quantico", sans-serif; /* Added Quantico font family */
+  box-shadow: 0 0 10px 2px rgba(20, 122, 255, 0.5);
+  margin-left: 500px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
-.button:hover {
+/* .button:hover {
   background: #1356a2;
+} */
+
+.iconCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #242424;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.iconCircle img {
+  background: #242424;
+width: 90%;
+  height: 90%;
+  object-fit: cover;
 }
 
 .loading {
@@ -220,4 +280,5 @@
   margin-bottom: 0.5rem;
   padding-left: 20px;
   margin-top: 10px;
+  border: 1px solid #6f4e44;
 }
