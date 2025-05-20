@@ -18,6 +18,10 @@ function ManageProducts() {
     filterProducts();
   }, [activeTab, products]);
 
+  const NavigateToAddProduct = () => {
+    window.location.href = "/seller/add-products";
+  };
+
   const fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:3000/api/product", {
@@ -50,7 +54,7 @@ function ManageProducts() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#F1F2F5" }}>
       <Breadcrumbs />
       <h3
         className={styles.addProductTitle}
@@ -76,6 +80,11 @@ function ManageProducts() {
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
           </span>
         ))}
+
+        <button className={styles.newProductButton} onClick={NavigateToAddProduct}>
+          <img src="./src/images/plus.png" />
+          NEW PRODUCT
+        </button>
       </div>
       <div className={styles.productContainer}>
         <div className={styles.tableDiv}>
@@ -98,14 +107,23 @@ function ManageProducts() {
                         display: "flex",
                         alignItems: "center",
 
-
                         gap: "10px",
-                        backgroundColor:"#F9FBFF",
-                      
+                        backgroundColor: "#F9FBFF",
                       }}
                     >
-                      <img src={product.images?.[0]} alt="Product" width="50" height="50" style={{backgroundColor:"#F5F8FD",borderRadius:"10px"}} />
-                      <p className={styles.productLongTitle}>{product.long_title}</p>
+                      <img
+                        src={product.images?.[0]}
+                        alt="Product"
+                        width="50"
+                        height="50"
+                        style={{
+                          backgroundColor: "#F5F8FD",
+                          borderRadius: "10px",
+                        }}
+                      />
+                      <p className={styles.productLongTitle}>
+                        {product.long_title}
+                      </p>
                     </div>
                   </td>
                   {product.isApproved === false ? (
@@ -120,12 +138,16 @@ function ManageProducts() {
                         }}
                       >
                         Product Will Be Activated After Passing QC.
-                        <strong style={{backgroundColor:'#E6F4EA'}}>Updated Before: 2025-06-04</strong>
+                        <strong style={{ backgroundColor: "#E6F4EA" }}>
+                          Updated Before: 2025-06-04
+                        </strong>
                       </div>
                     </td>
                   ) : (
                     <>
-                      <td className={styles.productPrice}>LKR.{product.price}.00</td>
+                      <td className={styles.productPrice}>
+                        LKR.{product.price}.00
+                      </td>
                       <td>{product.stock}</td>
                       <td>
                         <button

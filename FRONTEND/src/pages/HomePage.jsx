@@ -11,13 +11,15 @@ function HomePage() {
 
   return (
     <main>
-      <NavBar />
+      {/* <NavBar />
       <div className="home-banner"></div>
       <CategoryBoxContainer />
-      <HomeProductList />
+      <HomeProductList /> */}
       <ChatButton onClick={() => setChatOpen(true)} />
       <Chatbot isOpen={chatOpen} onClose={() => setChatOpen(false)} />
         <GiftBoxSuggestion />
+                  {/* <img src="./src/images/Logo-White.png" /> */}
+
     </main>
   );
 }

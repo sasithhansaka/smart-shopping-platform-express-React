@@ -66,7 +66,7 @@ function UpgradeSeller() {
         <h2>Upgrade to Seller</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
-            Account Type:
+            Account Type
             <select
               name="AccountType"
               value={formData.AccountType}
@@ -78,7 +78,7 @@ function UpgradeSeller() {
           </label>
 
           <label>
-            Store Name:
+            Store Name
             <input
               type="text"
               name="Store_name"
@@ -90,7 +90,7 @@ function UpgradeSeller() {
           </label>
 
           <label>
-            Email:
+            Email
             <input
               type="email"
               name="email"
@@ -102,7 +102,7 @@ function UpgradeSeller() {
           </label>
 
           <label>
-            Address:
+            Address
             <input
               type="text"
               name="address"
@@ -114,7 +114,7 @@ function UpgradeSeller() {
           </label>
 
           <label>
-            Bank Number:
+            Bank Number
             <input
               type="text"
               name="BankNumber"
@@ -126,7 +126,7 @@ function UpgradeSeller() {
           </label>
 
           <label>
-            Pin Number:
+            Pin Number
             <input
               type="password"
               name="PinNumber"

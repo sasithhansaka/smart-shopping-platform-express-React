@@ -13,6 +13,12 @@
   /* border-bottom: 1px solid #dee2e6; */
 }
 
+.brandLogo{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
 .brandName {
   font-weight: bold;
   font-size: 1.5rem;
