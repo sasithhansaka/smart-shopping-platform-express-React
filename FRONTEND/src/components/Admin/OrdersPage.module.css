@@ -1,0 +1,27 @@
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.ordersTable th,
+.ordersTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.ordersTable th {
+  background-color: #f4f4f4;
+}
+
+.productThumbnail {
+  width: 60px;
+  height: auto;
+  border-radius: 4px;
+}
