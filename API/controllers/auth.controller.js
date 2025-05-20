@@ -5,7 +5,7 @@ import CustomerModel from "../models/Customer.model.js";
 
 const register = async (req, res, next) => {
   const { password, ...userData } = req.body;
-  console.log("Hiruna");
+  // console.log("Hiruna");
 
   try {
     // Check for existing email and username in CustomerModel
@@ -143,16 +143,22 @@ const login = async (req, res, next) => {
 };
 
 const logout = (req, res, next) => {
+  console.log("Logout called");
+
   res.clearCookie("accessToken", {
     httpOnly: true,
-    sameSite: "Strict",
-    secure: true,
+    sameSite: "Lax", // Match login setting
+    secure: false,   // Match login setting
   });
+
   res.clearCookie("refreshToken", {
     httpOnly: true,
-    sameSite: "Strict",
-    secure: true,
+    sameSite: "Lax", // Match login setting
+    secure: false,   // Match login setting
   });
+
+  return res.status(200).json({ success: true, message: "Logged out successfully" });
 };
+
 
 export { register, login, logout };

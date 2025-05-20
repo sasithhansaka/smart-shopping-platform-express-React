@@ -12,7 +12,7 @@ function Settings() {
       await axios.post('http://localhost:3000/api/auth/logout', {
         withCredentials: true
       });
-      navigate('/login');
+      navigate('/');
     }catch (err) {
       const errorMessage = err.response
         ? err.response.data.message

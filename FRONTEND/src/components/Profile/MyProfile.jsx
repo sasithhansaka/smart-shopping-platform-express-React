@@ -198,8 +198,8 @@ function MyProfile() {
             </div>
 
             <div className={styles.detailGroup}>
-              <span className={styles.detailLabel}>Country</span>
-              <span className={styles.detailValue}>Sri Lanka</span>
+              <span className={styles.detailLabel} style={{marginLeft:"-20px"}}>Country</span>
+              <span className={styles.detailValue} style={{marginLeft:"-20px"}}>Sri Lanka</span>
             </div>
           </div>
         </div>

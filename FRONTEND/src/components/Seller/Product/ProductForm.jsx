@@ -304,10 +304,10 @@ function ProductForm() {
             required
           >
             <option value="">Select your product category</option>
-            <option value="sports">Sports</option>
+            {/* <option value="sports">Sports</option> */}
             <option value="gaming">Gaming</option>
             <option value="earphones">Earphones</option>
-            <option value="toys">Toys</option>
+            {/* <option value="toys">Toys</option> */}
             <option value="mobilephones">Mobile-Phones</option>
             <option value="laptops">Laptops</option>
           </select>
