@@ -105,7 +105,7 @@ function BecomeSeller() {
     <div className={styles.container}>
       {!otpSent ? (
         <form onSubmit={handleSendOtp} className={styles.form}>
-          <h2>Brand name</h2>
+          <h2>TRADENEST</h2>
           <p className={styles.verifyText}>Verify Email</p>
           <div className={styles.formGroup}>
             <label htmlFor="email">Email Address</label>
@@ -119,11 +119,11 @@ function BecomeSeller() {
         </form>
       ) : (
         <form onSubmit={handleVerifyOtp} className={styles.form}>
-          <h2>Brand name</h2>
+          <h2>TRADENEST</h2>
           <p className={styles.verifyText}>Verify Your OTP</p>
           <div className={styles.formGroup}>
             {/* <h2>Brand name</h2> */}
-          {/* <p className={styles.verifyText}>Verify Email</p> */}
+            {/* <p className={styles.verifyText}>Verify Email</p> */}
             <label htmlFor="otp">Enter OTP</label>
             <input
               type="text"
@@ -132,7 +132,11 @@ function BecomeSeller() {
               onChange={(e) => setOtp(e.target.value)}
               required
               placeholder="Enter the OTP you received"
-              style={{ backgroundColor: "#242424" ,color: "#fff" , border: "1px solid #5A5A5A"}}
+              style={{
+                backgroundColor: "#242424",
+                color: "#fff",
+                border: "1px solid #5A5A5A",
+              }}
             />
             {/* <p className={styles.emailNote}>OTP sent to {email}</p> */}
           </div>

@@ -8,7 +8,6 @@ import ProductDetails from "../components/Order/ProductDetails";
 import ProductBuyContainer from "../components/Order/ProductBuyContainer";
 import Chatbot from "../components/Chatbot/Chatbot";
 import ChatButton from "../components/Chatbot/ChatButton";
-// import { useState } from "react";
 import GiftBoxSuggestion from "../components/GiftBox/GiftBoxSuggestion";
 
 function OrderPage() {
@@ -16,7 +15,7 @@ function OrderPage() {
   const [selectIndex, setSelectIndex] = useState("0");
   const [chatOpen, setChatOpen] = useState(false);
 
-  const PRODUCTID = "6824361b9e3e21e745583786";
+  const PRODUCTID = "682b69f8af539ea6ba8bb63d";
 
   useEffect(() => {
     const fetchProduct = async () => {

@@ -23,12 +23,11 @@ function RegisterComponent() {
 
     try {
       if (!username || !email || !password || !confirmPassword) {
-        setError("Please fill in all fields");
-        return;
+        alert("Please fill in all fields");
       }
 
       if (password !== confirmPassword) {
-        setError("Passwords do not match");
+        alert("Passwords do not match");
         return;
       }
 

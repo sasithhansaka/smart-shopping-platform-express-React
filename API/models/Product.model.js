@@ -124,7 +124,7 @@ const productSchema = new Schema({
   },
   status: {
     type: String,
-    enum: ["active", "inactive", "pending", "deleted"],
+    enum: ["active", "Inactive", "pending", "deleted"],
     default: "pending",
   },
   maxBuyCount: {

@@ -51,7 +51,7 @@ function UpgradeSeller() {
       );
       if (response.data.success) {
         alert("You are now a seller!");
-        navigate("/dashboard"); // Update this to your seller page route
+        navigate("/seller/dashboard"); // Update this to your seller page route
       } else {
         alert("Something went wrong. Please try again.");
       }
@@ -86,6 +86,7 @@ function UpgradeSeller() {
               onChange={handleChange}
               required
               placeholder="Enter your store name"
+              autoComplete="off"
             />
           </label>
 
@@ -98,6 +99,7 @@ function UpgradeSeller() {
               onChange={handleChange}
               required
               placeholder="Enter your email address"
+              autoComplete="off"
             />
           </label>
 
@@ -110,6 +112,7 @@ function UpgradeSeller() {
               onChange={handleChange}
               required
               placeholder="Enter your address"
+              autoComplete="off"
             />
           </label>
 
@@ -122,6 +125,7 @@ function UpgradeSeller() {
               onChange={handleChange}
               required
               placeholder="Enter your bank number"
+              autoComplete="off"
             />
           </label>
 
@@ -134,6 +138,7 @@ function UpgradeSeller() {
               onChange={handleChange}
               required
               placeholder="Enter your bank pin"
+              autoComplete="off"
             />
           </label>
 

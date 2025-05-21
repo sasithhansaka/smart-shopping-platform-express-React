@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./ManageProducts.module.css";
 import Breadcrumbs from "../Breadcrumbs";
+import { FiPlus } from "react-icons/fi"; // Import the plus icon from Feather Icons
 
-const STATUS_TYPES = ["all", "active", "inactive", "pending", "deleted"];
+const STATUS_TYPES = ["all", "active", "Inactive", "pending"];
 
 function ManageProducts() {
   const [products, setProducts] = useState([]);
@@ -27,12 +28,12 @@ function ManageProducts() {
       const response = await axios.get("http://localhost:3000/api/product", {
         withCredentials: true,
       });
-      console.log(response.data);
       setProducts(response.data.data);
     } catch (error) {
       console.error("Error fetching products", error);
     }
   };
+
   const filterProducts = () => {
     if (activeTab === "all") {
       setFiltered(products);
@@ -43,10 +44,13 @@ function ManageProducts() {
 
   const toggleActiveStatus = async (product) => {
     try {
-      const updatedStatus = product.status === "active" ? "inactive" : "active";
-      await axios.patch(`http://localhost:3000/api/product/${product._id}`, {
-        status: updatedStatus,
-      });
+      // Switch between 'active' and 'inactive'
+      const updatedStatus = product.status === "active" ? "Inactive" : "active";
+      await axios.patch(
+        `http://localhost:3000/api/product/${product._id}`,
+        { status: updatedStatus },
+        { withCredentials: true }
+      );
       fetchProducts(); // Refresh list
     } catch (error) {
       console.error("Error updating product", error);
@@ -70,9 +74,8 @@ function ManageProducts() {
             style={{
               cursor: "pointer",
               color: activeTab === tab ? "#147AFF" : "#000",
-              borderBottom:
-                activeTab === tab ? "2px solidrgb(43, 53, 66)" : "none",
-              paddingBottom: "20px",
+              borderBottom: activeTab === tab ? "2px solid #147AFF" : "none",
+              // paddingBottom: "20px",
               paddingTop: "20px",
               backgroundColor: "#F1F2F5",
             }}
@@ -81,8 +84,13 @@ function ManageProducts() {
           </span>
         ))}
 
-        <button className={styles.newProductButton} onClick={NavigateToAddProduct}>
-          <img src="./src/images/plus.png" />
+        <button
+          className={styles.newProductButton}
+          onClick={NavigateToAddProduct}
+        >
+          <span className={styles.iconCircle}>
+            <FiPlus className={styles.plusIcon} />
+          </span>
           NEW PRODUCT
         </button>
       </div>
@@ -106,7 +114,6 @@ function ManageProducts() {
                       style={{
                         display: "flex",
                         alignItems: "center",
-
                         gap: "10px",
                         backgroundColor: "#F9FBFF",
                       }}
@@ -153,16 +160,36 @@ function ManageProducts() {
                         <button
                           onClick={() => toggleActiveStatus(product)}
                           style={{
-                            backgroundColor:
-                              product.status === "active" ? "#147AFF" : "black",
-                            border: "none",
-                            padding: "6px 12px",
-                            color: "white",
+                            position: "relative",
+                            width: "50px",
+                            height: "26px",
                             borderRadius: "20px",
+                            border: "none",
                             cursor: "pointer",
+                            padding: "0",
+                            backgroundColor:
+                              product.status === "active"
+                                ? "#147AFF"
+                                : "#E0E0E0",
+                            transition: "all 0.3s ease",
                           }}
                         >
-                          {product.status === "active" ? "Active" : "Inactive"}
+                          <span
+                            style={{
+                              position: "absolute",
+                              top: "3px",
+                              left:
+                                product.status === "active"
+                                  ? "calc(100% - 23px)"
+                                  : "3px",
+                              width: "20px",
+                              height: "20px",
+                              borderRadius: "50%",
+                              backgroundColor: "white",
+                              transition: "all 0.3s ease",
+                              boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                            }}
+                          />
                         </button>
                       </td>
                     </>
