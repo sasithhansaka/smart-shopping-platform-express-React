@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./GiftBoxSuggestion.module.css";
 import axios from "axios";
+import { FiPackage } from "react-icons/fi"; // Using Feather Icons (FiPackage)
 
 function GiftBoxSuggestion() {
   const [story, setStory] = useState("");
@@ -90,9 +91,7 @@ function GiftBoxSuggestion() {
             >
               &times;
             </button>
-            <div className={styles.header}>
-              {/* <span role="img" aria-label="gift">🎁</span> Gift Box Suggestion */}
-            </div>
+
             <form onSubmit={handleSubmit} className={styles.formgiftBox}>
               {/* <p>What is your thourgh</p> */}
               <div className={styles.inputGroup}>
@@ -105,6 +104,7 @@ function GiftBoxSuggestion() {
                   className={styles.input}
                   required
                   autoFocus
+                  autoComplete="off"
                 />
 
                 <button type="submit" className={styles.button}>
@@ -115,13 +115,47 @@ function GiftBoxSuggestion() {
                 </button>
               </div>
             </form>
+            {!loading && !answer && products.length === 0 && (
+              <div className={styles.giftbox}>
+                <div className={styles.giftbox1}>
+                  <img src="./src/images/ChristmasGift.png" alt="Gift" />
+                </div>
+                <div className={styles.giftbox2}>
+                  <img src="./src/images/ChristmasGift.png" alt="Gift" />
+                </div>
+                <div className={styles.giftbox1}>
+                  <img src="./src/images/ChristmasGift.png" alt="Gift" />
+                </div>
+              </div>
+            )}
 
-            {/* {loading && <div className={styles.loading}>Loading...</div>} */}
+            {loading && (
+              <div className={styles.loading}>
+                <span className={styles.spinner}></span>
+              </div>
+            )}
 
-            {/* Show answer if present */}
-            {answer && <div className={styles.answer}>{answer}</div>}
+            {answer ===
+              "Sorry, there are no suitable products for your gift box on our site." &&
+              !loading && (
+                <div className={styles.noProductsContainer}>
+                  <div className={styles.noProductsContent}>
+                    <FiPackage className={styles.noProductsIcon} />
+                   
+                    <p className={styles.noProductsMessage}>
+                      Your search did not match any products.
+                    
+                    </p>
+                  </div>
+                </div>
+              )}
 
-            {/* Show product suggestions if available */}
+            {/* Show answer for other cases */}
+            {answer &&
+              answer !==
+                "Sorry, there are no suitable products for your gift box on our site." && (
+                <div className={styles.answer}>{answer}</div>
+              )}
             {!answer && !loading && products.length > 0 && (
               <div className={styles.suggestionList}>
                 {products.map((prod) => (
