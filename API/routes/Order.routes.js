@@ -26,7 +26,7 @@ OrderRoutes.put(
 OrderRoutes.get(
   "/",
   authenticateUser,
-  authorize(["seller", "admin"]),
+  authorize(["seller", "admin","customer"]),
   getorders
 );
 OrderRoutes.get(

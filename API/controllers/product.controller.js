@@ -64,6 +64,15 @@ const getAllProducts = async (req, res, next) => {
   }
 };
 
+const getAllProductsAdmin = async (req, res, next) => {
+  try {
+    const products = await ProductModel.find(); // Get all products in the database
+    res.status(HttpStatus.OK).json({ data: products });
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getProduct = async (req, res, next) => {
   try {
     const product = await ProductModel.findOne({
@@ -83,4 +92,4 @@ const getProduct = async (req, res, next) => {
   }
 };
 
-export { addProduct, deleteProduct, updateProduct, getAllProducts, getProduct };
+export { addProduct, deleteProduct, updateProduct, getAllProducts, getProduct ,getAllProductsAdmin};

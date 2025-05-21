@@ -1,0 +1,54 @@
+.footer {
+  background-color: #f1f2f5;
+  padding: 20px 0;
+  /* border-top: 1px solid #e9ecef; */
+  margin-top: 40px; /* Pushes footer to bottom if using flex layout */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #f1f2f5;
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  background-color: #f1f2f5;
+}
+
+.copyright {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+  background-color: #f1f2f5;
+  text-transform: uppercase
+}
+
+.appBadge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f1f2f5;
+}
+
+.appName {
+  font-weight: 600;
+  color: #212529;
+  font-size: 16px;
+  background-color: #f1f2f5;
+    text-transform: uppercase
+
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .brandInfo {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

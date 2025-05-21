@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import "./App.css";
 import HomePage from "./pages/HomePage";
@@ -22,37 +22,46 @@ import ProfilePage from "./pages/ProfilePage";
 import BecomeSeller from "./pages/BecomeSeller";
 import UpgradeSeller from "./pages/UpgradeSeller";
 
-const queryClient = new QueryClient();
+import AdminPage from "./pages/AdminPage";
+import ProductsPage from "./components/Admin/ProductsPage";
+import OrdersPage from "./components/Admin/OrdersPage";
+import AdminHomePage from "./components/Admin/HomePage";
+
+// const queryClient = new QueryClient();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="/auth" element={<AuthenticationPage />} />
-          <Route path="/order" element={<OrderPage />} />
-          <Route path="/Seller" element={<SellerPage />} />
-          <Route path="/Profile" element={<ProfilePage />} />
-          <Route path="/BecomeSeller" element={<BecomeSeller />} />
-          <Route path="/UpgradeSeller" element={<UpgradeSeller />} />
-          <Route path="*" element={<NotFound />} />
+    // <QueryClientProvider client={queryClient}>
+    <Router>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="/auth" element={<AuthenticationPage />} />
+        <Route path="/order" element={<OrderPage />} />
+        <Route path="/Seller" element={<SellerPage />} />
+        <Route path="/Profile" element={<ProfilePage />} />
+        <Route path="/BecomeSeller" element={<BecomeSeller />} />
+        <Route path="/UpgradeSeller" element={<UpgradeSeller />} />
+        <Route path="*" element={<NotFound />} />
 
-          <Route path="/seller" element={<SellerPage />}>
-            <Route path="dashboard" element={<WelcomeSeller />} />
-            <Route path="manage-products" element={<ManageProducts />} />
-            <Route path="add-products" element={<AddProducts />} />
-            <Route path="brand-management" element={<BrandManagement />} />
-            <Route path="growth" element={<Growth />} />
-            <Route path="orders" element={<Orders />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="my-profile" element={<MyProfile />} />
-          </Route>
-        </Routes>
-      </Router>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+        <Route path="/seller" element={<SellerPage />}>
+          <Route path="dashboard" element={<WelcomeSeller />} />
+          <Route path="manage-products" element={<ManageProducts />} />
+          <Route path="add-products" element={<AddProducts />} />
+          <Route path="brand-management" element={<BrandManagement />} />
+          <Route path="growth" element={<Growth />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="my-profile" element={<MyProfile />} />
+        </Route>
+
+        <Route path="/admin" element={<AdminPage />}>
+          <Route path="home" element={<AdminHomePage />} />
+          <Route path="orders" element={<OrdersPage />} />
+          <Route path="products" element={<ProductsPage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
@@ -125,3 +134,7 @@ export default App;
         ></iframe>
       </div> */
 }
+
+// home /Order-tikk ?become a seller design/seller dashboard home /orders design
+
+// /admin?    fraud detection
