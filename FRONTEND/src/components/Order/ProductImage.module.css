@@ -3,6 +3,7 @@
     width: 430px;
     height: 500px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .productImage img{

@@ -37,7 +37,7 @@ const updateProduct = async (req, res, next) => {
 
   try {
     const updatedProduct = await ProductModel.findOneAndUpdate(
-      { _id: productId, sellerId: req.user.sellerId },
+      { _id: productId},
       updateData,
       { new: true, runValidators: true }
     );

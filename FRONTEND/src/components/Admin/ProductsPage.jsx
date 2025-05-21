@@ -14,7 +14,7 @@ function ProductsPage() {
           "http://localhost:3000/api/product/getproducts",
           {
             withCredentials: true,
-            timeout: 5000,
+            // timeout: 5000,
           }
         );
 
@@ -34,7 +34,7 @@ function ProductsPage() {
     fetchProducts();
   }, []);
 
-  if (loading) return <p>Loading products...</p>;
+  // if (loading) return <p>Loading products...</p>;
   if (error) return <p>{error}</p>;
 
   return (
@@ -46,7 +46,8 @@ function ProductsPage() {
             <th>Image</th>
             <th>Brand</th>
             <th>Category</th>
-            <th>Quantity</th>
+            <th>Status</th>
+            {/* <th>Quantity</th> */}
             <th>Price (LKR)</th>
             <th>Discount (%)</th>
           </tr>
@@ -68,7 +69,8 @@ function ProductsPage() {
               </td>
               <td>{product.brand || "-"}</td>
               <td>{product.category || "-"}</td>
-              <td>{product.quantity || 0}</td>
+
+              <td>{product.status || 0}</td>
               <td>{product.price?.toFixed(2)}</td>
               <td>{product.discountPercentage || 0}%</td>
             </tr>

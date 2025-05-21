@@ -2,6 +2,7 @@
     width: 120px;
     margin-left: 60px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .productImageGroup img{
@@ -11,5 +12,5 @@
     object-fit: cover;
     border-radius: 5px;
     border: 2px solid #2424240c;
-    object-fit: cover;
+    object-fit: contain;
 }

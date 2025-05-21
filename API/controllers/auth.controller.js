@@ -72,11 +72,6 @@ const login = async (req, res, next) => {
   const { username, password, email } = req.body;
 
   try {
-    // if (userType !== "customer" && userType !== "seller")
-    //   return res
-    //     .status(HttpStatus.BAD_REQUEST)
-    //     .json({ success: false, message: "Invalid user type" });
-
     let user;
 
     if (email) {
@@ -116,21 +111,21 @@ const login = async (req, res, next) => {
 
     res.cookie("accessToken", access_token, {
       httpOnly: true,
-      maxAge: 900000,
-      sameSite: "Lax", // Changed from Strict to Lax for development
+      maxAge: 2 * 60 * 60 * 1000, // 2 hours in ms
+      sameSite: "Lax",
       secure: false,
     });
 
     res.cookie("refreshToken", refresh_Token, {
       httpOnly: true,
-      maxAge: 900000,
-      sameSite: "Lax", // Changed from Strict to Lax for development
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days in ms
+      sameSite: "Lax",
       secure: false,
     });
 
     res.status(HttpStatus.OK).json({
       success: true,
-      message:'Login successful',
+      message: "Login successful",
       data: {
         accessToken: access_token,
         refreshToken: refresh_Token,
@@ -148,17 +143,18 @@ const logout = (req, res, next) => {
   res.clearCookie("accessToken", {
     httpOnly: true,
     sameSite: "Lax", // Match login setting
-    secure: false,   // Match login setting
+    secure: false, // Match login setting
   });
 
   res.clearCookie("refreshToken", {
     httpOnly: true,
     sameSite: "Lax", // Match login setting
-    secure: false,   // Match login setting
+    secure: false, // Match login setting
   });
 
-  return res.status(200).json({ success: true, message: "Logged out successfully" });
+  return res
+    .status(200)
+    .json({ success: true, message: "Logged out successfully" });
 };
-
 
 export { register, login, logout };

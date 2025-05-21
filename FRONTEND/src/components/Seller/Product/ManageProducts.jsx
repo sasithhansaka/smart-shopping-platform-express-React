@@ -133,7 +133,7 @@ function ManageProducts() {
                       </p>
                     </div>
                   </td>
-                  {product.isApproved === false ? (
+                  {product.status === "pending" ? (
                     <td colSpan="3">
                       <div
                         style={{
