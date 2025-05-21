@@ -7,7 +7,8 @@ import {
   updateAccount,
   deleteAccount,
   addFeedback,
-  getUser
+  getUser,
+  getUserById
 } from "../controllers/user.controller.js";
 
 const userRoutes = express.Router();
@@ -45,6 +46,13 @@ userRoutes.delete(
   authenticateUser,
   authorize("customer"),
   deleteAccount
+);
+
+userRoutes.get(
+  "/customer/:id",
+  authenticateUser,
+  authorize(["customer", "seller"]),
+  getUserById
 );
 
 export default userRoutes;

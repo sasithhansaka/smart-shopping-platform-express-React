@@ -3,8 +3,7 @@
   background-color: #f1f2f5;
   border-radius: 20px;
   /* box-shadow: 0 10px 40px rgba(20, 122, 255, 0.1); */
-        font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
 /* 
 .title {
@@ -58,7 +57,6 @@
   line-height: 1.5;
 }
 
-
 .addProductTitle {
   color: #5d5a5a;
   font-size: 20px;
@@ -68,8 +66,7 @@
 .videoSection {
   margin-top: 60px;
   /* text-align: center; */
-    background-color: #f1f2f5;
-
+  background-color: #f1f2f5;
 }
 
 .videoTitle {
@@ -81,18 +78,15 @@
   /* justify-content: center;
   align-items: center; */
   gap: 10px;
-    background-color: #f1f2f5;
-
+  background-color: #f1f2f5;
 }
 
 .icon {
   color: #ff0000;
   font-size: 1.5rem;
-      background-color: #f1f2f5;
-      margin-top: 9px;
-
+  background-color: #f1f2f5;
+  margin-top: 9px;
 }
-
 
 .videoIntro {
   font-size: 1.1rem;
@@ -100,8 +94,7 @@
   /* max-width: 800px; */
   margin: 0 auto 25px;
   line-height: 1.6;
-    background-color: #f1f2f5;
-
+  background-color: #f1f2f5;
 }
 
 .videoWrapper {
@@ -111,7 +104,6 @@
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
 
 .mainTitle {
   /* text-align: center; */
@@ -123,14 +115,12 @@
   justify-content: center;
   align-items: center; */
   gap: 10px;
-      background-color: #f1f2f5;
+  background-color: #f1f2f5;
   margin-top: 30px;
-
 }
 
 .titleIcon {
   color: #ff5722;
   font-size: 1.8rem;
-      background-color: #f1f2f5;
-
+  background-color: #f1f2f5;
 }
