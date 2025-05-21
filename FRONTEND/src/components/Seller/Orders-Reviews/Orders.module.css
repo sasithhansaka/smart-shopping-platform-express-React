@@ -13,20 +13,20 @@
   background-color: #f1f2f5;
 }
 
-.addProductTitle {
-  font-size: 24px;
-  margin: 20px 0;
-  font-weight: bold;
+
+
+.ordersContainer {
+  background-color: #f1f2f5;
 }
 .tableContainer {
   margin: 32px auto;
   padding: 12px;
-  background: #fff;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(44, 54, 68, 0.08);
+  /* box-shadow: 0 2px 12px rgba(44, 54, 68, 0.08); */
   max-width: 1200px; /* Increased from 98vw */
   width: 100%;
   overflow-x: auto;
+  border-radius: 20px;
 }
 
 .ordersTable {
@@ -34,6 +34,7 @@
   min-width: 1100px; /* Makes the table wider for more columns */
   border-collapse: collapse;
   font-family: "Poppins", sans-serif;
+  border-radius: 20px;
 }
 
 /* ...rest of your CSS remains unchanged... */

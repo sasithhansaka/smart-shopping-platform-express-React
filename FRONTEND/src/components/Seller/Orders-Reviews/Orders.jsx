@@ -110,8 +110,10 @@ function Orders() {
   }
 
   return (
-    <div>
+    <div className={styles.ordersContainer}>
       <Breadcrumbs />
+      <h3 className={styles.addProductTitle}>Orders</h3>
+
       <div className={styles.tableContainer}>
         <table className={styles.ordersTable}>
           <thead>
@@ -132,9 +134,9 @@ function Orders() {
               const product = products[item.productId];
               const customer = customers[order.customerId];
               const totalPrice =
-                ((product?.price || 0) *
+                (product?.price || 0) *
                   item.quantity *
-                  (1 - item.discountPercentage / 100)) || 0;
+                  (1 - item.discountPercentage / 100) || 0;
 
               return (
                 <tr key={order._id}>

@@ -1,50 +1,57 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Breadcrumbs from '../Breadcrumbs';
-import styles from './MyProfile.module.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Breadcrumbs from "../Breadcrumbs";
+import styles from "./MyProfile.module.css";
 
 function MyProfile() {
   // State for seller data
   const [sellerData, setSellerData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Edit mode state
   const [isEditing, setIsEditing] = useState(false);
-  
+
   // Form data state
   const [formData, setFormData] = useState({
-    email: '',
-    address: '',
-    BankNumber: '',
-    PinNumber: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    BankNumber: "",
+    PinNumber: "",
   });
 
   // Success message state
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     const fetchSellerData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:3000/api/seller', { withCredentials: true });
+        const response = await axios.get("http://localhost:3000/api/seller", {
+          withCredentials: true,
+        });
         setSellerData(response.data.sellerExist);
-        
+
         // Initialize form data with seller data
         setFormData({
-          email: response.data.sellerExist.email || '',
-          address: response.data.sellerExist.address || '',
-          BankNumber: response.data.sellerExist.Bank_details[0]?.BankNumber || '',
-          PinNumber: response.data.sellerExist.Bank_details[0]?.PinNumber || ''
+          firstName: response.data.sellerExist.firstName || "",
+          lastName: response.data.sellerExist.lastName || "",
+          email: response.data.sellerExist.email || "",
+          address: response.data.sellerExist.address || "",
+          BankNumber:
+            response.data.sellerExist.Bank_details[0]?.BankNumber || "",
+          PinNumber: response.data.sellerExist.Bank_details[0]?.PinNumber || "",
         });
-        
+
         setLoading(false);
       } catch (err) {
-        setError('Error fetching profile data. Please try again later.');
+        setError("Error fetching profile data. Please try again later.");
         setLoading(false);
-        console.error('Error fetching seller data:', err);
+        console.error("Error fetching seller data:", err);
       }
     };
 
@@ -56,71 +63,76 @@ function MyProfile() {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic validation
-    if (!formData.email || !formData.address) {
-      toast.error('Email and address are required fields');
-      return;
-    }
-    
+    // if (!formData.email || !formData.address || !formData.firstName || !formData.lastName) {
+    //   toast.error('First name, last name, email, and address are required fields');
+    //   return;
+    // }
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      toast.error('Please enter a valid email address');
+      toast.error("Please enter a valid email address");
       return;
     }
 
     try {
       // Construct update data
       const updateData = {
+        // firstName: formData.firstName,
+        // lastName: formData.lastName,
         email: formData.email,
         address: formData.address,
-        Bank_details: [{
-          BankNumber: formData.BankNumber,
-          PinNumber: formData.PinNumber
-        }]
+        Bank_details: [
+          {
+            BankNumber: formData.BankNumber,
+            PinNumber: formData.PinNumber,
+          },
+        ],
       };
 
       // Send PUT request
-      const response = await axios.put('http://localhost:3000/api/seller', updateData, {
-        withCredentials: true
+      await axios.put("http://localhost:3000/api/seller", updateData, {
+        withCredentials: true,
       });
 
-      // Update local state with the response data
-      // setSellerData(response.data.seller);
-      setSuccessMessage('Profile updated successfully!');
-      toast.success('Profile updated successfully!');
-      
-      // Exit edit mode
+      setSuccessMessage("Profile updated successfully!");
+      toast.success("Profile updated successfully!");
+
       setIsEditing(false);
-      // fetchSellerData()
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Error updating profile. Please try again.');
-      console.error('Error updating profile:', err);
+      toast.error(
+        err.response?.data?.message ||
+          "Error updating profile. Please try again."
+      );
+      console.error("Error updating profile:", err);
     }
   };
 
   // Toggle edit mode
   const toggleEditMode = () => {
     setIsEditing(!isEditing);
-    setSuccessMessage('');
+    setSuccessMessage("");
   };
 
   // Cancel edit
   const handleCancel = () => {
     // Reset form data to original values
     setFormData({
-      email: sellerData.email || '',
-      address: sellerData.address || '',
-      BankNumber: sellerData.Bank_details[0]?.BankNumber || '',
-      PinNumber: sellerData.Bank_details[0]?.PinNumber || ''
+      firstName: sellerData.firstName || "",
+      lastName: sellerData.lastName || "",
+      email: sellerData.email || "",
+      address: sellerData.address || "",
+      BankNumber: sellerData.Bank_details[0]?.BankNumber || "",
+      PinNumber: sellerData.Bank_details[0]?.PinNumber || "",
     });
     setIsEditing(false);
   };
@@ -129,10 +141,6 @@ function MyProfile() {
     return (
       <div className={styles.container}>
         <Breadcrumbs />
-        {/* <div className={styles.loadingContainer}>
-          <div className={styles.spinner}></div>
-          <p>Loading profile information...</p>
-        </div> */}
       </div>
     );
   }
@@ -144,7 +152,12 @@ function MyProfile() {
         <div className={styles.errorContainer}>
           <h2>Error</h2>
           <p>{error}</p>
-          <button className={styles.button} onClick={() => window.location.reload()}>Retry</button>
+          <button
+            className={styles.button}
+            onClick={() => window.location.reload()}
+          >
+            Retry
+          </button>
         </div>
       </div>
     );
@@ -153,19 +166,23 @@ function MyProfile() {
   return (
     <div className={styles.container}>
       <Breadcrumbs />
+      <h3 className={styles.addProductTitle}>Profile</h3>
+
       <ToastContainer position="top-right" autoClose={3000} />
-      
+
       <div className={styles.profileCard}>
         <div className={styles.header}>
           <div className={styles.profileHeader}>
             <div className={styles.avatarContainer}>
               <div className={styles.avatar}>
-                {sellerData?.Store_name?.charAt(0) || 'S'}
+                {sellerData?.Store_name?.charAt(0) || "S"}
               </div>
             </div>
             <div className={styles.profileInfo}>
-              <h1>{sellerData?.Store_name || 'Store Name'}</h1>
-              <p className={styles.accountType}>{sellerData?.AccountType || 'Personal'} Account</p>
+              <h1>{sellerData?.Store_name || "Store Name"}</h1>
+              <p className={styles.accountType}>
+                {sellerData?.AccountType || "Personal"} Account
+              </p>
             </div>
           </div>
           <div>
@@ -179,7 +196,7 @@ function MyProfile() {
                   Cancel
                 </button>
                 <button className={styles.saveButton} onClick={handleSubmit}>
-                  Save 
+                  Save
                 </button>
               </div>
             )}
@@ -187,13 +204,55 @@ function MyProfile() {
         </div>
 
         {successMessage && (
-          <div className={styles.successMessage}>
-            {successMessage}
-          </div>
+          <div className={styles.successMessage}>{successMessage}</div>
         )}
 
         <div className={styles.profileContent}>
           <form onSubmit={handleSubmit} className={styles.profileForm}>
+            <div className={styles.formSection}>
+              <h2>Personal Details</h2>
+              <div className={styles.infoNameColumns}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="firstName">First Name</label>
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      className={styles.input}
+                      placeholder="Enter your first name"
+                      autoComplete="off"
+                    />
+                  ) : (
+                    <div className={styles.infoValue}>
+                      {sellerData?.firstName || "-"}
+                    </div>
+                  )}
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="lastName">Last Name</label>
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      className={styles.input}
+                      placeholder="Enter your last name"
+                      autoComplete="off"
+                    />
+                  ) : (
+                    <div className={styles.infoValue}>
+                      {sellerData?.lastName || "-"}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
             <div className={styles.formSection}>
               <h2>Contact Information</h2>
               <div className={styles.formGroup}>
@@ -247,9 +306,14 @@ function MyProfile() {
                   />
                 ) : (
                   <div className={styles.infoValue}>
-                    {sellerData?.Bank_details[0]?.BankNumber ? 
-                      `${sellerData.Bank_details[0].BankNumber.substring(0, 4)}•••••${sellerData.Bank_details[0].BankNumber.slice(-4)}` : 
-                      'Not provided'}
+                    {sellerData?.Bank_details[0]?.BankNumber
+                      ? `${sellerData.Bank_details[0].BankNumber.substring(
+                          0,
+                          4
+                        )}•••••${sellerData.Bank_details[0].BankNumber.slice(
+                          -4
+                        )}`
+                      : "Not provided"}
                   </div>
                 )}
               </div>
@@ -268,15 +332,15 @@ function MyProfile() {
                   />
                 ) : (
                   <div className={styles.infoValue}>
-                    {sellerData?.Bank_details[0]?.PinNumber ? '••••••' : 'Not provided'}
+                    {sellerData?.Bank_details[0]?.PinNumber
+                      ? "••••••"
+                      : "Not provided"}
                   </div>
                 )}
               </div>
             </div>
           </form>
         </div>
-
-      
 
         <div className={styles.profileActivity}>
           <h2>Recent Activity</h2>
