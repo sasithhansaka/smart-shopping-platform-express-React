@@ -1,0 +1,90 @@
+/* Banner.module.css */
+.bannerContainer {
+  /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bannerTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.bannerTagline {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.bannerDescription {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.browseButton {
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.browseButton:hover {
+  background-color: #e05d00;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bannerTitle {
+    font-size: 3rem;
+  }
+
+  .bannerTagline {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerContainer {
+    padding: 3rem 1.5rem;
+  }
+
+  .bannerTitle {
+    font-size: 2.2rem;
+  }
+
+  .bannerTagline {
+    font-size: 1.1rem;
+  }
+
+  .bannerDescription {
+    font-size: 1rem;
+  }
+}
