@@ -76,13 +76,13 @@ const HeroSection = () => {
           <div className={styles.cardTop}>
             <div className={styles.cardTopLeft}>
               <h3>
-                NEW <br></br>TREND
+                BEST <br></br>GAMING
               </h3>
-              <h1>DEVICES</h1>
+              <h1>CONSOLES</h1>
             </div>
             <div className={styles.cardimage}>
               <img
-                src="./src/images/lap.png"
+                src="./src/images/CONTROLLER.png"
                 alt="Apple"
                 className={styles.appleImage}
               />
