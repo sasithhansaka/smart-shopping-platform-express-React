@@ -104,7 +104,7 @@ function OrdersPage() {
               <th>Image</th>
               <th>Order Date</th>
               <th>Quantity</th>
-              <th>Discount</th>
+              {/* <th>Discount</th> */}
               <th>Delivery By</th>
               <th>Total (LKR)</th>
             </tr>
@@ -134,7 +134,7 @@ function OrdersPage() {
                   </td>
                   <td>{formatDate(order.createdAt)}</td>
                   <td>{item.quantity}</td>
-                  <td>{item.discountPercentage}%</td>
+                  {/* <td>{item.discountPercentage}%</td> */}
                   <td>{formatDate(order.delieveredBefore)}</td>
                   <td>{totalPrice.toFixed(2)}</td>
                 </tr>

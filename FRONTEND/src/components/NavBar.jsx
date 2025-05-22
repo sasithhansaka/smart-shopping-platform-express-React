@@ -1,8 +1,22 @@
 // Navbar.jsx
 import React from "react";
 import styles from "./Navbar.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+   const NewAccountClick = () => {
+    navigate("/auth");
+  };
+
+  const handleProfileClick = () => {
+    navigate("/Profile");
+  };
+
+  const handleHomeClick = () => {
+    navigate("/");
+  };
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarTop}>
@@ -26,6 +40,10 @@ const Navbar = () => {
             </select>
           </div>
         </div>
+        <h4  onClick={(e) => {
+              e.preventDefault();
+              NewAccountClick();
+            }}>NEW ACCOUNT</h4>
       </div>
       <div className={styles.navbarBottom}>
         <div className={styles.navbarBottomLeft}>
@@ -34,7 +52,14 @@ const Navbar = () => {
           <img src="./src/images/Down Button.png" alt="Sorting" />
         </div>
         <div className={styles.navbarBottomCenter}>
-          <a href="#" className={styles.navLink}>
+          <a
+            href="#"
+            className={styles.navLink}
+            onClick={(e) => {
+              e.preventDefault();
+              handleHomeClick();
+            }}
+          >
             Home
           </a>
           <a href="#" className={styles.navLink}>
@@ -53,37 +78,13 @@ const Navbar = () => {
         <div className={styles.navbarBottomRight}>
           <img src="./src/images/Shopping Bag.png" alt="Sorting" />
           <img src="./src/images/Gift1.png" alt="Sorting" />
-          <h4>PROFILE</h4>
+          <h4 onClick={(e) => {
+              e.preventDefault();
+              handleProfileClick();
+            }}>PROFILE</h4>
           <img src="./src/images/Expand Arrow.png" alt="Sorting" />
         </div>
       </div>
-      {/* <div className={styles.navbarLeft}>
-        <div className={styles.logo}>LOGO</div>
-        <div className={styles.searchContainer}>
-          <select className={styles.categoryDropdown}>
-            <option>All Categories</option>
-            <option>Home</option>
-            <option>Gifts</option>
-            <option>Electronics</option>
-            <option>Clothing</option>
-          </select>
-          <input 
-            type="text" 
-            placeholder="Search for anything" 
-            className={styles.searchInput}
-          />
-          <button className={styles.searchButton}>SEARCH</button>
-        </div>
-      </div>
-      
-      <div className={styles.navbarRight}>
-        <a href="#" className={styles.navLink}>Home</a>
-        <a href="#" className={styles.navLink}>Gifts</a>
-        <a href="#" className={styles.navLink}>Sell</a>
-        <a href="#" className={styles.navLink}>Store</a>
-        <a href="#" className={styles.navLink}>Help & Contact</a>
-        <div className={styles.userGreeting}>Hi John!</div>
-      </div> */}
     </nav>
   );
 };

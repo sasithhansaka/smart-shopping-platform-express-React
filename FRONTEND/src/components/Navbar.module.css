@@ -1,10 +1,11 @@
 /* Navbar.module.css */
 .navbar {
   /* background-color: #000000; */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(50, 50, 50, 0.4);
   width: 100%;
   font-family: "Poppins", sans-serif;
   position: fixed;
+  z-index: 2000;
 }
 .logo {
   font-size: 29px;
@@ -15,7 +16,7 @@
 }
 
 .navbarTopCenter {
-  margin-right: 390px;
+  margin-right: 50px;
   background-color: #000000;
 }
 
@@ -155,4 +156,12 @@
 .navbarBottomRight h4 {
   background-color: #1b1b1b;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.navbarTop h4 {
+  background-color: #1b1b1b00;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
 }

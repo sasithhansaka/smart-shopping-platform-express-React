@@ -1,6 +1,6 @@
 .fab {
   position: fixed;
-  bottom: 140px;
+  bottom: 110px;
   right: 29px;
   width: 60px;
   height: 60px;
@@ -266,6 +266,13 @@
   border-radius: 8px;
   padding: 0.3rem;
   height: auto;
+}
+
+.navigateIcon {
+  background: #47342c;
+  margin-top: 40px;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .productImage {

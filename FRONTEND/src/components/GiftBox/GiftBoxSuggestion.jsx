@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "./GiftBoxSuggestion.module.css";
 import axios from "axios";
-import { FiPackage } from "react-icons/fi"; // Using Feather Icons (FiPackage)
+import { FiPackage } from "react-icons/fi";
 
 function GiftBoxSuggestion() {
+  const navigate = useNavigate(); // Initialize navigate
   const [story, setStory] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [products, setProducts] = useState([]);
@@ -11,7 +13,6 @@ function GiftBoxSuggestion() {
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");
 
-  // Fetch product details for each suggestion by id
   const fetchProductDetails = async (suggestionsArr) => {
     setLoading(true);
     const productDetails = await Promise.all(
@@ -71,6 +72,13 @@ function GiftBoxSuggestion() {
   const openPopup = () => setShowPopup(true);
   const closePopup = () => setShowPopup(false);
 
+  const handleProductClick = (product) => {
+    // Save the entire product object to localStorage
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    // Navigate to order page
+    navigate("/order");
+  };
+
   return (
     <>
       <button
@@ -93,7 +101,6 @@ function GiftBoxSuggestion() {
             </button>
 
             <form onSubmit={handleSubmit} className={styles.formgiftBox}>
-              {/* <p>What is your thourgh</p> */}
               <div className={styles.inputGroup}>
                 <input
                   id="story-input"
@@ -115,6 +122,7 @@ function GiftBoxSuggestion() {
                 </button>
               </div>
             </form>
+
             {!loading && !answer && products.length === 0 && (
               <div className={styles.giftbox}>
                 <div className={styles.giftbox1}>
@@ -141,36 +149,44 @@ function GiftBoxSuggestion() {
                 <div className={styles.noProductsContainer}>
                   <div className={styles.noProductsContent}>
                     <FiPackage className={styles.noProductsIcon} />
-                   
                     <p className={styles.noProductsMessage}>
                       Your search did not match any products.
-                    
                     </p>
                   </div>
                 </div>
               )}
 
-            {/* Show answer for other cases */}
             {answer &&
               answer !==
                 "Sorry, there are no suitable products for your gift box on our site." && (
                 <div className={styles.answer}>{answer}</div>
               )}
+
             {!answer && !loading && products.length > 0 && (
               <div className={styles.suggestionList}>
-                {products.map((prod) => (
-                  <div key={prod._id} className={styles.suggestionCard}>
-                    {prod.image && (
+                {products.map((product) => (
+                  <div 
+                    key={product._id} 
+                    className={styles.suggestionCard}
+                    onClick={() => handleProductClick(product)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {product.image && (
                       <img
-                        src={prod.image}
-                        alt={prod.longName}
+                        src={product.image}
+                        alt={product.longName}
                         className={styles.productImage}
                       />
                     )}
                     <div className={styles.productInfo}>
-                      <div className={styles.productName}>{prod.longName}</div>
-                      <div className={styles.productReason}>{prod.reason}</div>
+                      <div className={styles.productName}>{product.longName}</div>
+                      <div className={styles.productReason}>{product.reason}</div>
                     </div>
+                    <img
+                      className={styles.navigateIcon}
+                      src="./src/images/Internal.png"
+                      alt="Navigate to product"
+                    />
                   </div>
                 ))}
               </div>
