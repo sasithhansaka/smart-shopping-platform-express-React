@@ -1,0 +1,39 @@
+/* Footer.module.css */
+.footer {
+  background-color: #222222;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  height: 300px;
+  background-color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandName {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  background-color: #222222;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin: 0;
+  background-color: #222222;
+}
