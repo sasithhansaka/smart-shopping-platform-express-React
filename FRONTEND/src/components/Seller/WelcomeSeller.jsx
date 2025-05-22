@@ -3,7 +3,6 @@ import axios from "axios";
 import styles from "./WelcomeSeller.module.css";
 // const [date, setDate] = useState(new Date());
 
-
 function WelcomeSeller() {
   const [seller, setSeller] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -63,7 +62,36 @@ function WelcomeSeller() {
           </div>
         </div>
       </div>
-      <div style={{ display: "flex",backgroundColor: "#f1f2f5" }}>
+      <div className={styles.tipsGrid}>
+        <div className={styles.tipCard}>
+          <h3>Optimize Product Listings</h3>
+          <p>
+            Use high-quality images, detailed descriptions, and keywords that
+            your customers are searching for.
+          </p>
+        </div>
+        <div className={styles.tipCard}>
+          <h3>Respond Promptly to Inquiries</h3>
+          <p>
+            Fast response times build trust and improve your seller ratings.
+          </p>
+        </div>
+        <div className={styles.tipCard}>
+          <h3>Offer Promotions</h3>
+          <p>
+            Attract more buyers by offering discounts, bundles, and seasonal
+            offers.
+          </p>
+        </div>
+        <div className={styles.tipCard}>
+          <h3>Maintain Stock Levels</h3>
+          <p>
+            Keep your inventory updated to avoid order cancellations and
+            negative reviews.
+          </p>
+        </div>
+      </div>
+      <div style={{ display: "flex", backgroundColor: "#f1f2f5" }}>
         {/* User Details */}
         <div className={styles.userDetails}>
           <div className={styles.detailBox}>
@@ -88,9 +116,7 @@ function WelcomeSeller() {
             </p>
           </div>
         </div>
-        <div className={styles.calenderDiv}>
-
-        </div>
+        <div className={styles.calenderDiv}></div>
       </div>
     </div>
   );

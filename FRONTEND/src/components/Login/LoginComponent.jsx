@@ -48,7 +48,7 @@ function LoginComponent() {
       setUserField("");
       setPassword("");
 
-      navigate("/order"); // Navigate to home page after successful login
+      navigate("/"); 
     } catch (err) {
       const errorMessage = err.response
         ? err.response.data.message
@@ -60,7 +60,7 @@ function LoginComponent() {
   return (
     <div className={styles.loginContainer}>
       <h1>LOGIN</h1>
-      <p>login to your brand account</p>
+      <p>login to your TRADENEST account</p>
       <form onSubmit={handleLogin}>
         <h3>email</h3>
         <input

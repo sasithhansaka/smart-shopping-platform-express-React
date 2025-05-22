@@ -38,7 +38,7 @@ const ProfilePage = () => {
 
   const navigateSeller = () => {
     if (user.isSeller) {
-      navigate("/seller"); // Navigate to seller page if isSeller is true
+      navigate("/seller/dashboard"); // Navigate to seller page if isSeller is true
     } else {
       navigate("/BecomeSeller"); // Navigate to BecomeSeller page if isSeller is false
     }

@@ -9,6 +9,7 @@ function ProductBuyContainer({
   productStock,
   productSellerId,
   productId,
+  productmaxBuyCount,
 }) {
   const [seller, setSeller] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -44,6 +45,12 @@ function ProductBuyContainer({
   };
 
   const handleBuyNow = async () => {
+    if (quantity > productmaxBuyCount) {
+      alert(
+        `You can only buy a maximum of ${productmaxBuyCount} items at once.`
+      );
+      return;
+    }
     const data = {
       sellerId: productSellerId,
       items: {
@@ -52,7 +59,7 @@ function ProductBuyContainer({
         price: productPrice,
         discountPercentage: productDiscount,
       },
-      totalamount: productPrice * quantity, // or use discounted price if needed
+      totalamount: productPrice * quantity,
       shippingAddress: {
         address: "123 Main Street",
         city: "Colombo",
@@ -77,40 +84,6 @@ function ProductBuyContainer({
     }
   };
 
-  const MinusIcon = () => (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M20 12H4"
-      />
-    </svg>
-  );
-
-  const PlusIcon = () => (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M12 4v16m8-8H4"
-      />
-    </svg>
-  );
-
   const incrementQuantity = () => {
     if (quantity < productStock) {
       setQuantity(quantity + 1);
@@ -129,10 +102,11 @@ function ProductBuyContainer({
         <div className={styles.sellerSection}>
           <div className={styles.sellerInfo}>
             <img
-              // src={seller.profileImage}
+              src="./src/images/images.png"
               alt={seller.name}
               className={styles.sellerImage}
             />
+
             <div>
               <p className={styles.sellerName}>
                 {seller.Store_name}
@@ -168,7 +142,7 @@ function ProductBuyContainer({
             className={styles.quantityButton}
             disabled={quantity <= 1}
           >
-            <MinusIcon className={styles.quantityIcon} />
+            -
           </button>
           <input
             type="number"
@@ -183,7 +157,7 @@ function ProductBuyContainer({
             className={styles.quantityButton}
             disabled={quantity >= productStock}
           >
-            <PlusIcon className={styles.quantityIcon} />
+            +
           </button>
         </div>
       </div>

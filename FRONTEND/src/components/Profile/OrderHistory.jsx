@@ -148,8 +148,8 @@ function OrderHistory() {
                   <span>{order.items.quantity}</span>
                 </div>
                 <div className={styles.detailRow}>
-                  <span>Discount:</span>
-                  <span>{order.items.discountPercentage}%</span>
+                  <span>totalPrice:</span>
+                  <span>LKR {order.items.price}</span>
                 </div>
                 <div className={styles.detailRow}>
                   <span>Delivery By:</span>

@@ -5,9 +5,9 @@ function BrandContainer() {
   return (
     <div className={styles.brandContainer}>
       <div className={styles.brandLogo}>
-         <p>the world number online shooping platform <strong>brand name</strong> </p>
+         <p>the world number online shooping platform <strong>TRADENEST</strong> </p>
       </div>
-       <p className={styles.brandSite}>www.brand name .com</p>
+       <p className={styles.brandSite}>www.TRADENEST.com</p>
     </div>
   )
 }

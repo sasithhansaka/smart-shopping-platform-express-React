@@ -68,7 +68,7 @@ function RegisterComponent() {
   return (
     <div className={styles.loginContainer}>
       <h1>REGISTER</h1>
-      <p>Register to your brand account</p>
+      <p>Register to your TRADENEST account</p>
       <form onSubmit={handleRegister}>
         <h3>Username</h3>
         <input
