@@ -1,17 +1,17 @@
-.productImage{
-    /* width: ; */
-    width: 430px;
-    height: 500px;
-    margin-left: 10px;
-    cursor: pointer;
+.productImage {
+  /* width: ; */
+  width: 430px;
+  height: 500px;
+  margin-left: 10px;
+  cursor: pointer;
+  margin-top: 190px;
 }
 
-.productImage img{
-    width: 100%;
-    height: 100%;
-    background-color: #CDCDCD;
-    object-fit: contain;
-    border-radius: 6px;
-    border-bottom: 3px solid black;
-
+.productImage img {
+  width: 100%;
+  height: 100%;
+  background-color: #cdcdcd;
+  object-fit: contain;
+  border-radius: 6px;
+  border-bottom: 3px solid black;
 }

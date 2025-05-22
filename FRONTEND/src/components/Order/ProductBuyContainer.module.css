@@ -5,6 +5,7 @@
   font-family: "Poppins", sans-serif;
   padding: 10px;
   margin-left: 20px;
+  margin-top: 140px;
 }
 
 .sellerSection {
@@ -113,6 +114,7 @@
   font-size: 13px;
   color: #949494;
   background-color: #242424;
+  text-decoration: line-through;
 }
 
 .condition {
@@ -160,8 +162,8 @@
   height: 100%;
   background-color: #147aff;
   border: none;
-  color: #374151;
-  font-size: 16px;
+  color: #ffffff;
+  font-size: 30px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -174,9 +176,7 @@
   color: #1f2937;
 } */
 
-.quantityButton:active {
-  background-color: #ffffff;
-}
+
 
 .quantityInput {
   width: 50px;
