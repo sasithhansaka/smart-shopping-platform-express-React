@@ -86,6 +86,12 @@ SMART-SHOPPING-PLATFORM/
 git clone https://github.com/sasithhansaka/smart-shopping-platform-express-React.git
 cd smart-shopping-platform-express-React
 
+# Clone the SmartGiftSuggester-AI repo
+git clone https://github.com/sasithhansaka/smart-shopping-platform-express-React.git
+
+# Clone the Shopbot-AI repo
+git clone https://github.com/sasithhansaka/shopbot-ai.git
+
 # Install frontend
 cd FRONTEND
 npm install
@@ -106,6 +112,10 @@ npm install
    ```bash
    cd FRONTEND
    npm start
+   ```
+3. **Start the AI services :**
+   ```bash
+   uvicorn run:app --reload
    ```
 
 ## Contributing
