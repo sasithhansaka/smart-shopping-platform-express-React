@@ -3,6 +3,18 @@
 An advanced, full-stack e-commerce web application with integrated AI features to enhance user experience and operational efficiency. This platform supports traditional shopping functionalities and introduces AI capabilities like smart product recommendations, customer support, and fraud detection.
 
 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+
+
 # Features
 
 ### Customer Features
@@ -87,7 +99,7 @@ git clone https://github.com/sasithhansaka/smart-shopping-platform-express-React
 cd smart-shopping-platform-express-React
 
 # Clone the SmartGiftSuggester-AI repo
-git clone https://github.com/sasithhansaka/smart-shopping-platform-express-React.git
+git clone https://github.com/sasithhansaka/SmartGiftSuggester-AI.git
 
 # Clone the Shopbot-AI repo
 git clone https://github.com/sasithhansaka/shopbot-ai.git
@@ -102,12 +114,12 @@ npm install
 
 ### Run the App
 
+
 1. **Start the backend:**
    ```bash
    cd API
    npm run dev
    ```
-
 2. **Start the frontend:**
    ```bash
    cd FRONTEND
